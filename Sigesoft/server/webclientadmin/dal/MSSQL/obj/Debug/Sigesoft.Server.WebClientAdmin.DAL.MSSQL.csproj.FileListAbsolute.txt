@@ -1,0 +1,30 @@
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Server\WebClientAdmin\DAL\MSSQL\bin\Debug\Sigesoft.Server.WebClientAdmin.DAL.MSSQL.dll
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Server\WebClientAdmin\DAL\MSSQL\bin\Debug\Sigesoft.Server.WebClientAdmin.DAL.MSSQL.pdb
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Server\WebClientAdmin\DAL\MSSQL\bin\Debug\Sigesoft.Server.WebClientAdmin.BE.dll
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Server\WebClientAdmin\DAL\MSSQL\bin\Debug\Sigesoft.Server.WebClientAdmin.BE.pdb
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Server\WebClientAdmin\DAL\MSSQL\obj\Debug\DMSQLServer.ssdl
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Server\WebClientAdmin\DAL\MSSQL\obj\Debug\DMSQLServer.csdl
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Server\WebClientAdmin\DAL\MSSQL\obj\Debug\DMSQLServer.msl
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Server\WebClientAdmin\DAL\MSSQL\obj\Debug\Sigesoft.Server.WebClientAdmin.DAL.MSSQL.csprojResolveAssemblyReference.cache
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Server\WebClientAdmin\DAL\MSSQL\obj\Debug\Sigesoft.Server.WebClientAdmin.DAL.MSSQL.dll
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Server\WebClientAdmin\DAL\MSSQL\obj\Debug\Sigesoft.Server.WebClientAdmin.DAL.MSSQL.pdb
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Server\WebClientAdmin\DAL\MSSQL\bin\Debug\Sigesoft.Server.WebClientAdmin.DAL.MSSQL.dll
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Server\WebClientAdmin\DAL\MSSQL\bin\Debug\Sigesoft.Server.WebClientAdmin.DAL.MSSQL.pdb
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Server\WebClientAdmin\DAL\MSSQL\bin\Debug\Sigesoft.Server.WebClientAdmin.BE.dll
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Server\WebClientAdmin\DAL\MSSQL\bin\Debug\Sigesoft.Server.WebClientAdmin.BE.pdb
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Server\WebClientAdmin\DAL\MSSQL\obj\Debug\DMSQLServer.ssdl
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Server\WebClientAdmin\DAL\MSSQL\obj\Debug\DMSQLServer.csdl
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Server\WebClientAdmin\DAL\MSSQL\obj\Debug\DMSQLServer.msl
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Server\WebClientAdmin\DAL\MSSQL\obj\Debug\Sigesoft.Server.WebClientAdmin.DAL.MSSQL.csprojResolveAssemblyReference.cache
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Server\WebClientAdmin\DAL\MSSQL\obj\Debug\Sigesoft.Server.WebClientAdmin.DAL.MSSQL.dll
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Server\WebClientAdmin\DAL\MSSQL\obj\Debug\Sigesoft.Server.WebClientAdmin.DAL.MSSQL.pdb
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Server\WebClientAdmin\DAL\MSSQL\bin\Debug\Sigesoft.Server.WebClientAdmin.DAL.MSSQL.dll
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Server\WebClientAdmin\DAL\MSSQL\bin\Debug\Sigesoft.Server.WebClientAdmin.DAL.MSSQL.pdb
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Server\WebClientAdmin\DAL\MSSQL\bin\Debug\Sigesoft.Server.WebClientAdmin.BE.dll
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Server\WebClientAdmin\DAL\MSSQL\bin\Debug\Sigesoft.Server.WebClientAdmin.BE.pdb
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Server\WebClientAdmin\DAL\MSSQL\obj\Debug\DMSQLServer.ssdl
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Server\WebClientAdmin\DAL\MSSQL\obj\Debug\DMSQLServer.csdl
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Server\WebClientAdmin\DAL\MSSQL\obj\Debug\DMSQLServer.msl
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Server\WebClientAdmin\DAL\MSSQL\obj\Debug\Sigesoft.Server.WebClientAdmin.DAL.MSSQL.csprojResolveAssemblyReference.cache
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Server\WebClientAdmin\DAL\MSSQL\obj\Debug\Sigesoft.Server.WebClientAdmin.DAL.MSSQL.dll
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Server\WebClientAdmin\DAL\MSSQL\obj\Debug\Sigesoft.Server.WebClientAdmin.DAL.MSSQL.pdb

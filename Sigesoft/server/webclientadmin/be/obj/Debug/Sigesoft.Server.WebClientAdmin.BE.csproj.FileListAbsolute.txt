@@ -1,0 +1,14 @@
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Server\WebClientAdmin\BE\bin\Debug\Sigesoft.Server.WebClientAdmin.BE.dll
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Server\WebClientAdmin\BE\bin\Debug\Sigesoft.Server.WebClientAdmin.BE.pdb
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Server\WebClientAdmin\BE\obj\Debug\Sigesoft.Server.WebClientAdmin.BE.dll
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Server\WebClientAdmin\BE\obj\Debug\Sigesoft.Server.WebClientAdmin.BE.pdb
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Server\WebClientAdmin\BE\obj\Debug\Sigesoft.Server.WebClientAdmin.BE.csprojResolveAssemblyReference.cache
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Server\WebClientAdmin\BE\bin\Debug\Sigesoft.Server.WebClientAdmin.BE.dll
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Server\WebClientAdmin\BE\bin\Debug\Sigesoft.Server.WebClientAdmin.BE.pdb
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Server\WebClientAdmin\BE\obj\Debug\Sigesoft.Server.WebClientAdmin.BE.csprojResolveAssemblyReference.cache
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Server\WebClientAdmin\BE\obj\Debug\Sigesoft.Server.WebClientAdmin.BE.dll
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Server\WebClientAdmin\BE\obj\Debug\Sigesoft.Server.WebClientAdmin.BE.pdb
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Server\WebClientAdmin\BE\bin\Debug\Sigesoft.Server.WebClientAdmin.BE.dll
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Server\WebClientAdmin\BE\bin\Debug\Sigesoft.Server.WebClientAdmin.BE.pdb
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Server\WebClientAdmin\BE\obj\Debug\Sigesoft.Server.WebClientAdmin.BE.dll
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Server\WebClientAdmin\BE\obj\Debug\Sigesoft.Server.WebClientAdmin.BE.pdb

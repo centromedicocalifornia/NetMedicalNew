@@ -1,0 +1,5 @@
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Node\WinClient\BE\bin\Release\Sigesoft.Node.WinClient.BE.dll
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Node\WinClient\BE\bin\Release\Sigesoft.Node.WinClient.BE.pdb
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Node\WinClient\BE\obj\Release\Sigesoft.Node.WinClient.BE.csprojResolveAssemblyReference.cache
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Node\WinClient\BE\obj\Release\Sigesoft.Node.WinClient.BE.dll
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Node\WinClient\BE\obj\Release\Sigesoft.Node.WinClient.BE.pdb

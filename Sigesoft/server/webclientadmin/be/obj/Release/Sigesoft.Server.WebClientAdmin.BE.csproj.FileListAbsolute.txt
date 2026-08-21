@@ -1,0 +1,5 @@
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Server\WebClientAdmin\BE\bin\Release\Sigesoft.Server.WebClientAdmin.BE.dll
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Server\WebClientAdmin\BE\bin\Release\Sigesoft.Server.WebClientAdmin.BE.pdb
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Server\WebClientAdmin\BE\obj\Release\Sigesoft.Server.WebClientAdmin.BE.csprojResolveAssemblyReference.cache
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Server\WebClientAdmin\BE\obj\Release\Sigesoft.Server.WebClientAdmin.BE.dll
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Server\WebClientAdmin\BE\obj\Release\Sigesoft.Server.WebClientAdmin.BE.pdb

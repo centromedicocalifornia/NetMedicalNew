@@ -1,0 +1,14 @@
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Node\WinClient\DAL\MSSQL\bin\Release\Sigesoft.Node.WinClient.DAL.MSSQL.dll
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Node\WinClient\DAL\MSSQL\bin\Release\Sigesoft.Node.WinClient.DAL.MSSQL.pdb
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Node\WinClient\DAL\MSSQL\bin\Release\Sigesoft.Node.WinClient.BE.dll
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Node\WinClient\DAL\MSSQL\bin\Release\Sigesoft.Server.WebClientAdmin.DAL.MSSQL.dll
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Node\WinClient\DAL\MSSQL\bin\Release\Sigesoft.Server.WebClientAdmin.BE.dll
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Node\WinClient\DAL\MSSQL\bin\Release\Sigesoft.Server.WebClientAdmin.DAL.MSSQL.pdb
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Node\WinClient\DAL\MSSQL\bin\Release\Sigesoft.Node.WinClient.BE.pdb
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Node\WinClient\DAL\MSSQL\bin\Release\Sigesoft.Server.WebClientAdmin.BE.pdb
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Node\WinClient\DAL\MSSQL\obj\Release\DMnodeSQLServer.ssdl
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Node\WinClient\DAL\MSSQL\obj\Release\DMnodeSQLServer.csdl
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Node\WinClient\DAL\MSSQL\obj\Release\DMnodeSQLServer.msl
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Node\WinClient\DAL\MSSQL\obj\Release\Sigesoft.Node.WinClient.DAL.MSSQL.csprojResolveAssemblyReference.cache
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Node\WinClient\DAL\MSSQL\obj\Release\Sigesoft.Node.WinClient.DAL.MSSQL.dll
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Node\WinClient\DAL\MSSQL\obj\Release\Sigesoft.Node.WinClient.DAL.MSSQL.pdb

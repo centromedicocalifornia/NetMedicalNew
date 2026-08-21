@@ -1,0 +1,162 @@
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\obj\Debug\Sigesoft.Node.Contasol.Integration.csprojResolveAssemblyReference.cache
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\obj\Debug\Sigesoft.Node.Contasol.Integration.frmAddRecipe.resources
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\obj\Debug\Sigesoft.Node.Contasol.Integration.frmConfirmarDespacho.resources
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\obj\Debug\Sigesoft.Node.Contasol.Integration.frmLineaSelector.resources
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\obj\Debug\Sigesoft.Node.Contasol.Integration.frmRecetaMedica.resources
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\obj\Debug\Sigesoft.Node.WinClient.UI.Reports.frmReporteReceta.resources
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\obj\Debug\Sigesoft.Node.WinClient.UI.Operations.Popups.frmSearchMedicamento.resources
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\obj\Debug\Sigesoft.Node.Contasol.Integration.Properties.Resources.resources
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\obj\Debug\Sigesoft.Node.Contasol.Integration.csproj.GenerateResource.Cache
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\obj\Debug\Sigesoft.Node.Contasol.Integration.dll.licenses
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\libs\Antlr3.Runtime.dll
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\libs\Controls.dll
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\libs\Dapper.dll
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\libs\FineUI.dll
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\libs\Ionic.Zip.Reduced.dll
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\libs\itextsharp.dll
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\libs\Microsoft.Office.Interop.Excel.dll
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\libs\Microsoft.Speech.dll
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\libs\NCalc.dll
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\libs\PdfViewer.dll
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\libs\SigPlusNET.dll
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\libs\WebCam_Capture.dll
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\libs\SAMBHS.Almacen.BL.dll
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\libs\SAMBHS.Common.BE.dll
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\libs\SAMBHS.Common.BL.dll
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\libs\SAMBHS.Common.DataModel.MSSQL.dll
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\libs\SAMBHS.Common.DataModel.MSSQLWIN.dll
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\libs\SAMBHS.Common.Resource.dll
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\libs\SAMBHS.CommonWIN.BL.dll
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\Sigesoft.Node.Contasol.Integration.dll
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\Sigesoft.Node.Contasol.Integration.pdb
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\Dapper.dll
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\SAMBHS.Almacen.BL.dll
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\SAMBHS.Common.BE.dll
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\SAMBHS.Common.BL.dll
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\SAMBHS.Common.DataModel.MSSQL.dll
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\SAMBHS.Common.DataModel.MSSQLWIN.dll
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\SAMBHS.Common.Resource.dll
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\SAMBHS.CommonWIN.BL.dll
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\Sigesoft.Common.dll
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\Sigesoft.Node.WinClient.BE.dll
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\Sigesoft.Node.WinClient.BLL.dll
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\Sigesoft.Node.WinClient.DAL.MSSQL.dll
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\itextsharp.dll
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\NCalc.dll
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\Sigesoft.Server.WebClientAdmin.BE.dll
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\Antlr3.Runtime.dll
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\Sigesoft.Common.pdb
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\Sigesoft.Node.WinClient.BE.pdb
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\Sigesoft.Node.WinClient.BLL.pdb
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\Sigesoft.Node.WinClient.DAL.MSSQL.pdb
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\Sigesoft.Server.WebClientAdmin.BE.pdb
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\obj\Debug\Sigesoft.Node.Contasol.Integration.dll
+E:\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\obj\Debug\Sigesoft.Node.Contasol.Integration.pdb
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\libs\Antlr3.Runtime.dll
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\libs\Controls.dll
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\libs\Dapper.dll
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\libs\FineUI.dll
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\libs\Ionic.Zip.Reduced.dll
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\libs\itextsharp.dll
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\libs\Microsoft.Office.Interop.Excel.dll
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\libs\Microsoft.Speech.dll
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\libs\NCalc.dll
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\libs\PdfViewer.dll
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\libs\SigPlusNET.dll
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\libs\WebCam_Capture.dll
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\libs\SAMBHS.Almacen.BL.dll
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\libs\SAMBHS.Common.BE.dll
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\libs\SAMBHS.Common.BL.dll
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\libs\SAMBHS.Common.DataModel.MSSQL.dll
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\libs\SAMBHS.Common.DataModel.MSSQLWIN.dll
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\libs\SAMBHS.Common.Resource.dll
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\libs\SAMBHS.CommonWIN.BL.dll
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\Sigesoft.Node.Contasol.Integration.dll
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\Sigesoft.Node.Contasol.Integration.pdb
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\Dapper.dll
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\SAMBHS.Almacen.BL.dll
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\SAMBHS.Common.BE.dll
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\SAMBHS.Common.BL.dll
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\SAMBHS.Common.DataModel.MSSQL.dll
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\SAMBHS.Common.DataModel.MSSQLWIN.dll
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\SAMBHS.Common.Resource.dll
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\SAMBHS.CommonWIN.BL.dll
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\Sigesoft.Common.dll
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\Sigesoft.Node.WinClient.BE.dll
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\Sigesoft.Node.WinClient.BLL.dll
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\Sigesoft.Node.WinClient.DAL.MSSQL.dll
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\itextsharp.dll
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\NCalc.dll
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\Sigesoft.Server.WebClientAdmin.BE.dll
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\Antlr3.Runtime.dll
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\Sigesoft.Common.pdb
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\Sigesoft.Node.WinClient.BE.pdb
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\Sigesoft.Node.WinClient.BLL.pdb
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\Sigesoft.Node.WinClient.DAL.MSSQL.pdb
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\Sigesoft.Server.WebClientAdmin.BE.pdb
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\obj\Debug\Sigesoft.Node.Contasol.Integration.csprojResolveAssemblyReference.cache
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\obj\Debug\Sigesoft.Node.Contasol.Integration.frmAddRecipe.resources
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\obj\Debug\Sigesoft.Node.Contasol.Integration.frmConfirmarDespacho.resources
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\obj\Debug\Sigesoft.Node.Contasol.Integration.frmLineaSelector.resources
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\obj\Debug\Sigesoft.Node.Contasol.Integration.frmRecetaMedica.resources
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\obj\Debug\Sigesoft.Node.WinClient.UI.Reports.frmReporteReceta.resources
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\obj\Debug\Sigesoft.Node.WinClient.UI.Operations.Popups.frmSearchMedicamento.resources
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\obj\Debug\Sigesoft.Node.Contasol.Integration.Properties.Resources.resources
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\obj\Debug\Sigesoft.Node.Contasol.Integration.csproj.GenerateResource.Cache
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\obj\Debug\Sigesoft.Node.Contasol.Integration.dll.licenses
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\obj\Debug\Sigesoft.Node.Contasol.Integration.dll
+E:\LAPTOP RESPALDO\DEV_N\DEV_AMOJ\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\obj\Debug\Sigesoft.Node.Contasol.Integration.pdb
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\libs\Antlr3.Runtime.dll
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\libs\Controls.dll
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\libs\Dapper.dll
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\libs\FineUI.dll
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\libs\Ionic.Zip.Reduced.dll
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\libs\itextsharp.dll
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\libs\Microsoft.Office.Interop.Excel.dll
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\libs\Microsoft.Speech.dll
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\libs\NCalc.dll
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\libs\PdfViewer.dll
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\libs\SigPlusNET.dll
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\libs\WebCam_Capture.dll
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\libs\SAMBHS.Almacen.BL.dll
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\libs\SAMBHS.Common.BE.dll
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\libs\SAMBHS.Common.BL.dll
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\libs\SAMBHS.Common.DataModel.MSSQL.dll
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\libs\SAMBHS.Common.DataModel.MSSQLWIN.dll
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\libs\SAMBHS.Common.Resource.dll
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\libs\SAMBHS.CommonWIN.BL.dll
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\Sigesoft.Node.Contasol.Integration.dll
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\Sigesoft.Node.Contasol.Integration.pdb
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\Dapper.dll
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\SAMBHS.Almacen.BL.dll
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\SAMBHS.Common.BE.dll
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\SAMBHS.Common.BL.dll
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\SAMBHS.Common.DataModel.MSSQL.dll
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\SAMBHS.Common.DataModel.MSSQLWIN.dll
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\SAMBHS.Common.Resource.dll
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\SAMBHS.CommonWIN.BL.dll
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\Sigesoft.Common.dll
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\Sigesoft.Node.WinClient.BE.dll
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\Sigesoft.Node.WinClient.BLL.dll
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\Sigesoft.Node.WinClient.DAL.MSSQL.dll
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\itextsharp.dll
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\NCalc.dll
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\Sigesoft.Server.WebClientAdmin.BE.dll
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\Antlr3.Runtime.dll
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\Sigesoft.Common.pdb
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\Sigesoft.Node.WinClient.BE.pdb
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\Sigesoft.Node.WinClient.BLL.pdb
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\Sigesoft.Node.WinClient.DAL.MSSQL.pdb
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\bin\Debug\Sigesoft.Server.WebClientAdmin.BE.pdb
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\obj\Debug\Sigesoft.Node.Contasol.Integration.csprojResolveAssemblyReference.cache
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\obj\Debug\Sigesoft.Node.Contasol.Integration.frmAddRecipe.resources
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\obj\Debug\Sigesoft.Node.Contasol.Integration.frmConfirmarDespacho.resources
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\obj\Debug\Sigesoft.Node.Contasol.Integration.frmLineaSelector.resources
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\obj\Debug\Sigesoft.Node.Contasol.Integration.frmRecetaMedica.resources
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\obj\Debug\Sigesoft.Node.WinClient.UI.Reports.frmReporteReceta.resources
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\obj\Debug\Sigesoft.Node.WinClient.UI.Operations.Popups.frmSearchMedicamento.resources
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\obj\Debug\Sigesoft.Node.Contasol.Integration.Properties.Resources.resources
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\obj\Debug\Sigesoft.Node.Contasol.Integration.csproj.GenerateResource.Cache
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\obj\Debug\Sigesoft.Node.Contasol.Integration.dll.licenses
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\obj\Debug\Sigesoft.Node.Contasol.Integration.dll
+D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Sigesoft.Node.Contasol.Integration\obj\Debug\Sigesoft.Node.Contasol.Integration.pdb
