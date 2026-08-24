@@ -11,6 +11,7 @@ using Sigesoft.Node.WinClient.BLL;
 using Sigesoft.Node.WinClient.BE;
 using Sigesoft.Node.Contasol.Integration.Contasol;
 using Sigesoft.Node.WinClient.BE.Custom;
+using System.Data.SqlClient;
 
 
 namespace Sigesoft.Node.WinClient.UI
@@ -25,8 +26,8 @@ namespace Sigesoft.Node.WinClient.UI
         string _NameComponentOld;
         private ComboTreeNode valueCategoryId;
         private string nameCategoryId;
-
-
+        PacientBL _PacientBL = new PacientBL();
+        object listaproc;
         #region GetChanges
         private List<Campos> ListValuesCampo = new List<Campos>();
 
@@ -166,6 +167,10 @@ namespace Sigesoft.Node.WinClient.UI
         {
             try
             {
+                OperationResult objOperationResult = new OperationResult();
+
+                listaproc = _PacientBL.LlenarListaProc(ref objOperationResult);
+
                 #region Mayusculas - Normal
                 var _EsMayuscula = int.Parse(Common.Utils.GetApplicationConfigValue("EsMayuscula"));
                 if (_EsMayuscula == 1)
@@ -176,7 +181,6 @@ namespace Sigesoft.Node.WinClient.UI
 
 
                 #endregion
-                OperationResult objOperationResult = new OperationResult();
 
                 //Llenado de combos
                 
@@ -188,9 +192,21 @@ namespace Sigesoft.Node.WinClient.UI
                 Utils.LoadDropDownList(ddlUIIsVisibleId, "Value1", "Id", BLL.Utils.GetSystemParameterForCombo(ref objOperationResult, 111, null), DropDownListAction.Select);
                 Utils.LoadDropDownList(ddlIsApprovedId, "Value1", "Id", BLL.Utils.GetSystemParameterForCombo(ref objOperationResult, 111, null), DropDownListAction.Select);
                 MedicamentoDao.ObtenerLineasParaCombo(ddlUnidadProductiva);
+                
                 if (Mode == "New")
                 {
                     // Additional logic here.
+                    cbProcedimiento.Select();
+
+                    cbProcedimiento.DataSource = listaproc;
+                    cbProcedimiento.DisplayMember = "v_Value1";
+                    cbProcedimiento.ValueMember = "i_ParameterId";
+                    cbProcedimiento.AutoCompleteMode = Infragistics.Win.AutoCompleteMode.Suggest;
+                    cbProcedimiento.AutoSuggestFilterMode = Infragistics.Win.AutoSuggestFilterMode.Contains;
+                    this.cbProcedimiento.DropDownWidth = 590;
+                    cbProcedimiento.DisplayLayout.Bands[0].Columns[0].Width = 550;
+                    cbProcedimiento.DisplayLayout.Bands[0].Columns[1].Width = 40;
+
 
                 }
                 else if (Mode == "Edit")
@@ -248,6 +264,24 @@ namespace Sigesoft.Node.WinClient.UI
                     else ddlUnidadProductiva.SelectedIndex = 0;
                     txtTarifaSegus.Text = objmedicalexamDto.r_PriceSegus.ToString();
                     txtCodigoSegus.Text = objmedicalexamDto.v_CodigoSegus;
+
+                    #region Lista de Procedimientos
+
+                    cbProcedimiento.DataSource = listaproc;
+                    cbProcedimiento.DisplayMember = "v_Value1";
+                    cbProcedimiento.ValueMember = "i_ParameterId";
+                    cbProcedimiento.AutoCompleteMode = Infragistics.Win.AutoCompleteMode.Suggest;
+                    cbProcedimiento.AutoSuggestFilterMode = Infragistics.Win.AutoSuggestFilterMode.Contains;
+                    this.cbProcedimiento.DropDownWidth = 590;
+                    cbProcedimiento.DisplayLayout.Bands[0].Columns[0].Width = 550;
+                    cbProcedimiento.DisplayLayout.Bands[0].Columns[1].Width = 40;
+                    if (!string.IsNullOrEmpty(objmedicalexamDto.v_CodigoCPMS))
+                    {
+                        cbProcedimiento.Text = objmedicalexamDto.v_DescripcionCPMS;
+                    }
+
+                    txtProcedId.Text = objmedicalexamDto.v_CodigoCPMS;
+                    #endregion
                 }
 
                 SetOldValues();
@@ -306,8 +340,14 @@ namespace Sigesoft.Node.WinClient.UI
                         objmedicalexamDto.i_KindOfService = Int32.Parse(ddlKindOfService.SelectedValue.ToString());
                         objmedicalexamDto.i_PriceIsRecharged = Int32.Parse(cbRecargable.SelectedValue.ToString());
                         objmedicalexamDto.i_DeduciblePay = rbDeduciblePay.Checked == true ? 1 : 0;
+                        objmedicalexamDto.v_CodigoCPMS = "";
+                        objmedicalexamDto.v_DescripcionCPMS = "";
+                        objmedicalexamDto.v_CodigoCPMS = txtProcedId.Text;
+                        objmedicalexamDto.v_DescripcionCPMS = cbProcedimiento.Text;
+
                         // Save the data
                         _objMedicalExamBL.AddMedicalExam(ref objOperationResult, objmedicalexamDto, Globals.ClientSession.GetAsList());
+
 
                 }
                 else if (Mode == "Edit")
@@ -349,6 +389,8 @@ namespace Sigesoft.Node.WinClient.UI
                     objmedicalexamDto.i_PriceIsRecharged = Int32.Parse(cbRecargable.SelectedValue.ToString());
                     objmedicalexamDto.i_DeduciblePay = rbDeduciblePay.Checked == true ? 1 : 0;
                     objmedicalexamDto.v_ComentaryUpdate = GetChanges();
+                    objmedicalexamDto.v_CodigoCPMS = txtProcedId.Text;
+                    objmedicalexamDto.v_DescripcionCPMS = cbProcedimiento.Text;
                     // Save the data
                     _objMedicalExamBL.UpdateMedicalExam(ref objOperationResult,pbIsChangeName, objmedicalexamDto, Globals.ClientSession.GetAsList());
 
@@ -436,6 +478,39 @@ namespace Sigesoft.Node.WinClient.UI
             valueCategoryId = ddlCategoryId.SelectedNode;
             var nroOrden = ddlCategoryId.SelectedNode.Tag.ToString();
             unUIIndex.Text = nroOrden;
+        }
+
+        private void label15_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbProcedimiento_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (cbProcedimiento.Text != "")
+            {
+                cbProcedimiento.SelectionStart = 0;
+                cbProcedimiento.SelectionLength = cbProcedimiento.Text.Length;
+            }
+        }
+
+        private void cbProcedimiento_RowSelected(object sender, Infragistics.Win.UltraWinGrid.RowSelectedEventArgs e)
+        {
+            #region Conexion SAM
+            ConexionSigesoft conectasam = new ConexionSigesoft();
+            conectasam.opensigesoft();
+            #endregion
+
+            string proced = cbProcedimiento.Text;
+            var cadena1 = "select i_ParameterId from systemparameter where v_Value1='" + proced + "'";
+            SqlCommand comando = new SqlCommand(cadena1, connection: conectasam.conectarsigesoft);
+            SqlDataReader lector = comando.ExecuteReader();
+            while (lector.Read())
+            {
+                txtProcedId.Text = lector.GetValue(0).ToString();
+            }
+            lector.Close();
+            conectasam.closesigesoft();
         }
 
 

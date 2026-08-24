@@ -66,7 +66,9 @@ namespace Sigesoft.Node.WinClient.BLL
                               Servicio = D.v_Value1,
                               ServicioID = D.i_ParameterId,
                               i_DeduciblePay = A.i_DeduciblePay.Value,
-                              Segus = A.v_CodigoSegus
+                              Segus = A.v_CodigoSegus,
+                              v_CodigoCPMS = A.v_CodigoCPMS == null ? "" : A.v_CodigoCPMS,
+                              v_DescripcionCPMS = A.v_DescripcionCPMS == null ? "" : A.v_DescripcionCPMS
 
                           };
 

@@ -55,6 +55,8 @@ namespace Sigesoft.Node.WinClient.BE
         public int? i_Padre { get; set; }
 
         public string Segus { get; set; }
+        public string v_CodigoCPMS { get; set; }
+        public string v_DescripcionCPMS { get; set; }
 
     }
 }

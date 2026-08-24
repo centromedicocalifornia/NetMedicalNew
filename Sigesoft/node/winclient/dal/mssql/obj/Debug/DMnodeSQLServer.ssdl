@@ -23,8 +23,6 @@
     <EntitySet Name="componentfieldvalues" EntityType="Sigesoft.Node.WinClient.DAL.Store.componentfieldvalues" store:Type="Tables" Schema="dbo" Table="componentfieldvalues" />
     <EntitySet Name="componentfieldvaluesrecommendations" EntityType="Sigesoft.Node.WinClient.DAL.Store.componentfieldvaluesrecommendation" store:Type="Tables" Schema="dbo" Table="componentfieldvaluesrecommendation" />
     <EntitySet Name="componentfieldvaluesrestrictions" EntityType="Sigesoft.Node.WinClient.DAL.Store.componentfieldvaluesrestriction" store:Type="Tables" Schema="dbo" Table="componentfieldvaluesrestriction" />
-    <EntitySet Name="configdxes" EntityType="Sigesoft.Node.WinClient.DAL.Store.configdx" store:Type="Tables" Schema="dbo" Table="configdx" />
-    <EntitySet Name="cotizacions" EntityType="Sigesoft.Node.WinClient.DAL.Store.cotizacion" store:Type="Tables" Schema="dbo" Table="cotizacion" />
     <EntitySet Name="CotizacionOcs" EntityType="Sigesoft.Node.WinClient.DAL.Store.CotizacionOc" store:Type="Tables" Schema="dbo" Table="CotizacionOc" />
     <EntitySet Name="CotizacionOcDetaills" EntityType="Sigesoft.Node.WinClient.DAL.Store.CotizacionOcDetaill" store:Type="Tables" Schema="dbo" Table="CotizacionOcDetaill" />
     <EntitySet Name="CuidadoPreventivos" EntityType="Sigesoft.Node.WinClient.DAL.Store.CuidadoPreventivo" store:Type="Tables" Schema="dbo" Table="CuidadoPreventivo" />
@@ -39,28 +37,23 @@
     <EntitySet Name="emails" EntityType="Sigesoft.Node.WinClient.DAL.Store.email" store:Type="Tables" Schema="dbo" Table="email" />
     <EntitySet Name="embarzos" EntityType="Sigesoft.Node.WinClient.DAL.Store.embarzo" store:Type="Tables" Schema="dbo" Table="embarzo" />
     <EntitySet Name="envionatclars" EntityType="Sigesoft.Node.WinClient.DAL.Store.envionatclar" store:Type="Tables" Schema="dbo" Table="envionatclar" />
-    <EntitySet Name="especialities" EntityType="Sigesoft.Node.WinClient.DAL.Store.especiality" store:Type="Tables" Schema="dbo" Table="especiality" />
     <EntitySet Name="facturacions" EntityType="Sigesoft.Node.WinClient.DAL.Store.facturacion" store:Type="Tables" Schema="dbo" Table="facturacion" />
     <EntitySet Name="facturaciondetalles" EntityType="Sigesoft.Node.WinClient.DAL.Store.facturaciondetalle" store:Type="Tables" Schema="dbo" Table="facturaciondetalle" />
     <EntitySet Name="familymedicalantecedents" EntityType="Sigesoft.Node.WinClient.DAL.Store.familymedicalantecedents" store:Type="Tables" Schema="dbo" Table="familymedicalantecedents" />
     <EntitySet Name="ges" EntityType="Sigesoft.Node.WinClient.DAL.Store.ges" store:Type="Tables" Schema="dbo" Table="ges" />
     <EntitySet Name="groupoccupations" EntityType="Sigesoft.Node.WinClient.DAL.Store.groupoccupation" store:Type="Tables" Schema="dbo" Table="groupoccupation" />
-    <EntitySet Name="HistorialAccessUsers" EntityType="Sigesoft.Node.WinClient.DAL.Store.HistorialAccessUser" store:Type="Tables" Schema="dbo" Table="HistorialAccessUser" />
     <EntitySet Name="histories" EntityType="Sigesoft.Node.WinClient.DAL.Store.history" store:Type="Tables" Schema="dbo" Table="history" />
     <EntitySet Name="holidays" EntityType="Sigesoft.Node.WinClient.DAL.Store.holidays" store:Type="Tables" Schema="dbo" Table="holidays" />
     <EntitySet Name="Horarios" EntityType="Sigesoft.Node.WinClient.DAL.Store.Horarios" store:Type="Tables" Schema="dbo" Table="Horarios" />
     <EntitySet Name="hospitalizacions" EntityType="Sigesoft.Node.WinClient.DAL.Store.hospitalizacion" store:Type="Tables" Schema="dbo" Table="hospitalizacion" />
     <EntitySet Name="hospitalizacionhabitacions" EntityType="Sigesoft.Node.WinClient.DAL.Store.hospitalizacionhabitacion" store:Type="Tables" Schema="dbo" Table="hospitalizacionhabitacion" />
     <EntitySet Name="hospitalizacionservices" EntityType="Sigesoft.Node.WinClient.DAL.Store.hospitalizacionservice" store:Type="Tables" Schema="dbo" Table="hospitalizacionservice" />
-    <EntitySet Name="inmunizaciones" EntityType="Sigesoft.Node.WinClient.DAL.Store.inmunizaciones" store:Type="Tables" Schema="dbo" Table="inmunizaciones" />
     <EntitySet Name="liquidacions" EntityType="Sigesoft.Node.WinClient.DAL.Store.liquidacion" store:Type="Tables" Schema="dbo" Table="liquidacion" />
     <EntitySet Name="locations" EntityType="Sigesoft.Node.WinClient.DAL.Store.location" store:Type="Tables" Schema="dbo" Table="location" />
     <EntitySet Name="logs" EntityType="Sigesoft.Node.WinClient.DAL.Store.log" store:Type="Tables" Schema="dbo" Table="log" />
-    <EntitySet Name="markings" EntityType="Sigesoft.Node.WinClient.DAL.Store.markings" store:Type="Tables" Schema="dbo" Table="markings" />
     <EntitySet Name="masterrecommendationrestricctions" EntityType="Sigesoft.Node.WinClient.DAL.Store.masterrecommendationrestricction" store:Type="Tables" Schema="dbo" Table="masterrecommendationrestricction" />
     <EntitySet Name="medications" EntityType="Sigesoft.Node.WinClient.DAL.Store.medication" store:Type="Tables" Schema="dbo" Table="medication" />
     <EntitySet Name="medicos" EntityType="Sigesoft.Node.WinClient.DAL.Store.medico" store:Type="Tables" Schema="dbo" Table="medico" />
-    <EntitySet Name="menssges" EntityType="Sigesoft.Node.WinClient.DAL.Store.menssge" store:Type="Tables" Schema="dbo" Table="menssge" />
     <EntitySet Name="movements" EntityType="Sigesoft.Node.WinClient.DAL.Store.movement" store:Type="Tables" Schema="dbo" Table="movement" />
     <EntitySet Name="movementdetails" EntityType="Sigesoft.Node.WinClient.DAL.Store.movementdetail" store:Type="Tables" Schema="dbo" Table="movementdetail" />
     <EntitySet Name="multimediafiles" EntityType="Sigesoft.Node.WinClient.DAL.Store.multimediafile" store:Type="Tables" Schema="dbo" Table="multimediafile" />
@@ -72,7 +65,6 @@
     <EntitySet Name="nodeorganizationprofiles" EntityType="Sigesoft.Node.WinClient.DAL.Store.nodeorganizationprofile" store:Type="Tables" Schema="dbo" Table="nodeorganizationprofile" />
     <EntitySet Name="nodeserviceprofiles" EntityType="Sigesoft.Node.WinClient.DAL.Store.nodeserviceprofile" store:Type="Tables" Schema="dbo" Table="nodeserviceprofile" />
     <EntitySet Name="nodesyncstatus" EntityType="Sigesoft.Node.WinClient.DAL.Store.nodesyncstatus" store:Type="Tables" Schema="dbo" Table="nodesyncstatus" />
-    <EntitySet Name="notifications" EntityType="Sigesoft.Node.WinClient.DAL.Store.notification" store:Type="Tables" Schema="dbo" Table="notification" />
     <EntitySet Name="noxioushabits" EntityType="Sigesoft.Node.WinClient.DAL.Store.noxioushabits" store:Type="Tables" Schema="dbo" Table="noxioushabits" />
     <EntitySet Name="occupations" EntityType="Sigesoft.Node.WinClient.DAL.Store.occupation" store:Type="Tables" Schema="dbo" Table="occupation" />
     <EntitySet Name="OrdenReportes" EntityType="Sigesoft.Node.WinClient.DAL.Store.OrdenReporte" store:Type="Tables" Schema="dbo" Table="OrdenReporte" />
@@ -84,6 +76,7 @@
     <EntitySet Name="paymentDetails" EntityType="Sigesoft.Node.WinClient.DAL.Store.paymentDetail" store:Type="Tables" Schema="dbo" Table="paymentDetail" />
     <EntitySet Name="paymentmedics" EntityType="Sigesoft.Node.WinClient.DAL.Store.paymentmedic" store:Type="Tables" Schema="dbo" Table="paymentmedic" />
     <EntitySet Name="people" EntityType="Sigesoft.Node.WinClient.DAL.Store.person" store:Type="Tables" Schema="dbo" Table="person" />
+    <EntitySet Name="Personas" EntityType="Sigesoft.Node.WinClient.DAL.Store.Persona" store:Type="Tables" Schema="dbo" Table="Persona" />
     <EntitySet Name="personmedicalhistories" EntityType="Sigesoft.Node.WinClient.DAL.Store.personmedicalhistory" store:Type="Tables" Schema="dbo" Table="personmedicalhistory" />
     <EntitySet Name="plans" EntityType="Sigesoft.Node.WinClient.DAL.Store.plan" store:Type="Tables" Schema="dbo" Table="plan" />
     <EntitySet Name="planintegrals" EntityType="Sigesoft.Node.WinClient.DAL.Store.planintegral" store:Type="Tables" Schema="dbo" Table="planintegral" />
@@ -98,12 +91,16 @@
     <EntitySet Name="protocols" EntityType="Sigesoft.Node.WinClient.DAL.Store.protocol" store:Type="Tables" Schema="dbo" Table="protocol" />
     <EntitySet Name="protocolcomponents" EntityType="Sigesoft.Node.WinClient.DAL.Store.protocolcomponent" store:Type="Tables" Schema="dbo" Table="protocolcomponent" />
     <EntitySet Name="protocolsystemusers" EntityType="Sigesoft.Node.WinClient.DAL.Store.protocolsystemuser" store:Type="Tables" Schema="dbo" Table="protocolsystemuser" />
+    <EntitySet Name="Psicologias" EntityType="Sigesoft.Node.WinClient.DAL.Store.Psicologia" store:Type="Tables" Schema="dbo" Table="Psicologia" />
+    <EntitySet Name="Psicosensometricos" EntityType="Sigesoft.Node.WinClient.DAL.Store.Psicosensometrico" store:Type="Tables" Schema="dbo" Table="Psicosensometrico" />
+    <EntitySet Name="Rayosxes" EntityType="Sigesoft.Node.WinClient.DAL.Store.RayosX" store:Type="Tables" Schema="dbo" Table="RayosX" />
     <EntitySet Name="receipHeaders" EntityType="Sigesoft.Node.WinClient.DAL.Store.receipHeader" store:Type="Tables" Schema="dbo" Table="receipHeader" />
     <EntitySet Name="recetas" EntityType="Sigesoft.Node.WinClient.DAL.Store.receta" store:Type="Tables" Schema="dbo" Table="receta" />
     <EntitySet Name="recetadespachos" EntityType="Sigesoft.Node.WinClient.DAL.Store.recetadespacho" store:Type="Tables" Schema="dbo" Table="recetadespacho" />
     <EntitySet Name="recommendations" EntityType="Sigesoft.Node.WinClient.DAL.Store.recommendation" store:Type="Tables" Schema="dbo" Table="recommendation" />
     <EntitySet Name="restrictedwarehouseprofiles" EntityType="Sigesoft.Node.WinClient.DAL.Store.restrictedwarehouseprofile" store:Type="Tables" Schema="dbo" Table="restrictedwarehouseprofile" />
     <EntitySet Name="restrictions" EntityType="Sigesoft.Node.WinClient.DAL.Store.restriction" store:Type="Tables" Schema="dbo" Table="restriction" />
+    <EntitySet Name="Riesgos" EntityType="Sigesoft.Node.WinClient.DAL.Store.Riesgos" store:Type="Tables" Schema="dbo" Table="Riesgos" />
     <EntitySet Name="rolcuotas" EntityType="Sigesoft.Node.WinClient.DAL.Store.rolcuota" store:Type="Tables" Schema="dbo" Table="rolcuota" />
     <EntitySet Name="rolcuotadetalles" EntityType="Sigesoft.Node.WinClient.DAL.Store.rolcuotadetalle" store:Type="Tables" Schema="dbo" Table="rolcuotadetalle" />
     <EntitySet Name="rolenodes" EntityType="Sigesoft.Node.WinClient.DAL.Store.rolenode" store:Type="Tables" Schema="dbo" Table="rolenode" />
@@ -122,9 +119,11 @@
     <EntitySet Name="servicemultimedias" EntityType="Sigesoft.Node.WinClient.DAL.Store.servicemultimedia" store:Type="Tables" Schema="dbo" Table="servicemultimedia" />
     <EntitySet Name="serviceorders" EntityType="Sigesoft.Node.WinClient.DAL.Store.serviceorder" store:Type="Tables" Schema="dbo" Table="serviceorder" />
     <EntitySet Name="serviceorderdetails" EntityType="Sigesoft.Node.WinClient.DAL.Store.serviceorderdetail" store:Type="Tables" Schema="dbo" Table="serviceorderdetail" />
+    <EntitySet Name="Servicios" EntityType="Sigesoft.Node.WinClient.DAL.Store.Servicio" store:Type="Tables" Schema="dbo" Table="Servicio" />
     <EntitySet Name="sms" EntityType="Sigesoft.Node.WinClient.DAL.Store.sms" store:Type="Tables" Schema="dbo" Table="sms" />
     <EntitySet Name="softwarecomponentreleases" EntityType="Sigesoft.Node.WinClient.DAL.Store.softwarecomponentrelease" store:Type="Tables" Schema="dbo" Table="softwarecomponentrelease" />
     <EntitySet Name="suppliers" EntityType="Sigesoft.Node.WinClient.DAL.Store.supplier" store:Type="Tables" Schema="dbo" Table="supplier" />
+    <EntitySet Name="sysdiagrams" EntityType="Sigesoft.Node.WinClient.DAL.Store.sysdiagrams" store:Type="Tables" Schema="dbo" Table="sysdiagrams" />
     <EntitySet Name="systemparameters" EntityType="Sigesoft.Node.WinClient.DAL.Store.systemparameter" store:Type="Tables" Schema="dbo" Table="systemparameter" />
     <EntitySet Name="systemusers" EntityType="Sigesoft.Node.WinClient.DAL.Store.systemuser" store:Type="Tables" Schema="dbo" Table="systemuser" />
     <EntitySet Name="systemusergobalprofiles" EntityType="Sigesoft.Node.WinClient.DAL.Store.systemusergobalprofile" store:Type="Tables" Schema="dbo" Table="systemusergobalprofile" />
@@ -133,6 +132,7 @@
     <EntitySet Name="ticketdetalles" EntityType="Sigesoft.Node.WinClient.DAL.Store.ticketdetalle" store:Type="Tables" Schema="dbo" Table="ticketdetalle" />
     <EntitySet Name="trackings" EntityType="Sigesoft.Node.WinClient.DAL.Store.tracking" store:Type="Tables" Schema="dbo" Table="tracking" />
     <EntitySet Name="Tramas" EntityType="Sigesoft.Node.WinClient.DAL.Store.Tramas" store:Type="Tables" Schema="dbo" Table="Tramas" />
+    <EntitySet Name="Triajes" EntityType="Sigesoft.Node.WinClient.DAL.Store.Triaje" store:Type="Tables" Schema="dbo" Table="Triaje" />
     <EntitySet Name="typeofeeps" EntityType="Sigesoft.Node.WinClient.DAL.Store.typeofeep" store:Type="Tables" Schema="dbo" Table="typeofeep" />
     <EntitySet Name="vacations" EntityType="Sigesoft.Node.WinClient.DAL.Store.vacations" store:Type="Tables" Schema="dbo" Table="vacations" />
     <EntitySet Name="variablesEntorno_resultadosClinicosWebs" EntityType="Sigesoft.Node.WinClient.DAL.Store.variablesEntorno_resultadosClinicosWeb" store:Type="Tables" Schema="dbo" Table="variablesEntorno_resultadosClinicosWeb" />
@@ -238,13 +238,13 @@
       <End Role="person" EntitySet="people" />
       <End Role="DigitalContactCenter" EntitySet="DigitalContactCenters" />
     </AssociationSet>
-    <AssociationSet Name="FK_DigitalContactCenter_DigitalContactCenter" Association="Sigesoft.Node.WinClient.DAL.Store.FK_DigitalContactCenter_DigitalContactCenter">
-      <End Role="DigitalContactCenter" EntitySet="DigitalContactCenters" />
-      <End Role="DigitalContactCenter1" EntitySet="DigitalContactCenters" />
-    </AssociationSet>
     <AssociationSet Name="FK_DigitalContactCenter_service" Association="Sigesoft.Node.WinClient.DAL.Store.FK_DigitalContactCenter_service">
       <End Role="service" EntitySet="services" />
       <End Role="DigitalContactCenter" EntitySet="DigitalContactCenters" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DigitalContactCenter_DigitalContactCenter" Association="Sigesoft.Node.WinClient.DAL.Store.FK_DigitalContactCenter_DigitalContactCenter">
+      <End Role="DigitalContactCenter" EntitySet="DigitalContactCenters" />
+      <End Role="DigitalContactCenter1" EntitySet="DigitalContactCenters" />
     </AssociationSet>
     <AssociationSet Name="Fk_Cie10_Diseases_v_CIE10Id" Association="Sigesoft.Node.WinClient.DAL.Store.Fk_Cie10_Diseases_v_CIE10Id">
       <End Role="cie10" EntitySet="cie10s" />
@@ -293,10 +293,6 @@
     <AssociationSet Name="FK_hospitalizacionservice_hospitalizacion" Association="Sigesoft.Node.WinClient.DAL.Store.FK_hospitalizacionservice_hospitalizacion">
       <End Role="hospitalizacion" EntitySet="hospitalizacions" />
       <End Role="hospitalizacionservice" EntitySet="hospitalizacionservices" />
-    </AssociationSet>
-    <AssociationSet Name="FK_inmunizaciones_person" Association="Sigesoft.Node.WinClient.DAL.Store.FK_inmunizaciones_person">
-      <End Role="person" EntitySet="people" />
-      <End Role="inmunizaciones" EntitySet="inmunizaciones" />
     </AssociationSet>
     <AssociationSet Name="FK_liquidacion_organization" Association="Sigesoft.Node.WinClient.DAL.Store.FK_liquidacion_organization">
       <End Role="organization" EntitySet="organizations" />
@@ -446,6 +442,18 @@
       <End Role="protocol" EntitySet="protocols" />
       <End Role="protocolsystemuser" EntitySet="protocolsystemusers" />
     </AssociationSet>
+    <AssociationSet Name="FK_dboPsicologia_dboServicio_v_ServicioId" Association="Sigesoft.Node.WinClient.DAL.Store.FK_dboPsicologia_dboServicio_v_ServicioId">
+      <End Role="Servicio" EntitySet="Servicios" />
+      <End Role="Psicologia" EntitySet="Psicologias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dboPsicosensometrico_dboServicio_v_ServicioId" Association="Sigesoft.Node.WinClient.DAL.Store.FK_dboPsicosensometrico_dboServicio_v_ServicioId">
+      <End Role="Servicio" EntitySet="Servicios" />
+      <End Role="Psicosensometrico" EntitySet="Psicosensometricos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dboRayosX_dboServicio_v_ServicioId" Association="Sigesoft.Node.WinClient.DAL.Store.FK_dboRayosX_dboServicio_v_ServicioId">
+      <End Role="Servicio" EntitySet="Servicios" />
+      <End Role="RayosX" EntitySet="Rayosxes" />
+    </AssociationSet>
     <AssociationSet Name="Fk_Component_Recommendation_v_RecommendationId" Association="Sigesoft.Node.WinClient.DAL.Store.Fk_Component_Recommendation_v_RecommendationId">
       <End Role="component" EntitySet="components" />
       <End Role="recommendation" EntitySet="recommendations" />
@@ -473,6 +481,10 @@
     <AssociationSet Name="Fk_DiagnosticRepository_RestrictionByDiagnostic_v_DiagnosticRep" Association="Sigesoft.Node.WinClient.DAL.Store.Fk_DiagnosticRepository_RestrictionByDiagnostic_v_DiagnosticRep">
       <End Role="diagnosticrepository" EntitySet="diagnosticrepositories" />
       <End Role="restriction" EntitySet="restrictions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dboRiesgos_dboServicio_v_ServicioId" Association="Sigesoft.Node.WinClient.DAL.Store.FK_dboRiesgos_dboServicio_v_ServicioId">
+      <End Role="Servicio" EntitySet="Servicios" />
+      <End Role="Riesgos" EntitySet="Riesgos" />
     </AssociationSet>
     <AssociationSet Name="FK_rolcuotadetalle_rolcuotadetalle_v_RolCuotaId" Association="Sigesoft.Node.WinClient.DAL.Store.FK_rolcuotadetalle_rolcuotadetalle_v_RolCuotaId">
       <End Role="rolcuota" EntitySet="rolcuotas" />
@@ -562,6 +574,10 @@
       <End Role="protocol" EntitySet="protocols" />
       <End Role="serviceorderdetail" EntitySet="serviceorderdetails" />
     </AssociationSet>
+    <AssociationSet Name="FK_dboServicio_dboPersona_v_PersonaId" Association="Sigesoft.Node.WinClient.DAL.Store.FK_dboServicio_dboPersona_v_PersonaId">
+      <End Role="Persona" EntitySet="Personas" />
+      <End Role="Servicio" EntitySet="Servicios" />
+    </AssociationSet>
     <AssociationSet Name="Fk_DeplymentFile_SoftwareComponentRelease_i_DeploymentFileId" Association="Sigesoft.Node.WinClient.DAL.Store.Fk_DeplymentFile_SoftwareComponentRelease_i_DeploymentFileId">
       <End Role="deploymentfile" EntitySet="deploymentfiles" />
       <End Role="softwarecomponentrelease" EntitySet="softwarecomponentreleases" />
@@ -581,6 +597,10 @@
     <AssociationSet Name="FK_ticketdetalle_ticket" Association="Sigesoft.Node.WinClient.DAL.Store.FK_ticketdetalle_ticket">
       <End Role="ticket" EntitySet="tickets" />
       <End Role="ticketdetalle" EntitySet="ticketdetalles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dboTriaje_dboServicio_v_ServicioId" Association="Sigesoft.Node.WinClient.DAL.Store.FK_dboTriaje_dboServicio_v_ServicioId">
+      <End Role="Servicio" EntitySet="Servicios" />
+      <End Role="Triaje" EntitySet="Triajes" />
     </AssociationSet>
     <AssociationSet Name="Fk_History_TypeofEPP_v_HistoryId" Association="Sigesoft.Node.WinClient.DAL.Store.Fk_History_TypeofEPP_v_HistoryId">
       <End Role="history" EntitySet="histories" />
@@ -948,6 +968,8 @@
     <Property Name="i_KindOfService" Type="int" />
     <Property Name="i_PriceIsRecharged" Type="int" />
     <Property Name="i_DeduciblePay" Type="int" />
+    <Property Name="v_CodigoCPMS" Type="varchar" MaxLength="20" />
+    <Property Name="v_DescripcionCPMS" Type="varchar" MaxLength="500" />
   </EntityType>
   <EntityType Name="componentfield">
     <Key>
@@ -1046,36 +1068,6 @@
     <Property Name="i_UpdateUserId" Type="int" />
     <Property Name="d_UpdateDate" Type="datetime2" />
     <Property Name="v_ComentaryUpdate" Type="varchar" MaxLength="8000" />
-  </EntityType>
-  <EntityType Name="configdx">
-    <Key>
-      <PropertyRef Name="v_ConfigDxId" />
-    </Key>
-    <Property Name="v_ConfigDxId" Type="varchar" Nullable="false" MaxLength="16" />
-    <Property Name="v_DiseaseId" Type="varchar" MaxLength="16" />
-    <Property Name="v_ProductId" Type="varchar" MaxLength="16" />
-    <Property Name="i_IsDeleted" Type="int" />
-    <Property Name="i_InsertUserId" Type="int" />
-    <Property Name="d_InsertDate" Type="datetime2" />
-    <Property Name="i_UpdateUserId" Type="int" />
-    <Property Name="d_UpdateDate" Type="datetime2" />
-  </EntityType>
-  <EntityType Name="cotizacion">
-    <Key>
-      <PropertyRef Name="v_CotizacionId" />
-    </Key>
-    <Property Name="v_CotizacionId" Type="varchar" Nullable="false" MaxLength="16" />
-    <Property Name="v_PersonId" Type="varchar" MaxLength="16" />
-    <Property Name="v_ProtocolId" Type="varchar" MaxLength="16" />
-    <Property Name="d_CostoTotal" Type="decimal" Precision="18" Scale="2" />
-    <Property Name="d_aCuenta" Type="decimal" Precision="18" Scale="2" />
-    <Property Name="d_Saldo" Type="decimal" Precision="18" Scale="2" />
-    <Property Name="i_IsDeleted" Type="int" />
-    <Property Name="i_InsertUserId" Type="int" />
-    <Property Name="d_InsertDate" Type="datetime2" />
-    <Property Name="i_UpdateUserId" Type="int" />
-    <Property Name="d_UpdateDate" Type="datetime2" />
-    <Property Name="i_Procesado" Type="int" />
   </EntityType>
   <EntityType Name="CotizacionOc">
     <Key>
@@ -1331,23 +1323,6 @@
     <Property Name="i_UpdateUserId" Type="int" />
     <Property Name="d_UpdateDate" Type="datetime2" />
   </EntityType>
-  <EntityType Name="especiality">
-    <Key>
-      <PropertyRef Name="v_EspecialityId" />
-    </Key>
-    <Property Name="v_EspecialityId" Type="varchar" Nullable="false" MaxLength="16" />
-    <Property Name="v_EspecialityName" Type="varchar" MaxLength="500" />
-    <Property Name="b_EspecialityPicture" Type="image" />
-    <Property Name="t_TimeForAttention" Type="time" />
-    <Property Name="r_Cost" Type="decimal" Precision="18" Scale="2" />
-    <Property Name="v_Description" Type="varchar" MaxLength="1000" />
-    <Property Name="i_IsDeleted" Type="int" />
-    <Property Name="t_StartTime" Type="time" />
-    <Property Name="t_EndTime" Type="time" />
-    <Property Name="t_StartTime2" Type="time" />
-    <Property Name="t_EndTime2" Type="time" />
-    <Property Name="v_ProtocolId" Type="varchar" MaxLength="16" />
-  </EntityType>
   <EntityType Name="facturacion">
     <Key>
       <PropertyRef Name="v_FacturacionId" />
@@ -1432,14 +1407,6 @@
     <Property Name="i_UpdateUserId" Type="int" />
     <Property Name="d_UpdateDate" Type="datetime2" />
     <Property Name="v_ComentaryUpdate" Type="varchar" MaxLength="8000" />
-  </EntityType>
-  <EntityType Name="HistorialAccessUser">
-    <Key>
-      <PropertyRef Name="i_HistorialAccessUser" />
-    </Key>
-    <Property Name="i_HistorialAccessUser" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="v_PersonId" Type="varchar" MaxLength="18" />
-    <Property Name="d_dateAccess" Type="datetime" />
   </EntityType>
   <EntityType Name="history">
     <Key>
@@ -1598,25 +1565,6 @@
     <Property Name="d_UpdateDate" Type="datetime2" />
     <Property Name="v_ComentaryUpdate" Type="varchar" MaxLength="8000" />
   </EntityType>
-  <EntityType Name="inmunizaciones">
-    <Key>
-      <PropertyRef Name="v_VacunacionId" />
-    </Key>
-    <Property Name="v_VacunacionId" Type="varchar" Nullable="false" MaxLength="16" />
-    <Property Name="v_PersonId" Type="varchar" MaxLength="16" />
-    <Property Name="i_TipoVacuna" Type="int" />
-    <Property Name="i_Marca" Type="int" />
-    <Property Name="v_Lote" Type="varchar" MaxLength="50" />
-    <Property Name="d_FechaVacuna" Type="date" />
-    <Property Name="i_IsDeleted" Type="int" />
-    <Property Name="i_InsertUserId" Type="int" />
-    <Property Name="d_InsertDate" Type="datetime2" />
-    <Property Name="i_UpdateUserId" Type="int" />
-    <Property Name="d_UpdateDate" Type="datetime2" />
-    <Property Name="v_ComentaryUpdate" Type="varchar" MaxLength="8000" />
-    <Property Name="i_Dosis" Type="int" />
-    <Property Name="v_Lugar" Type="varchar" MaxLength="100" />
-  </EntityType>
   <EntityType Name="liquidacion">
     <Key>
       <PropertyRef Name="v_LiquidacionId" />
@@ -1664,24 +1612,6 @@
     <Property Name="i_Success" Type="int" />
     <Property Name="v_ErrorException" Type="text" />
     <Property Name="v_ComentaryUpdate" Type="varchar" MaxLength="8000" />
-  </EntityType>
-  <EntityType Name="markings">
-    <Key>
-      <PropertyRef Name="i_DialingId" />
-    </Key>
-    <Property Name="i_DialingId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="v_PersonId" Type="varchar" MaxLength="16" />
-    <Property Name="d_DialingDate" Type="datetime2" />
-    <Property Name="i_IsDeleted" Type="int" />
-    <Property Name="i_InsertUserId" Type="int" />
-    <Property Name="d_InsertDate" Type="datetime2" />
-    <Property Name="i_UpdateUserId" Type="int" />
-    <Property Name="d_UpdateDate" Type="datetime2" />
-    <Property Name="v_TypeMarking" Type="varchar" MaxLength="100" />
-    <Property Name="i_PaidOut" Type="int" />
-    <Property Name="t_ExtraHours" Type="time" />
-    <Property Name="t_HoursAgainst" Type="time" />
-    <Property Name="v_ScheduleDetailId" Type="varchar" MaxLength="16" />
   </EntityType>
   <EntityType Name="masterrecommendationrestricction">
     <Key>
@@ -1745,21 +1675,6 @@
     <Property Name="i_UpdateUserId" Type="int" />
     <Property Name="d_UpdateDate" Type="datetime2" />
     <Property Name="v_ComentaryUpdate" Type="varchar" MaxLength="8000" />
-  </EntityType>
-  <EntityType Name="menssge">
-    <Key>
-      <PropertyRef Name="i_smsId" />
-    </Key>
-    <Property Name="i_smsId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="v_phoneNummber" Type="int" />
-    <Property Name="v_smsContent" Type="varchar" MaxLength="160" />
-    <Property Name="i_status" Type="int" />
-    <Property Name="v_componentName" Type="varchar" MaxLength="250" />
-    <Property Name="v_ProtocolName" Type="varchar" MaxLength="500" />
-    <Property Name="v_smsContent2" Type="varchar" MaxLength="160" />
-    <Property Name="v_NameClient" Type="varchar" MaxLength="160" />
-    <Property Name="v_user" Type="varchar" MaxLength="160" />
-    <Property Name="v_pass" Type="varchar" MaxLength="160" />
   </EntityType>
   <EntityType Name="movement">
     <Key>
@@ -2010,27 +1925,6 @@
     <Property Name="v_LastNodeProcessErrorMessage" Type="text" />
     <Property Name="v_ComentaryUpdate" Type="varchar" MaxLength="8000" />
   </EntityType>
-  <EntityType Name="notification">
-    <Key>
-      <PropertyRef Name="v_NotificationId" />
-    </Key>
-    <Property Name="v_NotificationId" Type="varchar" Nullable="false" MaxLength="16" />
-    <Property Name="v_OrganizationId" Type="varchar" MaxLength="16" />
-    <Property Name="d_NotificationDate" Type="datetime2" />
-    <Property Name="v_PersonId" Type="varchar" MaxLength="16" />
-    <Property Name="v_Title" Type="varchar" MaxLength="500" />
-    <Property Name="v_Body" Type="varchar" MaxLength="500" />
-    <Property Name="i_IsRead" Type="int" />
-    <Property Name="i_TypeNotificationId" Type="int" />
-    <Property Name="d_ScheduleDate" Type="datetime2" />
-    <Property Name="i_StateNotificationId" Type="int" />
-    <Property Name="v_Path" Type="varchar" MaxLength="100" />
-    <Property Name="i_IsDeleted" Type="int" />
-    <Property Name="i_InsertUserId" Type="int" />
-    <Property Name="d_InsertDate" Type="datetime2" />
-    <Property Name="i_UpdateUserId" Type="int" />
-    <Property Name="d_UpdateDate" Type="datetime2" />
-  </EntityType>
   <EntityType Name="noxioushabits">
     <Key>
       <PropertyRef Name="v_NoxiousHabitsId" />
@@ -2268,6 +2162,31 @@
     <Property Name="i_EtniaRaza" Type="int" />
     <Property Name="i_Migrante" Type="int" />
     <Property Name="v_Migrante" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Persona">
+    <Key>
+      <PropertyRef Name="v_PersonaId" />
+    </Key>
+    <Property Name="v_PersonaId" Type="varchar" Nullable="false" MaxLength="16" />
+    <Property Name="v_Apellidos" Type="varchar" MaxLength="500" />
+    <Property Name="v_Nombres" Type="varchar" MaxLength="500" />
+    <Property Name="v_DocNumero" Type="varchar" MaxLength="20" />
+    <Property Name="d_FechNac" Type="date" />
+    <Property Name="v_NumeroTelefono" Type="varchar" MaxLength="15" />
+    <Property Name="i_TipoSexo" Type="int" />
+    <Property Name="i_EstadoCivil" Type="int" />
+    <Property Name="i_GradoInstruccion" Type="int" />
+    <Property Name="i_GrupoSanguineo" Type="int" />
+    <Property Name="i_FactorSanguineo" Type="int" />
+    <Property Name="i_Distrito" Type="int" />
+    <Property Name="i_Provincia" Type="int" />
+    <Property Name="i_Departamento" Type="int" />
+    <Property Name="i_NumHijosVivos" Type="int" />
+    <Property Name="d_FechaInsercion" Type="date" />
+    <Property Name="i_UsuarioInsertaId" Type="int" />
+    <Property Name="d_FechaActualizacion" Type="date" />
+    <Property Name="i_UsuarioActualizaId" Type="int" />
+    <Property Name="i_EsEliminado" Type="bit" />
   </EntityType>
   <EntityType Name="personmedicalhistory">
     <Key>
@@ -2519,6 +2438,16 @@
     <Property Name="d_CamaHosp" Type="decimal" Precision="18" Scale="2" />
     <Property Name="d_SalaOperaciones" Type="decimal" Precision="18" Scale="2" />
     <Property Name="d_PrecioAmbulancia" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="i_mktWork" Type="int" />
+    <Property Name="i_DateVald" Type="int" />
+    <Property Name="v_DateVAR" Type="varchar" MaxLength="8000" />
+    <Property Name="i_TipoConvenio" Type="int" />
+    <Property Name="r_PrecioConvenio" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="v_NombreConvenio" Type="varchar" MaxLength="8000" />
+    <Property Name="r_PrecioConsultaFijo" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="r_PrecioConsultaEspecialidad1" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="r_PrecioConsultaEspecialidad2" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="r_PrecioConsultaEspecialidad3" Type="decimal" Precision="18" Scale="2" />
   </EntityType>
   <EntityType Name="protocolcomponent">
     <Key>
@@ -2557,6 +2486,59 @@
     <Property Name="i_UpdateUserId" Type="int" />
     <Property Name="d_UpdateDate" Type="datetime2" />
     <Property Name="v_ComentaryUpdate" Type="varchar" MaxLength="8000" />
+  </EntityType>
+  <EntityType Name="Psicologia">
+    <Key>
+      <PropertyRef Name="v_PsicologiaId" />
+    </Key>
+    <Property Name="v_PsicologiaId" Type="varchar" Nullable="false" MaxLength="16" />
+    <Property Name="v_ServicioId" Type="varchar" MaxLength="16" />
+    <Property Name="v_CoeficienteIntelectual" Type="varchar" MaxLength="500" />
+    <Property Name="v_AptitudPsicologica" Type="varchar" MaxLength="20" />
+    <Property Name="v_ConclusionesPsicosensometrico" Type="varchar(max)" />
+    <Property Name="d_FechaInsercion" Type="date" />
+    <Property Name="i_UsuarioInsertaId" Type="int" />
+    <Property Name="d_FechaActualizacion" Type="date" />
+    <Property Name="i_UsuarioActualizaId" Type="int" />
+    <Property Name="i_EsEliminado" Type="bit" />
+  </EntityType>
+  <EntityType Name="Psicosensometrico">
+    <Key>
+      <PropertyRef Name="v_PsicosensometricoId" />
+    </Key>
+    <Property Name="v_PsicosensometricoId" Type="varchar" Nullable="false" MaxLength="16" />
+    <Property Name="v_ServicioId" Type="varchar" MaxLength="16" />
+    <Property Name="v_ConclusionesPsicosensometrico" Type="varchar(max)" />
+    <Property Name="d_FechaInsercion" Type="date" />
+    <Property Name="i_UsuarioInsertaId" Type="int" />
+    <Property Name="d_FechaActualizacion" Type="date" />
+    <Property Name="i_UsuarioActualizaId" Type="int" />
+    <Property Name="i_EsEliminado" Type="bit" />
+  </EntityType>
+  <EntityType Name="RayosX">
+    <Key>
+      <PropertyRef Name="v_RayosXId" />
+    </Key>
+    <Property Name="v_RayosXId" Type="varchar" Nullable="false" MaxLength="16" />
+    <Property Name="v_ServicioId" Type="varchar" MaxLength="16" />
+    <Property Name="v_0" Type="varchar" MaxLength="10" />
+    <Property Name="v_0_0" Type="varchar" MaxLength="10" />
+    <Property Name="v_0_1" Type="varchar" MaxLength="10" />
+    <Property Name="v_1_0" Type="varchar" MaxLength="10" />
+    <Property Name="v_1_1" Type="varchar" MaxLength="10" />
+    <Property Name="v_1_2" Type="varchar" MaxLength="10" />
+    <Property Name="v_2_1" Type="varchar" MaxLength="10" />
+    <Property Name="v_2_2" Type="varchar" MaxLength="10" />
+    <Property Name="v_2_3" Type="varchar" MaxLength="10" />
+    <Property Name="v_3_1" Type="varchar" MaxLength="10" />
+    <Property Name="v_3_2" Type="varchar" MaxLength="10" />
+    <Property Name="v_3_" Type="varchar" MaxLength="10" />
+    <Property Name="v_ConclusionesRayosX" Type="varchar" MaxLength="10" />
+    <Property Name="d_FechaInsercion" Type="date" />
+    <Property Name="i_UsuarioInsertaId" Type="int" />
+    <Property Name="d_FechaActualizacion" Type="date" />
+    <Property Name="i_UsuarioActualizaId" Type="int" />
+    <Property Name="i_EsEliminado" Type="bit" />
   </EntityType>
   <EntityType Name="receipHeader">
     <Key>
@@ -2665,6 +2647,35 @@
     <Property Name="d_UpdateDate" Type="datetime2" />
     <Property Name="i_UpdateUserId" Type="int" />
     <Property Name="v_ComentaryUpdate" Type="varchar" MaxLength="8000" />
+  </EntityType>
+  <EntityType Name="Riesgos">
+    <Key>
+      <PropertyRef Name="v_RiesgoId" />
+    </Key>
+    <Property Name="v_RiesgoId" Type="varchar" Nullable="false" MaxLength="16" />
+    <Property Name="v_ServicioId" Type="varchar" MaxLength="16" />
+    <Property Name="b_Ruido" Type="bit" />
+    <Property Name="b_Polvo" Type="bit" />
+    <Property Name="b_VidaSedentaria" Type="bit" />
+    <Property Name="b_VibTotal" Type="bit" />
+    <Property Name="b_Cancerigenos" Type="bit" />
+    <Property Name="b_Mutagenicos" Type="bit" />
+    <Property Name="b_Solventes" Type="bit" />
+    <Property Name="b_MetalPesado" Type="bit" />
+    <Property Name="b_Temperatura" Type="bit" />
+    <Property Name="b_Biologicos" Type="bit" />
+    <Property Name="b_Posturas" Type="bit" />
+    <Property Name="b_Turnos" Type="bit" />
+    <Property Name="b_Cargas" Type="bit" />
+    <Property Name="b_MovimientosRepetitivos" Type="bit" />
+    <Property Name="b_PantallaPVD" Type="bit" />
+    <Property Name="b_Otros" Type="bit" />
+    <Property Name="i_Descripcion" Type="varchar" MaxLength="500" />
+    <Property Name="d_FechaInsercion" Type="date" />
+    <Property Name="i_UsuarioInsertaId" Type="int" />
+    <Property Name="d_FechaActualizacion" Type="date" />
+    <Property Name="i_UsuarioActualizaId" Type="int" />
+    <Property Name="i_EsEliminado" Type="bit" />
   </EntityType>
   <EntityType Name="rolcuota">
     <Key>
@@ -3120,6 +3131,31 @@
     <Property Name="r_Total" Type="real" />
     <Property Name="v_ComentaryUpdate" Type="varchar" MaxLength="8000" />
   </EntityType>
+  <EntityType Name="Servicio">
+    <Key>
+      <PropertyRef Name="v_ServicioId" />
+    </Key>
+    <Property Name="v_ServicioId" Type="varchar" Nullable="false" MaxLength="16" />
+    <Property Name="v_PersonaId" Type="varchar" MaxLength="16" />
+    <Property Name="i_TipoExamen" Type="int" />
+    <Property Name="v_NombreExamen" Type="varchar" MaxLength="500" />
+    <Property Name="d_FechaExamen" Type="date" />
+    <Property Name="v_Ocupacion" Type="varbinary" MaxLength="500" />
+    <Property Name="v_EmpresaTrabajo" Type="varchar" MaxLength="500" />
+    <Property Name="v_Contrata" Type="varchar" MaxLength="500" />
+    <Property Name="v_ClinicaExamen" Type="varchar" MaxLength="50" />
+    <Property Name="v_Diagnosticos" Type="varchar(max)" />
+    <Property Name="v_Recomendaciones" Type="varchar(max)" />
+    <Property Name="v_Restricciones" Type="varchar(max)" />
+    <Property Name="i_Aptitud" Type="int" />
+    <Property Name="v_MotivoObservacion" Type="varchar" MaxLength="1000" />
+    <Property Name="d_FechaVigencia" Type="date" />
+    <Property Name="d_FechaInsercion" Type="date" />
+    <Property Name="i_UsuarioInsertaId" Type="int" />
+    <Property Name="d_FechaActualizacion" Type="date" />
+    <Property Name="i_UsuarioActualizaId" Type="int" />
+    <Property Name="i_EsEliminado" Type="bit" />
+  </EntityType>
   <EntityType Name="sms">
     <Key>
       <PropertyRef Name="i_smsId" />
@@ -3170,6 +3206,16 @@
     <Property Name="i_UpdateNodeId" Type="int" />
     <Property Name="v_ComentaryUpdate" Type="varchar" MaxLength="8000" />
   </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
   <EntityType Name="systemparameter">
     <Key>
       <PropertyRef Name="i_GroupId" />
@@ -3210,6 +3256,11 @@
     <Property Name="i_RolVentaId" Type="int" />
     <Property Name="v_ComentaryUpdate" Type="varchar" MaxLength="8000" />
     <Property Name="i_LoginFrecuency" Type="int" />
+    <Property Name="i_Permiso1" Type="int" />
+    <Property Name="i_Permiso2" Type="int" />
+    <Property Name="i_Permiso3" Type="int" />
+    <Property Name="i_Permiso4" Type="int" />
+    <Property Name="i_Permiso5" Type="int" />
   </EntityType>
   <EntityType Name="systemusergobalprofile">
     <Key>
@@ -3326,6 +3377,31 @@
     <Property Name="d_UpdateDate" Type="datetime2" />
     <Property Name="v_ComentaryUpdate" Type="varchar" MaxLength="8000" />
     <Property Name="v_ServiceId" Type="varchar" MaxLength="16" />
+  </EntityType>
+  <EntityType Name="Triaje">
+    <Key>
+      <PropertyRef Name="v_TriajeId" />
+    </Key>
+    <Property Name="v_TriajeId" Type="varchar" Nullable="false" MaxLength="16" />
+    <Property Name="v_ServicioId" Type="varchar" MaxLength="16" />
+    <Property Name="dec_Peso" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="dec_Talla" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="dec_IMC" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="dec_IndiceCintura" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="dec_Temperatura" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="dec_PerimetroCadera" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="dec_PerimetroAbdominal" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="i_PresionSistolica" Type="int" />
+    <Property Name="i_PresionDiastolica" Type="int" />
+    <Property Name="i_FrecResp" Type="int" />
+    <Property Name="i_FrecCard" Type="int" />
+    <Property Name="dec_SaturacionOxigeno" Type="int" />
+    <Property Name="v_ConclusionesTriaje" Type="varchar(max)" />
+    <Property Name="d_FechaInsercion" Type="date" />
+    <Property Name="i_UsuarioInsertaId" Type="int" />
+    <Property Name="d_FechaActualizacion" Type="date" />
+    <Property Name="i_UsuarioActualizaId" Type="int" />
+    <Property Name="i_EsEliminado" Type="bit" />
   </EntityType>
   <EntityType Name="typeofeep">
     <Key>
@@ -3751,18 +3827,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_DigitalContactCenter_DigitalContactCenter">
-    <End Role="DigitalContactCenter" Type="Sigesoft.Node.WinClient.DAL.Store.DigitalContactCenter" Multiplicity="1" />
-    <End Role="DigitalContactCenter1" Type="Sigesoft.Node.WinClient.DAL.Store.DigitalContactCenter" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="DigitalContactCenter">
-        <PropertyRef Name="v_DigitalContactCenterId" />
-      </Principal>
-      <Dependent Role="DigitalContactCenter1">
-        <PropertyRef Name="v_DigitalContactCenterId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_DigitalContactCenter_service">
     <End Role="service" Type="Sigesoft.Node.WinClient.DAL.Store.service" Multiplicity="0..1" />
     <End Role="DigitalContactCenter" Type="Sigesoft.Node.WinClient.DAL.Store.DigitalContactCenter" Multiplicity="*" />
@@ -3772,6 +3836,18 @@
       </Principal>
       <Dependent Role="DigitalContactCenter">
         <PropertyRef Name="v_ServiceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DigitalContactCenter_DigitalContactCenter">
+    <End Role="DigitalContactCenter" Type="Sigesoft.Node.WinClient.DAL.Store.DigitalContactCenter" Multiplicity="1" />
+    <End Role="DigitalContactCenter1" Type="Sigesoft.Node.WinClient.DAL.Store.DigitalContactCenter" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="DigitalContactCenter">
+        <PropertyRef Name="v_DigitalContactCenterId" />
+      </Principal>
+      <Dependent Role="DigitalContactCenter1">
+        <PropertyRef Name="v_DigitalContactCenterId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -3916,18 +3992,6 @@
       </Principal>
       <Dependent Role="hospitalizacionservice">
         <PropertyRef Name="v_HopitalizacionId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_inmunizaciones_person">
-    <End Role="person" Type="Sigesoft.Node.WinClient.DAL.Store.person" Multiplicity="0..1" />
-    <End Role="inmunizaciones" Type="Sigesoft.Node.WinClient.DAL.Store.inmunizaciones" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="person">
-        <PropertyRef Name="v_PersonId" />
-      </Principal>
-      <Dependent Role="inmunizaciones">
-        <PropertyRef Name="v_PersonId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -4385,6 +4449,42 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_dboPsicologia_dboServicio_v_ServicioId">
+    <End Role="Servicio" Type="Sigesoft.Node.WinClient.DAL.Store.Servicio" Multiplicity="0..1" />
+    <End Role="Psicologia" Type="Sigesoft.Node.WinClient.DAL.Store.Psicologia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Servicio">
+        <PropertyRef Name="v_ServicioId" />
+      </Principal>
+      <Dependent Role="Psicologia">
+        <PropertyRef Name="v_ServicioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dboPsicosensometrico_dboServicio_v_ServicioId">
+    <End Role="Servicio" Type="Sigesoft.Node.WinClient.DAL.Store.Servicio" Multiplicity="0..1" />
+    <End Role="Psicosensometrico" Type="Sigesoft.Node.WinClient.DAL.Store.Psicosensometrico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Servicio">
+        <PropertyRef Name="v_ServicioId" />
+      </Principal>
+      <Dependent Role="Psicosensometrico">
+        <PropertyRef Name="v_ServicioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dboRayosX_dboServicio_v_ServicioId">
+    <End Role="Servicio" Type="Sigesoft.Node.WinClient.DAL.Store.Servicio" Multiplicity="0..1" />
+    <End Role="RayosX" Type="Sigesoft.Node.WinClient.DAL.Store.RayosX" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Servicio">
+        <PropertyRef Name="v_ServicioId" />
+      </Principal>
+      <Dependent Role="RayosX">
+        <PropertyRef Name="v_ServicioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="Fk_Component_Recommendation_v_RecommendationId">
     <End Role="component" Type="Sigesoft.Node.WinClient.DAL.Store.component" Multiplicity="0..1" />
     <End Role="recommendation" Type="Sigesoft.Node.WinClient.DAL.Store.recommendation" Multiplicity="*" />
@@ -4468,6 +4568,18 @@
       </Principal>
       <Dependent Role="restriction">
         <PropertyRef Name="v_DiagnosticRepositoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dboRiesgos_dboServicio_v_ServicioId">
+    <End Role="Servicio" Type="Sigesoft.Node.WinClient.DAL.Store.Servicio" Multiplicity="0..1" />
+    <End Role="Riesgos" Type="Sigesoft.Node.WinClient.DAL.Store.Riesgos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Servicio">
+        <PropertyRef Name="v_ServicioId" />
+      </Principal>
+      <Dependent Role="Riesgos">
+        <PropertyRef Name="v_ServicioId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -4741,6 +4853,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_dboServicio_dboPersona_v_PersonaId">
+    <End Role="Persona" Type="Sigesoft.Node.WinClient.DAL.Store.Persona" Multiplicity="0..1" />
+    <End Role="Servicio" Type="Sigesoft.Node.WinClient.DAL.Store.Servicio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Persona">
+        <PropertyRef Name="v_PersonaId" />
+      </Principal>
+      <Dependent Role="Servicio">
+        <PropertyRef Name="v_PersonaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="Fk_DeplymentFile_SoftwareComponentRelease_i_DeploymentFileId">
     <End Role="deploymentfile" Type="Sigesoft.Node.WinClient.DAL.Store.deploymentfile" Multiplicity="0..1" />
     <End Role="softwarecomponentrelease" Type="Sigesoft.Node.WinClient.DAL.Store.softwarecomponentrelease" Multiplicity="*" />
@@ -4802,6 +4926,18 @@
       </Principal>
       <Dependent Role="ticketdetalle">
         <PropertyRef Name="v_TicketId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dboTriaje_dboServicio_v_ServicioId">
+    <End Role="Servicio" Type="Sigesoft.Node.WinClient.DAL.Store.Servicio" Multiplicity="0..1" />
+    <End Role="Triaje" Type="Sigesoft.Node.WinClient.DAL.Store.Triaje" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Servicio">
+        <PropertyRef Name="v_ServicioId" />
+      </Principal>
+      <Dependent Role="Triaje">
+        <PropertyRef Name="v_ServicioId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -6342,6 +6478,20 @@
     <Parameter Name="serviceId" Type="varchar" Mode="In" MaxLength="20" />
     <Parameter Name="componentName" Type="varchar" Mode="In" MaxLength="500" />
   </Function>
+  <Function Name="SP_GetDataHierarchy" IsComposable="false" BuiltIn="false" Aggregate="false" NiladicFunction="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="SP_GetDataHierarchy" />
+  <Function Name="sp_GetServicesPaginatedByUser" IsComposable="false" BuiltIn="false" Aggregate="false" NiladicFunction="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="sp_GetServicesPaginatedByUser">
+    <Parameter Name="v_ProtocolId" Type="varchar(max)" Mode="In" />
+    <Parameter Name="i_EsoTypeId" Type="int" Mode="In" />
+    <Parameter Name="v_GroupOccupationId" Type="varchar" Mode="In" MaxLength="20" />
+    <Parameter Name="d_StartServiceDate" Type="datetime" Mode="In" />
+    <Parameter Name="d_EndServiceDate" Type="datetime" Mode="In" />
+    <Parameter Name="SystemUserId" Type="int" Mode="In" />
+    <Parameter Name="Page" Type="int" Mode="In" />
+    <Parameter Name="SizePage" Type="int" Mode="In" />
+    <Parameter Name="SearchText" Type="varchar" Mode="In" MaxLength="250" />
+    <Parameter Name="TotalRecords" Type="int" Mode="Out" />
+  </Function>
+  <Function Name="SP_GetSystemParameters" IsComposable="false" BuiltIn="false" Aggregate="false" NiladicFunction="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="SP_GetSystemParameters" />
   <Function Name="upDatePass" IsComposable="false" BuiltIn="false" Aggregate="false" NiladicFunction="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="upDatePass">
     <Parameter Name="personId" Type="varchar" Mode="In" MaxLength="20" />
     <Parameter Name="pass" Type="varchar" Mode="In" MaxLength="100" />

@@ -40,3 +40,17 @@ D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Node\WinClient\DAL\MSSQL
 D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Node\WinClient\DAL\MSSQL\obj\Debug\Sigesoft.Node.WinClient.DAL.MSSQL.csprojResolveAssemblyReference.cache
 D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Node\WinClient\DAL\MSSQL\obj\Debug\Sigesoft.Node.WinClient.DAL.MSSQL.dll
 D:\DEV_DBO_SIST\CMC\SIGESOFT_CMC\NetMedicalCal\Sigesoft\Node\WinClient\DAL\MSSQL\obj\Debug\Sigesoft.Node.WinClient.DAL.MSSQL.pdb
+D:\DEV_DBO_SIST\CMC\NetMedicalOk\NetMedicalNew\Sigesoft\Node\WinClient\DAL\MSSQL\obj\Debug\DMnodeSQLServer.ssdl
+D:\DEV_DBO_SIST\CMC\NetMedicalOk\NetMedicalNew\Sigesoft\Node\WinClient\DAL\MSSQL\obj\Debug\DMnodeSQLServer.csdl
+D:\DEV_DBO_SIST\CMC\NetMedicalOk\NetMedicalNew\Sigesoft\Node\WinClient\DAL\MSSQL\obj\Debug\DMnodeSQLServer.msl
+D:\DEV_DBO_SIST\CMC\NetMedicalOk\NetMedicalNew\Sigesoft\Node\WinClient\DAL\MSSQL\obj\Debug\Sigesoft.Node.WinClient.DAL.MSSQL.csprojResolveAssemblyReference.cache
+D:\DEV_DBO_SIST\CMC\NetMedicalOk\NetMedicalNew\Sigesoft\Node\WinClient\DAL\MSSQL\bin\Debug\Sigesoft.Node.WinClient.DAL.MSSQL.dll
+D:\DEV_DBO_SIST\CMC\NetMedicalOk\NetMedicalNew\Sigesoft\Node\WinClient\DAL\MSSQL\bin\Debug\Sigesoft.Node.WinClient.DAL.MSSQL.pdb
+D:\DEV_DBO_SIST\CMC\NetMedicalOk\NetMedicalNew\Sigesoft\Node\WinClient\DAL\MSSQL\bin\Debug\Sigesoft.Node.WinClient.BE.dll
+D:\DEV_DBO_SIST\CMC\NetMedicalOk\NetMedicalNew\Sigesoft\Node\WinClient\DAL\MSSQL\bin\Debug\Sigesoft.Server.WebClientAdmin.DAL.MSSQL.dll
+D:\DEV_DBO_SIST\CMC\NetMedicalOk\NetMedicalNew\Sigesoft\Node\WinClient\DAL\MSSQL\bin\Debug\Sigesoft.Server.WebClientAdmin.BE.dll
+D:\DEV_DBO_SIST\CMC\NetMedicalOk\NetMedicalNew\Sigesoft\Node\WinClient\DAL\MSSQL\bin\Debug\Sigesoft.Server.WebClientAdmin.DAL.MSSQL.pdb
+D:\DEV_DBO_SIST\CMC\NetMedicalOk\NetMedicalNew\Sigesoft\Node\WinClient\DAL\MSSQL\bin\Debug\Sigesoft.Node.WinClient.BE.pdb
+D:\DEV_DBO_SIST\CMC\NetMedicalOk\NetMedicalNew\Sigesoft\Node\WinClient\DAL\MSSQL\bin\Debug\Sigesoft.Server.WebClientAdmin.BE.pdb
+D:\DEV_DBO_SIST\CMC\NetMedicalOk\NetMedicalNew\Sigesoft\Node\WinClient\DAL\MSSQL\obj\Debug\Sigesoft.Node.WinClient.DAL.MSSQL.dll
+D:\DEV_DBO_SIST\CMC\NetMedicalOk\NetMedicalNew\Sigesoft\Node\WinClient\DAL\MSSQL\obj\Debug\Sigesoft.Node.WinClient.DAL.MSSQL.pdb

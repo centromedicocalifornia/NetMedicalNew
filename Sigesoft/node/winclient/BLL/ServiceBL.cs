@@ -17,6 +17,7 @@ using System.Net.Sockets;
 using System.Runtime.InteropServices.ComTypes;
 using NetPdf;
 using System.Threading.Tasks;
+using System.Data;
 
 namespace Sigesoft.Node.WinClient.BLL
 {
@@ -41375,90 +41376,158 @@ namespace Sigesoft.Node.WinClient.BLL
             }
         }
 
+        private DataTable ExecuteCovidFilterSP(string spName, DateTime? pdatBeginDate, DateTime? pdatEndDate, string nombre, string servicio, string empresa, string contrata, int commandTimeout)
+        {
+            ConexionSigesoft conectasam = new ConexionSigesoft();
+            conectasam.opensigesoft();
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlCommand comando = new SqlCommand(spName, conectasam.conectarsigesoft);
+                comando.CommandType = System.Data.CommandType.StoredProcedure;
+                comando.CommandTimeout = commandTimeout;
+
+                SqlParameter paramFechaIicio = new SqlParameter("@FechaIicio", System.Data.SqlDbType.DateTime);
+                if (pdatBeginDate.HasValue) paramFechaIicio.Value = pdatBeginDate.Value; else paramFechaIicio.Value = DBNull.Value;
+                comando.Parameters.Add(paramFechaIicio);
+
+                SqlParameter paramFechaFin = new SqlParameter("@FechaFin", System.Data.SqlDbType.DateTime);
+                if (pdatEndDate.HasValue) paramFechaFin.Value = pdatEndDate.Value; else paramFechaFin.Value = DBNull.Value;
+                comando.Parameters.Add(paramFechaFin);
+
+                SqlParameter paramPerson = new SqlParameter("@v_Person", System.Data.SqlDbType.VarChar);
+                if (nombre != null) paramPerson.Value = nombre; else paramPerson.Value = DBNull.Value;
+                comando.Parameters.Add(paramPerson);
+
+                SqlParameter paramServicio = new SqlParameter("@Servicio", System.Data.SqlDbType.VarChar);
+                if (servicio != null) paramServicio.Value = servicio; else paramServicio.Value = DBNull.Value;
+                comando.Parameters.Add(paramServicio);
+
+                SqlParameter paramEmpresaGeneral = new SqlParameter("@EmpresaGeneral", System.Data.SqlDbType.VarChar);
+                if (empresa != null) paramEmpresaGeneral.Value = empresa; else paramEmpresaGeneral.Value = DBNull.Value;
+                comando.Parameters.Add(paramEmpresaGeneral);
+
+                SqlParameter paramEmpresaContrata = new SqlParameter("@EmpresaContrata", System.Data.SqlDbType.VarChar);
+                if (contrata != null) paramEmpresaContrata.Value = contrata; else paramEmpresaContrata.Value = DBNull.Value;
+                comando.Parameters.Add(paramEmpresaContrata);
+
+                SqlDataAdapter da = new SqlDataAdapter(comando);
+                da.Fill(dt);
+            }
+            finally
+            {
+                conectasam.closesigesoft();
+            }
+            return dt;
+        }
+
+        private T GetRowValue<T>(DataRow row, string columnName)
+        {
+            if (row.Table.Columns.Contains(columnName) && row[columnName] != DBNull.Value)
+            {
+                try
+                {
+                    return (T)Convert.ChangeType(row[columnName], typeof(T));
+                }
+                catch
+                {
+                    return default(T);
+                }
+            }
+            return default(T);
+        }
+
+        private string GetRowString(DataRow row, string columnName)
+        {
+            if (row.Table.Columns.Contains(columnName) && row[columnName] != DBNull.Value)
+            {
+                return row[columnName].ToString();
+            }
+            return null;
+        }
+
         public List<ServiceCovid19> GetServicesCovid19_Filters(DateTime? pdatBeginDate, DateTime? pdatEndDate, string nombre, string servicio, string empresa, string contrata)
         {
 
             try
             {
-                SigesoftEntitiesModel dbContext = new SigesoftEntitiesModel();
-                dbContext.CommandTimeout = 100000;
-                //
-                var query = (from a in dbContext.getservicescovid19_filters_sp(pdatBeginDate, pdatEndDate, nombre, servicio, empresa, contrata)
-                             select new ServiceCovid19
-                             {
-                                 SERVICIO = a.SERVICIO,
-                                 ID_PACIENTE = a.ID_PACIENTE,
-                                 PACIENTE = a.PACIENTE,
-                                 DNI = a.DNI,
-                                 NACIMIENTO = a.NACIMIENTO,
-                                 EDAD = a.EDAD,
-                                 OCUPACION = a.OCUPACION,
-                                 SEXO = a.SEXO,
-                                 TELEFONO = a.TELEFONO,
-                                 DIRECCION = a.DIRECCION,
-                                 CONTACTO_EMERGENCIA = a.CONTACTO_EMERGENCIA,
-                                 TELEFONO_EMERGENCIA = a.TELEFONO_EMERGENCIA,
-                                 EXAMEN = a.EXAMEN,
-                                 PRECIO = decimal.Parse(a.PRECIO.ToString()),
-                                 FECHA = a.FECHA,
-                                 COMPROBANTE = a.COMPROBANTE,
-                                 PROTOCOLOID = a.PROTOCOLOID,
-                                 PROTOCOLO = a.PROTOCOLO,
-                                 RESULTADO = a.RESULTADO,
-                                 PRIMER_RES = a.PRIMER_RES,
-                                 SEGUNDO_RES = a.SEGUNDO_RES,
-                                 ATENCION = a.ATENCION,
-                                 USUARIO = a.USUARIO,
-                                 DEPARTAMENTO = a.DEPARTAMENTO,
-                                 PROVINCIA = a.PROVINCIA,
-                                 DISTRITO = a.DISTRITO,
-                                 UBIGEO = a.DEPARTAMENTO + " - " + a.PROVINCIA + " - " + a.DISTRITO,
-                                 MINAID = a.MINAID,
-                                 MINANAME = a.MINANAME,
-                                 CONTRATAID = a.CONTRATAID,
-                                 CONTRATANAME = a.CONTRATANAME,
-                                 TERCEROID = a.TERCEROID,
-                                 TERCERONAME = a.TERCERONAME,
-                                 i_StatusLiquidation = Convert.ToInt32(a.i_StatusLiquidation),
-                                 i_MasterServiceId = Convert.ToInt32(a.i_MasterServiceId),
-                                 GradoInstruc = a.GradoInstruc,
-                                 EstadoCivil = a.EstadoCivil,
-                                 FechaNacimiento = a.FechaNacimiento.Value.ToShortDateString(),
-                                 TIPOEXAMEN = "PRUEBA RAPIDA",
-                                 Sintomas = GetSintomasByService(a.SERVICIO, Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_1,
-                                             Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_2,
-                                             Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_3,
-                                             Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_4,
-                                             Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_5,
-                                             Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_6,
-                                             Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_7,
-                                             Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_8,
-                                             Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_9,
-                                             Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_10,
-                                             Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_11,
-                                             Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_12,
-                                             Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_13,
-                                             Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_14,
-                                             Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_15,
-                                             Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_16,
-                                             Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_1_LC,
-                                             Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_2_LC,
-                                             Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_3_LC,
-                                             Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_4_LC,
-                                             Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_5_LC,
-                                             Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_6_LC,
-                                             Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_7_LC,
-                                             Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_8_LC,
-                                             Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_9_LC,
-                                             Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_10_LC,
-                                             Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_11_LC,
-                                             Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_12_LC,
-                                             Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_13_LC,
-                                             Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_14_LC,
-                                             Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_15_LC,
-                                             Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_16_LC),
-                                 VACUNAS = a.VACUNAS
-                             }).ToList();
+                DataTable dt = ExecuteCovidFilterSP("getservicescovid19_filters_sp", pdatBeginDate, pdatEndDate, nombre, servicio, empresa, contrata, 100000);
+
+                var query = dt.AsEnumerable().Select(row => new ServiceCovid19
+                {
+                    SERVICIO = GetRowString(row, "SERVICIO"),
+                    ID_PACIENTE = GetRowString(row, "ID_PACIENTE"),
+                    PACIENTE = GetRowString(row, "PACIENTE"),
+                    DNI = GetRowString(row, "DNI"),
+                    NACIMIENTO = GetRowValue<DateTime?>(row, "NACIMIENTO"),
+                    EDAD = GetRowValue<int?>(row, "EDAD"),
+                    OCUPACION = GetRowString(row, "OCUPACION"),
+                    SEXO = GetRowString(row, "SEXO"),
+                    TELEFONO = GetRowString(row, "TELEFONO"),
+                    DIRECCION = GetRowString(row, "DIRECCION"),
+                    CONTACTO_EMERGENCIA = GetRowString(row, "CONTACTO_EMERGENCIA"),
+                    TELEFONO_EMERGENCIA = GetRowString(row, "TELEFONO_EMERGENCIA"),
+                    EXAMEN = GetRowString(row, "EXAMEN"),
+                    PRECIO = GetRowValue<decimal?>(row, "PRECIO") ?? decimal.Zero,
+                    FECHA = GetRowValue<DateTime?>(row, "FECHA"),
+                    COMPROBANTE = GetRowString(row, "COMPROBANTE"),
+                    PROTOCOLOID = GetRowString(row, "PROTOCOLOID"),
+                    PROTOCOLO = GetRowString(row, "PROTOCOLO"),
+                    RESULTADO = GetRowString(row, "RESULTADO"),
+                    PRIMER_RES = GetRowString(row, "PRIMER_RES"),
+                    SEGUNDO_RES = GetRowString(row, "SEGUNDO_RES"),
+                    ATENCION = GetRowString(row, "ATENCION"),
+                    USUARIO = GetRowString(row, "USUARIO"),
+                    DEPARTAMENTO = GetRowString(row, "DEPARTAMENTO"),
+                    PROVINCIA = GetRowString(row, "PROVINCIA"),
+                    DISTRITO = GetRowString(row, "DISTRITO"),
+                    UBIGEO = GetRowString(row, "DEPARTAMENTO") + " - " + GetRowString(row, "PROVINCIA") + " - " + GetRowString(row, "DISTRITO"),
+                    MINAID = GetRowString(row, "MINAID"),
+                    MINANAME = GetRowString(row, "MINANAME"),
+                    CONTRATAID = GetRowString(row, "CONTRATAID"),
+                    CONTRATANAME = GetRowString(row, "CONTRATANAME"),
+                    TERCEROID = GetRowString(row, "TERCEROID"),
+                    TERCERONAME = GetRowString(row, "TERCERONAME"),
+                    i_StatusLiquidation = GetRowValue<int?>(row, "i_StatusLiquidation") ?? 0,
+                    i_MasterServiceId = GetRowValue<int?>(row, "i_MasterServiceId") ?? 0,
+                    GradoInstruc = GetRowString(row, "GradoInstruc"),
+                    EstadoCivil = GetRowString(row, "EstadoCivil"),
+                    FechaNacimiento = GetRowValue<DateTime?>(row, "FechaNacimiento").HasValue ? GetRowValue<DateTime?>(row, "FechaNacimiento").Value.ToShortDateString() : "",
+                    TIPOEXAMEN = "PRUEBA RAPIDA",
+                    Sintomas = GetSintomasByService(GetRowString(row, "SERVICIO"), Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_1,
+                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_2,
+                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_3,
+                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_4,
+                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_5,
+                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_6,
+                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_7,
+                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_8,
+                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_9,
+                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_10,
+                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_11,
+                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_12,
+                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_13,
+                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_14,
+                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_15,
+                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_16,
+                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_1_LC,
+                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_2_LC,
+                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_3_LC,
+                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_4_LC,
+                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_5_LC,
+                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_6_LC,
+                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_7_LC,
+                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_8_LC,
+                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_9_LC,
+                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_10_LC,
+                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_11_LC,
+                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_12_LC,
+                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_13_LC,
+                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_14_LC,
+                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_15_LC,
+                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_16_LC),
+                    VACUNAS = GetRowString(row, "VACUNAS")
+                }).ToList();
 
                 return query;
 
@@ -41475,54 +41544,52 @@ namespace Sigesoft.Node.WinClient.BLL
 
             try
             {
-                SigesoftEntitiesModel dbContext = new SigesoftEntitiesModel();
-                dbContext.CommandTimeout = 100000;
+                DataTable dt = ExecuteCovidFilterSP("getservicescovid19molecular_filters_sp", pdatBeginDate, pdatEndDate, nombre, servicio, empresa, contrata, 100000);
 
-                var query = (from a in dbContext.getservicescovid19molecular_filters_sp(pdatBeginDate, pdatEndDate, nombre, servicio, empresa, contrata)
-                             select new ServiceCovid19
-                             {
-                                 SERVICIO = a.SERVICIO,
-                                 ID_PACIENTE = a.ID_PACIENTE,
-                                 PACIENTE = a.PACIENTE,
-                                 DNI = a.DNI,
-                                 NACIMIENTO = a.NACIMIENTO,
-                                 EDAD = a.EDAD,
-                                 OCUPACION = a.OCUPACION,
-                                 SEXO = a.SEXO,
-                                 TELEFONO = a.TELEFONO,
-                                 DIRECCION = a.DIRECCION,
-                                 CONTACTO_EMERGENCIA = a.CONTACTO_EMERGENCIA,
-                                 TELEFONO_EMERGENCIA = a.TELEFONO_EMERGENCIA,
-                                 EXAMEN = a.EXAMEN,
-                                 PRECIO = decimal.Parse(a.PRECIO.ToString()),
-                                 FECHA = a.FECHA,
-                                 COMPROBANTE = a.COMPROBANTE,
-                                 PROTOCOLOID = a.PROTOCOLOID,
-                                 PROTOCOLO = a.PROTOCOLO,
-                                 RESULTADO = a.RESULTADO,
-                                 PRIMER_RES = "",
-                                 SEGUNDO_RES = "",
-                                 ATENCION = a.ATENCION,
-                                 USUARIO = a.USUARIO,
-                                 DEPARTAMENTO = a.DEPARTAMENTO,
-                                 PROVINCIA = a.PROVINCIA,
-                                 DISTRITO = a.DISTRITO,
-                                 UBIGEO = a.DEPARTAMENTO + " - " + a.PROVINCIA + " - " + a.DISTRITO,
-                                 MINAID = a.MINAID,
-                                 MINANAME = a.MINANAME,
-                                 CONTRATAID = a.CONTRATAID,
-                                 CONTRATANAME = a.CONTRATANAME,
-                                 TERCEROID = a.TERCEROID,
-                                 TERCERONAME = a.TERCERONAME,
-                                 i_StatusLiquidation = Convert.ToInt32(a.i_StatusLiquidation),
-                                 i_MasterServiceId = Convert.ToInt32(a.i_MasterServiceId),
-                                 AP_PATERNO = a.AP_PATERNO,
-                                 AP_MATERNO = a.AP_MATERNO,
-                                 NOMBRES = a.NOMBRES,
-                                 Direccion_Toma = a.Direccion,
-                                 Lugar = a.Lugar,
-                                 TIPOEXAMEN = "PRUEBA MOLECULAR",
-                                 Sintomas = GetSintomasByService(a.SERVICIO, Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_C_3_1,
+                var query = dt.AsEnumerable().Select(row => new ServiceCovid19
+                {
+                    SERVICIO = GetRowString(row, "SERVICIO"),
+                    ID_PACIENTE = GetRowString(row, "ID_PACIENTE"),
+                    PACIENTE = GetRowString(row, "PACIENTE"),
+                    DNI = GetRowString(row, "DNI"),
+                    NACIMIENTO = GetRowValue<DateTime?>(row, "NACIMIENTO"),
+                    EDAD = GetRowValue<int?>(row, "EDAD"),
+                    OCUPACION = GetRowString(row, "OCUPACION"),
+                    SEXO = GetRowString(row, "SEXO"),
+                    TELEFONO = GetRowString(row, "TELEFONO"),
+                    DIRECCION = GetRowString(row, "DIRECCION"),
+                    CONTACTO_EMERGENCIA = GetRowString(row, "CONTACTO_EMERGENCIA"),
+                    TELEFONO_EMERGENCIA = GetRowString(row, "TELEFONO_EMERGENCIA"),
+                    EXAMEN = GetRowString(row, "EXAMEN"),
+                    PRECIO = GetRowValue<decimal?>(row, "PRECIO") ?? decimal.Zero,
+                    FECHA = GetRowValue<DateTime?>(row, "FECHA"),
+                    COMPROBANTE = GetRowString(row, "COMPROBANTE"),
+                    PROTOCOLOID = GetRowString(row, "PROTOCOLOID"),
+                    PROTOCOLO = GetRowString(row, "PROTOCOLO"),
+                    RESULTADO = GetRowString(row, "RESULTADO"),
+                    PRIMER_RES = "",
+                    SEGUNDO_RES = "",
+                    ATENCION = GetRowString(row, "ATENCION"),
+                    USUARIO = GetRowString(row, "USUARIO"),
+                    DEPARTAMENTO = GetRowString(row, "DEPARTAMENTO"),
+                    PROVINCIA = GetRowString(row, "PROVINCIA"),
+                    DISTRITO = GetRowString(row, "DISTRITO"),
+                    UBIGEO = GetRowString(row, "DEPARTAMENTO") + " - " + GetRowString(row, "PROVINCIA") + " - " + GetRowString(row, "DISTRITO"),
+                    MINAID = GetRowString(row, "MINAID"),
+                    MINANAME = GetRowString(row, "MINANAME"),
+                    CONTRATAID = GetRowString(row, "CONTRATAID"),
+                    CONTRATANAME = GetRowString(row, "CONTRATANAME"),
+                    TERCEROID = GetRowString(row, "TERCEROID"),
+                    TERCERONAME = GetRowString(row, "TERCERONAME"),
+                    i_StatusLiquidation = GetRowValue<int?>(row, "i_StatusLiquidation") ?? 0,
+                    i_MasterServiceId = GetRowValue<int?>(row, "i_MasterServiceId") ?? 0,
+                    AP_PATERNO = GetRowString(row, "AP_PATERNO"),
+                    AP_MATERNO = GetRowString(row, "AP_MATERNO"),
+                    NOMBRES = GetRowString(row, "NOMBRES"),
+                    Direccion_Toma = GetRowString(row, "Direccion"),
+                    Lugar = GetRowString(row, "Lugar"),
+                    TIPOEXAMEN = "PRUEBA MOLECULAR",
+                    Sintomas = GetSintomasByService(GetRowString(row, "SERVICIO"), Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_C_3_1,
                                              Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_C_3_2,
                                              Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_C_3_3,
                                              Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_C_3_4,
@@ -41554,8 +41621,8 @@ namespace Sigesoft.Node.WinClient.BLL
                                              Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_LC_C_3_14,
                                              Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_LC_C_3_15,
                                              Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_LC_C_3_16),
-                                 VACUNAS = a.VACUNAS
-                             }).ToList();
+                    VACUNAS = GetRowString(row, "VACUNAS")
+                }).ToList();
 
                 return query;
 
@@ -41572,55 +41639,52 @@ namespace Sigesoft.Node.WinClient.BLL
 
             try
             {
-                SigesoftEntitiesModel dbContext = new SigesoftEntitiesModel();
-                dbContext.CommandTimeout = 100000;
-                List<string> ServicioIds = new List<string>();
+                DataTable dt = ExecuteCovidFilterSP("getservicescovid19antigeno_filters_sp", pdatBeginDate, pdatEndDate, nombre, servicio, empresa, contrata, 100000);
 
-                var query = (from a in dbContext.getservicescovid19antigeno_filters_sp(pdatBeginDate, pdatEndDate, nombre, servicio, empresa, contrata)
-                             select new ServiceCovid19
-                             {
-                                 SERVICIO = a.SERVICIO,
-                                 ID_PACIENTE = a.ID_PACIENTE,
-                                 PACIENTE = a.PACIENTE,
-                                 DNI = a.DNI,
-                                 NACIMIENTO = a.NACIMIENTO,
-                                 EDAD = a.EDAD,
-                                 OCUPACION = a.OCUPACION,
-                                 SEXO = a.SEXO,
-                                 TELEFONO = a.TELEFONO,
-                                 DIRECCION = a.DIRECCION,
-                                 CONTACTO_EMERGENCIA = a.CONTACTO_EMERGENCIA,
-                                 TELEFONO_EMERGENCIA = a.TELEFONO_EMERGENCIA,
-                                 EXAMEN = a.EXAMEN,
-                                 PRECIO = decimal.Parse(a.PRECIO.ToString()),
-                                 FECHA = a.FECHA,
-                                 COMPROBANTE = a.COMPROBANTE,
-                                 PROTOCOLOID = a.PROTOCOLOID,
-                                 PROTOCOLO = a.PROTOCOLO,
-                                 RESULTADO = a.RESULTADO,
-                                 PRIMER_RES = "",
-                                 SEGUNDO_RES = "",
-                                 ATENCION = a.ATENCION,
-                                 USUARIO = a.USUARIO,
-                                 DEPARTAMENTO = a.DEPARTAMENTO,
-                                 PROVINCIA = a.PROVINCIA,
-                                 DISTRITO = a.DISTRITO,
-                                 UBIGEO = a.DEPARTAMENTO + " - " + a.PROVINCIA + " - " + a.DISTRITO,
-                                 MINAID = a.MINAID,
-                                 MINANAME = a.MINANAME,
-                                 CONTRATAID = a.CONTRATAID,
-                                 CONTRATANAME = a.CONTRATANAME,
-                                 TERCEROID = a.TERCEROID,
-                                 TERCERONAME = a.TERCERONAME,
-                                 i_StatusLiquidation = Convert.ToInt32(a.i_StatusLiquidation),
-                                 i_MasterServiceId = Convert.ToInt32(a.i_MasterServiceId),
-                                 AP_PATERNO = a.AP_PATERNO,
-                                 AP_MATERNO = a.AP_MATERNO,
-                                 NOMBRES = a.NOMBRES,
-                                 Direccion_Toma = a.Direccion,
-                                 Lugar = a.Lugar,
-                                 TIPOEXAMEN = "PRUEBA ANTIGENO",
-                                 Sintomas = GetSintomasByService(a.SERVICIO, Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_1,
+                var query = dt.AsEnumerable().Select(row => new ServiceCovid19
+                {
+                    SERVICIO = GetRowString(row, "SERVICIO"),
+                    ID_PACIENTE = GetRowString(row, "ID_PACIENTE"),
+                    PACIENTE = GetRowString(row, "PACIENTE"),
+                    DNI = GetRowString(row, "DNI"),
+                    NACIMIENTO = GetRowValue<DateTime?>(row, "NACIMIENTO"),
+                    EDAD = GetRowValue<int?>(row, "EDAD"),
+                    OCUPACION = GetRowString(row, "OCUPACION"),
+                    SEXO = GetRowString(row, "SEXO"),
+                    TELEFONO = GetRowString(row, "TELEFONO"),
+                    DIRECCION = GetRowString(row, "DIRECCION"),
+                    CONTACTO_EMERGENCIA = GetRowString(row, "CONTACTO_EMERGENCIA"),
+                    TELEFONO_EMERGENCIA = GetRowString(row, "TELEFONO_EMERGENCIA"),
+                    EXAMEN = GetRowString(row, "EXAMEN"),
+                    PRECIO = GetRowValue<decimal?>(row, "PRECIO") ?? decimal.Zero,
+                    FECHA = GetRowValue<DateTime?>(row, "FECHA"),
+                    COMPROBANTE = GetRowString(row, "COMPROBANTE"),
+                    PROTOCOLOID = GetRowString(row, "PROTOCOLOID"),
+                    PROTOCOLO = GetRowString(row, "PROTOCOLO"),
+                    RESULTADO = GetRowString(row, "RESULTADO"),
+                    PRIMER_RES = "",
+                    SEGUNDO_RES = "",
+                    ATENCION = GetRowString(row, "ATENCION"),
+                    USUARIO = GetRowString(row, "USUARIO"),
+                    DEPARTAMENTO = GetRowString(row, "DEPARTAMENTO"),
+                    PROVINCIA = GetRowString(row, "PROVINCIA"),
+                    DISTRITO = GetRowString(row, "DISTRITO"),
+                    UBIGEO = GetRowString(row, "DEPARTAMENTO") + " - " + GetRowString(row, "PROVINCIA") + " - " + GetRowString(row, "DISTRITO"),
+                    MINAID = GetRowString(row, "MINAID"),
+                    MINANAME = GetRowString(row, "MINANAME"),
+                    CONTRATAID = GetRowString(row, "CONTRATAID"),
+                    CONTRATANAME = GetRowString(row, "CONTRATANAME"),
+                    TERCEROID = GetRowString(row, "TERCEROID"),
+                    TERCERONAME = GetRowString(row, "TERCERONAME"),
+                    i_StatusLiquidation = GetRowValue<int?>(row, "i_StatusLiquidation") ?? 0,
+                    i_MasterServiceId = GetRowValue<int?>(row, "i_MasterServiceId") ?? 0,
+                    AP_PATERNO = GetRowString(row, "AP_PATERNO"),
+                    AP_MATERNO = GetRowString(row, "AP_MATERNO"),
+                    NOMBRES = GetRowString(row, "NOMBRES"),
+                    Direccion_Toma = GetRowString(row, "Direccion"),
+                    Lugar = GetRowString(row, "Lugar"),
+                    TIPOEXAMEN = "PRUEBA ANTIGENO",
+                    Sintomas = GetSintomasByService(GetRowString(row, "SERVICIO"), Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_1,
                                              Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_2,
                                              Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_3,
                                              Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_4,
@@ -41652,10 +41716,8 @@ namespace Sigesoft.Node.WinClient.BLL
                                              Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_14,
                                              Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_15,
                                              Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_16),
-                                 VACUNAS = a.VACUNAS
-                                 //Sintomas = System.Threading.Tasks.Task.Factory.StartNew(() => SintomasAntigeno(a.SERVICIO)).Wait()
-
-                             }).ToList();
+                    VACUNAS = GetRowString(row, "VACUNAS")
+                }).ToList();
 
                 return query;
 
@@ -41699,433 +41761,264 @@ namespace Sigesoft.Node.WinClient.BLL
                 return null;
             }
         }
-        #region OLDDD
-        //public string SintomasAntigeno(string serviceId)
-        //{
-        //    SintomasCovid _SintomasCovid = new SintomasCovid();
-        //    List<string> lista = new List<string>();
-        //    List<ServiceComponentList>  serviceComponents = new List<ServiceComponentList>();
-        //    ServiceComponentList covid = new ServiceComponentList();
-        //    ServiceComponentList covid2 = new ServiceComponentList();
-        //    string result = "";
-        //    //serviceComponents = new ServiceBL().GetServiceComponentsReport(serviceId);
+        //#endregion
 
-        //    //Task.Factory.StartNew(() =>
-        //    //        {
-        //                serviceComponents = new ServiceBL().GetServiceComponentsReport(serviceId);
-
-        //                covid = serviceComponents.Find(p => p.v_ComponentId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_ID);
-        //                covid2 = serviceComponents.Find(p => p.v_ComponentId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_ID_LC);
-
-
-
-        //                //_SintomasCovid.serviceId = serviceId;
-
-        //            //})
-        //            //.ContinueWith(t =>
-        //            //{
-        //                //serviceComponents = new ServiceBL().GetServiceComponentsReport(serviceId);
-        //                //if (serviceComponents == null) return;
-
-        //                if (covid != null) 
-        //                {
-        //                    var FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_1 = covid.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_1).v_ComponentFielName;
-        //                    var FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_2 = covid.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_2).v_ComponentFielName;
-        //                    var FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_3 = covid.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_3).v_ComponentFielName;
-        //                    var FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_4 = covid.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_4).v_ComponentFielName;
-        //                    var FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_5 = covid.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_5).v_ComponentFielName;
-        //                    var FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_6 = covid.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_6).v_ComponentFielName;
-        //                    var FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_7 = covid.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_7).v_ComponentFielName;
-        //                    var FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_8 = covid.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_8).v_ComponentFielName;
-        //                    var FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_9 = covid.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_9).v_ComponentFielName;
-        //                    var FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_10 = covid.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_10).v_ComponentFielName;
-        //                    var FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_11 = covid.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_11).v_ComponentFielName;
-        //                    var FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_12 = covid.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_12).v_ComponentFielName;
-        //                    var FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_13 = covid.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_13).v_ComponentFielName;
-        //                    var FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_14 = covid.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_14).v_ComponentFielName;
-        //                    var FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_15 = covid.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_15).v_ComponentFielName;
-        //                    var FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_16 = covid.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_16).v_Value1;
-
-        //                    if (covid.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_1).v_Value1 == "1")
-        //                        lista.Add(FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_1);
-
-        //                    if (covid.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_2).v_Value1 == "1")
-        //                        lista.Add(FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_2);
-
-        //                    if (covid.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_3).v_Value1 == "1")
-        //                        lista.Add(FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_3);
-
-        //                    if (covid.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_4).v_Value1 == "1")
-        //                        lista.Add(FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_4);
-
-        //                    if (covid.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_5).v_Value1 == "1")
-        //                        lista.Add(FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_5);
-
-        //                    if (covid.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_6).v_Value1 == "1")
-        //                        lista.Add(FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_6);
-
-        //                    if (covid.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_7).v_Value1 == "1")
-        //                        lista.Add(FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_7);
-
-        //                    if (covid.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_8).v_Value1 == "1")
-        //                        lista.Add(FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_8);
-
-        //                    if (covid.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_9).v_Value1 == "1")
-        //                        lista.Add(FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_9);
-
-        //                    if (covid.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_10).v_Value1 == "1")
-        //                        lista.Add(FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_10);
-
-        //                    if (covid.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_11).v_Value1 == "1")
-        //                        lista.Add(FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_11);
-
-        //                    if (covid.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_12).v_Value1 == "1")
-        //                        lista.Add(FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_12);
-
-        //                    if (covid.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_13).v_Value1 == "1")
-        //                        lista.Add(FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_13);
-
-        //                    if (covid.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_14).v_Value1 == "1")
-        //                        lista.Add(FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_14);
-
-        //                    lista.Add(FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_16);
-
-        //                }
-
-        //                if (covid2 != null) 
-        //                {
-        //                    var FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_1 = covid2.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_1).v_ComponentFielName;
-        //                    var FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_2 = covid2.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_2).v_ComponentFielName;
-        //                    var FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_3 = covid2.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_3).v_ComponentFielName;
-        //                    var FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_4 = covid2.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_4).v_ComponentFielName;
-        //                    var FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_5 = covid2.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_5).v_ComponentFielName;
-        //                    var FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_6 = covid2.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_6).v_ComponentFielName;
-        //                    var FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_7 = covid2.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_7).v_ComponentFielName;
-        //                    var FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_8 = covid2.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_8).v_ComponentFielName;
-        //                    var FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_9 = covid2.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_9).v_ComponentFielName;
-        //                    var FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_10 = covid2.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_10).v_ComponentFielName;
-        //                    var FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_11 = covid2.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_11).v_ComponentFielName;
-        //                    var FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_12 = covid2.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_12).v_ComponentFielName;
-        //                    var FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_13 = covid2.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_13).v_ComponentFielName;
-        //                    var FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_14 = covid2.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_14).v_ComponentFielName;
-        //                    var FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_15 = covid2.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_15).v_ComponentFielName;
-        //                    var FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_16 = covid2.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_16).v_Value1;
-
-        //                    if (covid2.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_1).v_Value1 == "1")
-        //                        lista.Add(FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_1);
-
-        //                    if (covid2.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_2).v_Value1 == "1")
-        //                        lista.Add(FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_2);
-
-        //                    if (covid2.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_3).v_Value1 == "1")
-        //                        lista.Add(FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_3);
-
-        //                    if (covid2.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_4).v_Value1 == "1")
-        //                        lista.Add(FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_4);
-
-        //                    if (covid2.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_5).v_Value1 == "1")
-        //                        lista.Add(FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_5);
-
-        //                    if (covid2.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_6).v_Value1 == "1")
-        //                        lista.Add(FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_6);
-
-        //                    if (covid2.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_7).v_Value1 == "1")
-        //                        lista.Add(FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_7);
-
-        //                    if (covid2.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_8).v_Value1 == "1")
-        //                        lista.Add(FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_8);
-
-        //                    if (covid2.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_9).v_Value1 == "1")
-        //                        lista.Add(FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_9);
-
-        //                    if (covid2.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_10).v_Value1 == "1")
-        //                        lista.Add(FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_10);
-
-        //                    if (covid2.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_11).v_Value1 == "1")
-        //                        lista.Add(FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_11);
-
-        //                    if (covid2.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_12).v_Value1 == "1")
-        //                        lista.Add(FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_12);
-
-        //                    if (covid2.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_13).v_Value1 == "1")
-        //                        lista.Add(FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_13);
-
-        //                    if (covid2.ServiceComponentFields.Find(p => p.v_ComponentFieldsId == Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_14).v_Value1 == "1")
-        //                        lista.Add(FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_14);
-
-        //                    lista.Add(FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_16);
-        //                }
-        //            //    //_SintomasCovid.serviceId = serviceId;
-        //            //});
-        //    result = String.Join(", ", lista.ToArray());
-
-        //    return result;
-        //    //System.Threading.Tasks.Task.Factory.StartNew(() => 
-        //    //    serviceComponents = new ServiceBL().GetServiceComponentsReport(serviceId)
-        //    //    ).Wait(); 
-
-
-
-
-        //}
-        #endregion
         public List<ServiceCovid19> GetServicesCovid19_Filters_TODOS(DateTime? pdatBeginDate, DateTime? pdatEndDate, string nombre, string servicio, string empresa, string contrata)
         {
 
             try
             {
-                SigesoftEntitiesModel dbContext = new SigesoftEntitiesModel();
-                dbContext.CommandTimeout = 100000;
                 List<ServiceCovid19> listaTodos = new List<ServiceCovid19>();
-                var query1 = (from a in dbContext.getservicescovid19_filters_sp(pdatBeginDate, pdatEndDate, nombre, servicio, empresa, contrata)
-                              select new ServiceCovid19
-                              {
-                                  SERVICIO = a.SERVICIO,
-                                  ID_PACIENTE = a.ID_PACIENTE,
-                                  PACIENTE = a.PACIENTE,
-                                  DNI = a.DNI,
-                                  NACIMIENTO = a.NACIMIENTO,
-                                  EDAD = a.EDAD,
-                                  OCUPACION = a.OCUPACION,
-                                  SEXO = a.SEXO,
-                                  TELEFONO = a.TELEFONO,
-                                  DIRECCION = a.DIRECCION,
-                                  CONTACTO_EMERGENCIA = a.CONTACTO_EMERGENCIA,
-                                  TELEFONO_EMERGENCIA = a.TELEFONO_EMERGENCIA,
-                                  EXAMEN = a.EXAMEN,
-                                  PRECIO = decimal.Parse(a.PRECIO.ToString()),
-                                  FECHA = a.FECHA,
-                                  COMPROBANTE = a.COMPROBANTE,
-                                  PROTOCOLOID = a.PROTOCOLOID,
-                                  PROTOCOLO = a.PROTOCOLO,
-                                  RESULTADO = a.RESULTADO,
-                                  PRIMER_RES = a.PRIMER_RES,
-                                  SEGUNDO_RES = a.SEGUNDO_RES,
-                                  ATENCION = a.ATENCION,
-                                  USUARIO = a.USUARIO,
-                                  DEPARTAMENTO = a.DEPARTAMENTO,
-                                  PROVINCIA = a.PROVINCIA,
-                                  DISTRITO = a.DISTRITO,
-                                  UBIGEO = a.DEPARTAMENTO + " - " + a.PROVINCIA + " - " + a.DISTRITO,
-                                  MINAID = a.MINAID,
-                                  MINANAME = a.MINANAME,
-                                  CONTRATAID = a.CONTRATAID,
-                                  CONTRATANAME = a.CONTRATANAME,
-                                  TERCEROID = a.TERCEROID,
-                                  TERCERONAME = a.TERCERONAME,
-                                  i_StatusLiquidation = Convert.ToInt32(a.i_StatusLiquidation),
-                                  i_MasterServiceId = Convert.ToInt32(a.i_MasterServiceId),
-                                  GradoInstruc = a.GradoInstruc,
-                                  EstadoCivil = a.EstadoCivil,
-                                  FechaNacimiento = a.FechaNacimiento.Value.ToShortDateString(),
-                                  TIPOEXAMEN = "PRUEBA RAPIDA",
-                                  Sintomas = GetSintomasByService(a.SERVICIO, Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_1,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_2,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_3,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_4,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_5,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_6,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_7,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_8,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_9,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_10,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_11,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_12,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_13,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_14,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_15,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_16,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_1_LC,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_2_LC,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_3_LC,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_4_LC,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_5_LC,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_6_LC,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_7_LC,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_8_LC,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_9_LC,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_10_LC,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_11_LC,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_12_LC,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_13_LC,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_14_LC,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_15_LC,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_16_LC),
-                                  VACUNAS = a.VACUNAS
-                              }).ToList();
+
+                DataTable dt1 = ExecuteCovidFilterSP("getservicescovid19_filters_sp", pdatBeginDate, pdatEndDate, nombre, servicio, empresa, contrata, 100000);
+                var query1 = dt1.AsEnumerable().Select(row => new ServiceCovid19
+                {
+                    SERVICIO = GetRowString(row, "SERVICIO"),
+                    ID_PACIENTE = GetRowString(row, "ID_PACIENTE"),
+                    PACIENTE = GetRowString(row, "PACIENTE"),
+                    DNI = GetRowString(row, "DNI"),
+                    NACIMIENTO = GetRowValue<DateTime?>(row, "NACIMIENTO"),
+                    EDAD = GetRowValue<int?>(row, "EDAD"),
+                    OCUPACION = GetRowString(row, "OCUPACION"),
+                    SEXO = GetRowString(row, "SEXO"),
+                    TELEFONO = GetRowString(row, "TELEFONO"),
+                    DIRECCION = GetRowString(row, "DIRECCION"),
+                    CONTACTO_EMERGENCIA = GetRowString(row, "CONTACTO_EMERGENCIA"),
+                    TELEFONO_EMERGENCIA = GetRowString(row, "TELEFONO_EMERGENCIA"),
+                    EXAMEN = GetRowString(row, "EXAMEN"),
+                    PRECIO = GetRowValue<decimal?>(row, "PRECIO") ?? decimal.Zero,
+                    FECHA = GetRowValue<DateTime?>(row, "FECHA"),
+                    COMPROBANTE = GetRowString(row, "COMPROBANTE"),
+                    PROTOCOLOID = GetRowString(row, "PROTOCOLOID"),
+                    PROTOCOLO = GetRowString(row, "PROTOCOLO"),
+                    RESULTADO = GetRowString(row, "RESULTADO"),
+                    PRIMER_RES = GetRowString(row, "PRIMER_RES"),
+                    SEGUNDO_RES = GetRowString(row, "SEGUNDO_RES"),
+                    ATENCION = GetRowString(row, "ATENCION"),
+                    USUARIO = GetRowString(row, "USUARIO"),
+                    DEPARTAMENTO = GetRowString(row, "DEPARTAMENTO"),
+                    PROVINCIA = GetRowString(row, "PROVINCIA"),
+                    DISTRITO = GetRowString(row, "DISTRITO"),
+                    UBIGEO = GetRowString(row, "DEPARTAMENTO") + " - " + GetRowString(row, "PROVINCIA") + " - " + GetRowString(row, "DISTRITO"),
+                    MINAID = GetRowString(row, "MINAID"),
+                    MINANAME = GetRowString(row, "MINANAME"),
+                    CONTRATAID = GetRowString(row, "CONTRATAID"),
+                    CONTRATANAME = GetRowString(row, "CONTRATANAME"),
+                    TERCEROID = GetRowString(row, "TERCEROID"),
+                    TERCERONAME = GetRowString(row, "TERCERONAME"),
+                    i_StatusLiquidation = GetRowValue<int?>(row, "i_StatusLiquidation") ?? 0,
+                    i_MasterServiceId = GetRowValue<int?>(row, "i_MasterServiceId") ?? 0,
+                    GradoInstruc = GetRowString(row, "GradoInstruc"),
+                    EstadoCivil = GetRowString(row, "EstadoCivil"),
+                    FechaNacimiento = GetRowValue<DateTime?>(row, "FechaNacimiento").HasValue ? GetRowValue<DateTime?>(row, "FechaNacimiento").Value.ToShortDateString() : "",
+                    TIPOEXAMEN = "PRUEBA RAPIDA",
+                    Sintomas = GetSintomasByService(GetRowString(row, "SERVICIO"), Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_1,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_2,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_3,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_4,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_5,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_6,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_7,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_8,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_9,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_10,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_11,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_12,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_13,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_14,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_15,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_16,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_1_LC,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_2_LC,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_3_LC,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_4_LC,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_5_LC,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_6_LC,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_7_LC,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_8_LC,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_9_LC,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_10_LC,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_11_LC,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_12_LC,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_13_LC,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_14_LC,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_15_LC,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_C_3_16_LC),
+                    VACUNAS = GetRowString(row, "VACUNAS")
+                }).ToList();
                 foreach (var item in query1)
                 {
                     listaTodos.Add(item);
                 }
 
-                var query2 = (from a in dbContext.getservicescovid19molecular_filters_sp(pdatBeginDate, pdatEndDate, nombre, servicio, empresa, contrata)
-                              select new ServiceCovid19
-                              {
-                                  SERVICIO = a.SERVICIO,
-                                  ID_PACIENTE = a.ID_PACIENTE,
-                                  PACIENTE = a.PACIENTE,
-                                  DNI = a.DNI,
-                                  NACIMIENTO = a.NACIMIENTO,
-                                  EDAD = a.EDAD,
-                                  OCUPACION = a.OCUPACION,
-                                  SEXO = a.SEXO,
-                                  TELEFONO = a.TELEFONO,
-                                  DIRECCION = a.DIRECCION,
-                                  CONTACTO_EMERGENCIA = a.CONTACTO_EMERGENCIA,
-                                  TELEFONO_EMERGENCIA = a.TELEFONO_EMERGENCIA,
-                                  EXAMEN = a.EXAMEN,
-                                  PRECIO = decimal.Parse(a.PRECIO.ToString()),
-                                  FECHA = a.FECHA,
-                                  COMPROBANTE = a.COMPROBANTE,
-                                  PROTOCOLOID = a.PROTOCOLOID,
-                                  PROTOCOLO = a.PROTOCOLO,
-                                  RESULTADO = a.RESULTADO,
-                                  PRIMER_RES = "",
-                                  SEGUNDO_RES = "",
-                                  ATENCION = a.ATENCION,
-                                  USUARIO = a.USUARIO,
-                                  DEPARTAMENTO = a.DEPARTAMENTO,
-                                  PROVINCIA = a.PROVINCIA,
-                                  DISTRITO = a.DISTRITO,
-                                  UBIGEO = a.DEPARTAMENTO + " - " + a.PROVINCIA + " - " + a.DISTRITO,
-                                  MINAID = a.MINAID,
-                                  MINANAME = a.MINANAME,
-                                  CONTRATAID = a.CONTRATAID,
-                                  CONTRATANAME = a.CONTRATANAME,
-                                  TERCEROID = a.TERCEROID,
-                                  TERCERONAME = a.TERCERONAME,
-                                  i_StatusLiquidation = Convert.ToInt32(a.i_StatusLiquidation),
-                                  i_MasterServiceId = Convert.ToInt32(a.i_MasterServiceId),
-                                  AP_PATERNO = a.AP_PATERNO,
-                                  AP_MATERNO = a.AP_MATERNO,
-                                  NOMBRES = a.NOMBRES,
-                                  Direccion_Toma = a.Direccion,
-                                  Lugar = a.Lugar,
-                                  TIPOEXAMEN = "PRUEBA MOLECULAR",
-                                  Sintomas = GetSintomasByService(a.SERVICIO, Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_C_3_1,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_C_3_2,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_C_3_3,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_C_3_4,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_C_3_5,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_C_3_6,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_C_3_7,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_C_3_8,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_C_3_9,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_C_3_10,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_C_3_11,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_C_3_12,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_C_3_13,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_C_3_14,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_C_3_15,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_C_3_16,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_LC_C_3_1,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_LC_C_3_2,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_LC_C_3_3,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_LC_C_3_4,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_LC_C_3_5,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_LC_C_3_6,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_LC_C_3_7,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_LC_C_3_8,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_LC_C_3_9,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_LC_C_3_10,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_LC_C_3_11,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_LC_C_3_12,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_LC_C_3_13,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_LC_C_3_14,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_LC_C_3_15,
-                                      Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_LC_C_3_16),
-                                  VACUNAS = a.VACUNAS
-                              }).ToList();
+                DataTable dt2 = ExecuteCovidFilterSP("getservicescovid19molecular_filters_sp", pdatBeginDate, pdatEndDate, nombre, servicio, empresa, contrata, 100000);
+                var query2 = dt2.AsEnumerable().Select(row => new ServiceCovid19
+                {
+                    SERVICIO = GetRowString(row, "SERVICIO"),
+                    ID_PACIENTE = GetRowString(row, "ID_PACIENTE"),
+                    PACIENTE = GetRowString(row, "PACIENTE"),
+                    DNI = GetRowString(row, "DNI"),
+                    NACIMIENTO = GetRowValue<DateTime?>(row, "NACIMIENTO"),
+                    EDAD = GetRowValue<int?>(row, "EDAD"),
+                    OCUPACION = GetRowString(row, "OCUPACION"),
+                    SEXO = GetRowString(row, "SEXO"),
+                    TELEFONO = GetRowString(row, "TELEFONO"),
+                    DIRECCION = GetRowString(row, "DIRECCION"),
+                    CONTACTO_EMERGENCIA = GetRowString(row, "CONTACTO_EMERGENCIA"),
+                    TELEFONO_EMERGENCIA = GetRowString(row, "TELEFONO_EMERGENCIA"),
+                    EXAMEN = GetRowString(row, "EXAMEN"),
+                    PRECIO = GetRowValue<decimal?>(row, "PRECIO") ?? decimal.Zero,
+                    FECHA = GetRowValue<DateTime?>(row, "FECHA"),
+                    COMPROBANTE = GetRowString(row, "COMPROBANTE"),
+                    PROTOCOLOID = GetRowString(row, "PROTOCOLOID"),
+                    PROTOCOLO = GetRowString(row, "PROTOCOLO"),
+                    RESULTADO = GetRowString(row, "RESULTADO"),
+                    PRIMER_RES = "",
+                    SEGUNDO_RES = "",
+                    ATENCION = GetRowString(row, "ATENCION"),
+                    USUARIO = GetRowString(row, "USUARIO"),
+                    DEPARTAMENTO = GetRowString(row, "DEPARTAMENTO"),
+                    PROVINCIA = GetRowString(row, "PROVINCIA"),
+                    DISTRITO = GetRowString(row, "DISTRITO"),
+                    UBIGEO = GetRowString(row, "DEPARTAMENTO") + " - " + GetRowString(row, "PROVINCIA") + " - " + GetRowString(row, "DISTRITO"),
+                    MINAID = GetRowString(row, "MINAID"),
+                    MINANAME = GetRowString(row, "MINANAME"),
+                    CONTRATAID = GetRowString(row, "CONTRATAID"),
+                    CONTRATANAME = GetRowString(row, "CONTRATANAME"),
+                    TERCEROID = GetRowString(row, "TERCEROID"),
+                    TERCERONAME = GetRowString(row, "TERCERONAME"),
+                    i_StatusLiquidation = GetRowValue<int?>(row, "i_StatusLiquidation") ?? 0,
+                    i_MasterServiceId = GetRowValue<int?>(row, "i_MasterServiceId") ?? 0,
+                    AP_PATERNO = GetRowString(row, "AP_PATERNO"),
+                    AP_MATERNO = GetRowString(row, "AP_MATERNO"),
+                    NOMBRES = GetRowString(row, "NOMBRES"),
+                    Direccion_Toma = GetRowString(row, "Direccion"),
+                    Lugar = GetRowString(row, "Lugar"),
+                    TIPOEXAMEN = "PRUEBA MOLECULAR",
+                    Sintomas = GetSintomasByService(GetRowString(row, "SERVICIO"), Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_C_3_1,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_C_3_2,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_C_3_3,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_C_3_4,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_C_3_5,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_C_3_6,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_C_3_7,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_C_3_8,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_C_3_9,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_C_3_10,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_C_3_11,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_C_3_12,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_C_3_13,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_C_3_14,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_C_3_15,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_C_3_16,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_LC_C_3_1,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_LC_C_3_2,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_LC_C_3_3,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_LC_C_3_4,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_LC_C_3_5,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_LC_C_3_6,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_LC_C_3_7,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_LC_C_3_8,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_LC_C_3_9,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_LC_C_3_10,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_LC_C_3_11,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_LC_C_3_12,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_LC_C_3_13,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_LC_C_3_14,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_LC_C_3_15,
+                                        Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_MOLECULAR_LC_C_3_16),
+                    VACUNAS = GetRowString(row, "VACUNAS")
+                }).ToList();
 
                 foreach (var item in query2)
                 {
                     listaTodos.Add(item);
                 }
 
-                var query3 = (from a in dbContext.getservicescovid19antigeno_filters_sp(pdatBeginDate, pdatEndDate, nombre, servicio, empresa, contrata)
-                              select new ServiceCovid19
-                              {
-                                  SERVICIO = a.SERVICIO,
-                                  ID_PACIENTE = a.ID_PACIENTE,
-                                  PACIENTE = a.PACIENTE,
-                                  DNI = a.DNI,
-                                  NACIMIENTO = a.NACIMIENTO,
-                                  EDAD = a.EDAD,
-                                  OCUPACION = a.OCUPACION,
-                                  SEXO = a.SEXO,
-                                  TELEFONO = a.TELEFONO,
-                                  DIRECCION = a.DIRECCION,
-                                  CONTACTO_EMERGENCIA = a.CONTACTO_EMERGENCIA,
-                                  TELEFONO_EMERGENCIA = a.TELEFONO_EMERGENCIA,
-                                  EXAMEN = a.EXAMEN,
-                                  PRECIO = decimal.Parse(a.PRECIO.ToString()),
-                                  FECHA = a.FECHA,
-                                  COMPROBANTE = a.COMPROBANTE,
-                                  PROTOCOLOID = a.PROTOCOLOID,
-                                  PROTOCOLO = a.PROTOCOLO,
-                                  RESULTADO = a.RESULTADO,
-                                  PRIMER_RES = "",
-                                  SEGUNDO_RES = "",
-                                  ATENCION = a.ATENCION,
-                                  USUARIO = a.USUARIO,
-                                  DEPARTAMENTO = a.DEPARTAMENTO,
-                                  PROVINCIA = a.PROVINCIA,
-                                  DISTRITO = a.DISTRITO,
-                                  UBIGEO = a.DEPARTAMENTO + " - " + a.PROVINCIA + " - " + a.DISTRITO,
-                                  MINAID = a.MINAID,
-                                  MINANAME = a.MINANAME,
-                                  CONTRATAID = a.CONTRATAID,
-                                  CONTRATANAME = a.CONTRATANAME,
-                                  TERCEROID = a.TERCEROID,
-                                  TERCERONAME = a.TERCERONAME,
-                                  i_StatusLiquidation = Convert.ToInt32(a.i_StatusLiquidation),
-                                  i_MasterServiceId = Convert.ToInt32(a.i_MasterServiceId),
-                                  AP_PATERNO = a.AP_PATERNO,
-                                  AP_MATERNO = a.AP_MATERNO,
-                                  NOMBRES = a.NOMBRES,
-                                  Direccion_Toma = a.Direccion,
-                                  Lugar = a.Lugar,
-                                  TIPOEXAMEN = "PRUEBA ANTIGENO",
-                                  Sintomas = GetSintomasByService(a.SERVICIO, Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_1,
-                                              Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_2,
-                                              Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_3,
-                                              Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_4,
-                                              Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_5,
-                                              Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_6,
-                                              Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_7,
-                                              Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_8,
-                                              Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_9,
-                                              Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_10,
-                                              Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_11,
-                                              Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_12,
-                                              Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_13,
-                                              Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_14,
-                                              Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_15,
-                                              Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_16,
-                                              Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_1,
-                                              Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_2,
-                                              Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_3,
-                                              Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_4,
-                                              Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_5,
-                                              Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_6,
-                                              Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_7,
-                                              Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_8,
-                                              Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_9,
-                                              Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_10,
-                                              Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_11,
-                                              Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_12,
-                                              Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_13,
-                                              Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_14,
-                                              Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_15,
-                                              Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_16),
-                                  VACUNAS = a.VACUNAS
-                              }).ToList();
+                DataTable dt3 = ExecuteCovidFilterSP("getservicescovid19antigeno_filters_sp", pdatBeginDate, pdatEndDate, nombre, servicio, empresa, contrata, 100000);
+                var query3 = dt3.AsEnumerable().Select(row => new ServiceCovid19
+                {
+                    SERVICIO = GetRowString(row, "SERVICIO"),
+                    ID_PACIENTE = GetRowString(row, "ID_PACIENTE"),
+                    PACIENTE = GetRowString(row, "PACIENTE"),
+                    DNI = GetRowString(row, "DNI"),
+                    NACIMIENTO = GetRowValue<DateTime?>(row, "NACIMIENTO"),
+                    EDAD = GetRowValue<int?>(row, "EDAD"),
+                    OCUPACION = GetRowString(row, "OCUPACION"),
+                    SEXO = GetRowString(row, "SEXO"),
+                    TELEFONO = GetRowString(row, "TELEFONO"),
+                    DIRECCION = GetRowString(row, "DIRECCION"),
+                    CONTACTO_EMERGENCIA = GetRowString(row, "CONTACTO_EMERGENCIA"),
+                    TELEFONO_EMERGENCIA = GetRowString(row, "TELEFONO_EMERGENCIA"),
+                    EXAMEN = GetRowString(row, "EXAMEN"),
+                    PRECIO = GetRowValue<decimal?>(row, "PRECIO") ?? decimal.Zero,
+                    FECHA = GetRowValue<DateTime?>(row, "FECHA"),
+                    COMPROBANTE = GetRowString(row, "COMPROBANTE"),
+                    PROTOCOLOID = GetRowString(row, "PROTOCOLOID"),
+                    PROTOCOLO = GetRowString(row, "PROTOCOLO"),
+                    RESULTADO = GetRowString(row, "RESULTADO"),
+                    PRIMER_RES = "",
+                    SEGUNDO_RES = "",
+                    ATENCION = GetRowString(row, "ATENCION"),
+                    USUARIO = GetRowString(row, "USUARIO"),
+                    DEPARTAMENTO = GetRowString(row, "DEPARTAMENTO"),
+                    PROVINCIA = GetRowString(row, "PROVINCIA"),
+                    DISTRITO = GetRowString(row, "DISTRITO"),
+                    UBIGEO = GetRowString(row, "DEPARTAMENTO") + " - " + GetRowString(row, "PROVINCIA") + " - " + GetRowString(row, "DISTRITO"),
+                    MINAID = GetRowString(row, "MINAID"),
+                    MINANAME = GetRowString(row, "MINANAME"),
+                    CONTRATAID = GetRowString(row, "CONTRATAID"),
+                    CONTRATANAME = GetRowString(row, "CONTRATANAME"),
+                    TERCEROID = GetRowString(row, "TERCEROID"),
+                    TERCERONAME = GetRowString(row, "TERCERONAME"),
+                    i_StatusLiquidation = GetRowValue<int?>(row, "i_StatusLiquidation") ?? 0,
+                    i_MasterServiceId = GetRowValue<int?>(row, "i_MasterServiceId") ?? 0,
+                    AP_PATERNO = GetRowString(row, "AP_PATERNO"),
+                    AP_MATERNO = GetRowString(row, "AP_MATERNO"),
+                    NOMBRES = GetRowString(row, "NOMBRES"),
+                    Direccion_Toma = GetRowString(row, "Direccion"),
+                    Lugar = GetRowString(row, "Lugar"),
+                    TIPOEXAMEN = "PRUEBA ANTIGENO",
+                    Sintomas = GetSintomasByService(GetRowString(row, "SERVICIO"), Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_1,
+                                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_2,
+                                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_3,
+                                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_4,
+                                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_5,
+                                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_6,
+                                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_7,
+                                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_8,
+                                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_9,
+                                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_10,
+                                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_11,
+                                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_12,
+                                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_13,
+                                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_14,
+                                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_15,
+                                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_C_3_16,
+                                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_1,
+                                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_2,
+                                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_3,
+                                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_4,
+                                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_5,
+                                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_6,
+                                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_7,
+                                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_8,
+                                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_9,
+                                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_10,
+                                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_11,
+                                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_12,
+                                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_13,
+                                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_14,
+                                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_15,
+                                                Sigesoft.Common.Constants.FICHA_INVESTIGACION_COVID_ANTIGENO_LC_C_3_16),
+                    VACUNAS = GetRowString(row, "VACUNAS")
+                }).ToList();
 
                 foreach (var item in query3)
                 {
                     listaTodos.Add(item);
                 }
-                listaTodos.OrderBy(x => x.RESULTADO).ToList();
+                listaTodos = listaTodos.OrderBy(x => x.RESULTADO).ToList();
 
                 return listaTodos;
 

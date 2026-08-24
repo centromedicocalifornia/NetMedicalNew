@@ -4152,6 +4152,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="SqlCommand.cs" />
     <Compile Include="UserControls\AudiometriaAfterValueChangeEventArgs.cs" />
     <Compile Include="UserControls\ucAudiometria1GR.cs">
       <SubType>UserControl</SubType>

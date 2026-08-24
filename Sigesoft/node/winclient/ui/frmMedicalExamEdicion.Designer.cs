@@ -30,6 +30,18 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMedicalExamEdicion));
+            Infragistics.Win.Appearance appearance1 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance2 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance3 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance4 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance5 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance6 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance7 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance8 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance9 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance10 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance11 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance12 = new Infragistics.Win.Appearance();
             this.Nombre = new System.Windows.Forms.Label();
             this.txtInsertName = new System.Windows.Forms.TextBox();
             this.uvMedicalExamEdit = new Infragistics.Win.Misc.UltraValidator(this.components);
@@ -66,9 +78,15 @@
             this.label13 = new System.Windows.Forms.Label();
             this.rbDeduciblePay = new System.Windows.Forms.RadioButton();
             this.label14 = new System.Windows.Forms.Label();
+            this.txtProcedId = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.cbProcedimiento = new Infragistics.Win.UltraWinGrid.UltraCombo();
+            this.label17 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.uvMedicalExamEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.unUIIndex)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.unValidInDays)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbProcedimiento)).BeginInit();
             this.SuspendLayout();
             // 
             // Nombre
@@ -87,7 +105,7 @@
             this.txtInsertName.Margin = new System.Windows.Forms.Padding(2);
             this.txtInsertName.MaxLength = 250;
             this.txtInsertName.Name = "txtInsertName";
-            this.txtInsertName.Size = new System.Drawing.Size(390, 20);
+            this.txtInsertName.Size = new System.Drawing.Size(554, 20);
             this.txtInsertName.TabIndex = 1;
             this.uvMedicalExamEdit.GetValidationSettings(this.txtInsertName).DataType = typeof(string);
             this.uvMedicalExamEdit.GetValidationSettings(this.txtInsertName).EmptyValueCriteria = Infragistics.Win.Misc.EmptyValueCriteria.NullOrEmptyString;
@@ -106,7 +124,7 @@
             this.ddlCategoryId.Name = "ddlCategoryId";
             this.ddlCategoryId.SelectedNode = null;
             this.ddlCategoryId.ShowPath = true;
-            this.ddlCategoryId.Size = new System.Drawing.Size(281, 19);
+            this.ddlCategoryId.Size = new System.Drawing.Size(451, 19);
             this.ddlCategoryId.TabIndex = 2;
             this.uvMedicalExamEdit.GetValidationSettings(this.ddlCategoryId).DataType = typeof(string);
             this.uvMedicalExamEdit.GetValidationSettings(this.ddlCategoryId).IsRequired = true;
@@ -120,7 +138,7 @@
             this.ddlDiagnosableId.Location = new System.Drawing.Point(111, 124);
             this.ddlDiagnosableId.Margin = new System.Windows.Forms.Padding(2);
             this.ddlDiagnosableId.Name = "ddlDiagnosableId";
-            this.ddlDiagnosableId.Size = new System.Drawing.Size(135, 21);
+            this.ddlDiagnosableId.Size = new System.Drawing.Size(251, 21);
             this.ddlDiagnosableId.TabIndex = 3;
             this.uvMedicalExamEdit.GetValidationSettings(this.ddlDiagnosableId).Condition = new Infragistics.Win.OperatorCondition(Infragistics.Win.ConditionOperator.NotEquals, "--Seleccionar--", true, typeof(string));
             this.uvMedicalExamEdit.GetValidationSettings(this.ddlDiagnosableId).DataType = typeof(string);
@@ -135,7 +153,7 @@
             this.ddlComponentTypeId.Location = new System.Drawing.Point(111, 150);
             this.ddlComponentTypeId.Margin = new System.Windows.Forms.Padding(2);
             this.ddlComponentTypeId.Name = "ddlComponentTypeId";
-            this.ddlComponentTypeId.Size = new System.Drawing.Size(390, 21);
+            this.ddlComponentTypeId.Size = new System.Drawing.Size(554, 21);
             this.ddlComponentTypeId.TabIndex = 5;
             this.uvMedicalExamEdit.GetValidationSettings(this.ddlComponentTypeId).Condition = new Infragistics.Win.OperatorCondition(Infragistics.Win.ConditionOperator.NotEquals, "--Seleccionar--", true, typeof(string));
             this.uvMedicalExamEdit.GetValidationSettings(this.ddlComponentTypeId).DataType = typeof(string);
@@ -150,7 +168,7 @@
             this.ddlUIIsVisibleId.Location = new System.Drawing.Point(111, 176);
             this.ddlUIIsVisibleId.Margin = new System.Windows.Forms.Padding(2);
             this.ddlUIIsVisibleId.Name = "ddlUIIsVisibleId";
-            this.ddlUIIsVisibleId.Size = new System.Drawing.Size(135, 21);
+            this.ddlUIIsVisibleId.Size = new System.Drawing.Size(251, 21);
             this.ddlUIIsVisibleId.TabIndex = 6;
             this.uvMedicalExamEdit.GetValidationSettings(this.ddlUIIsVisibleId).Condition = new Infragistics.Win.OperatorCondition(Infragistics.Win.ConditionOperator.NotEquals, "--Seleccionar--", true, typeof(string));
             this.uvMedicalExamEdit.GetValidationSettings(this.ddlUIIsVisibleId).DataType = typeof(string);
@@ -165,7 +183,7 @@
             this.ddlIsApprovedId.Location = new System.Drawing.Point(111, 202);
             this.ddlIsApprovedId.Margin = new System.Windows.Forms.Padding(2);
             this.ddlIsApprovedId.Name = "ddlIsApprovedId";
-            this.ddlIsApprovedId.Size = new System.Drawing.Size(135, 21);
+            this.ddlIsApprovedId.Size = new System.Drawing.Size(251, 21);
             this.ddlIsApprovedId.TabIndex = 8;
             this.uvMedicalExamEdit.GetValidationSettings(this.ddlIsApprovedId).Condition = new Infragistics.Win.OperatorCondition(Infragistics.Win.ConditionOperator.NotEquals, "--Seleccionar--", true, typeof(string));
             this.uvMedicalExamEdit.GetValidationSettings(this.ddlIsApprovedId).DataType = typeof(string);
@@ -174,10 +192,10 @@
             // 
             // unBasePrice
             // 
-            this.unBasePrice.Location = new System.Drawing.Point(396, 127);
+            this.unBasePrice.Location = new System.Drawing.Point(487, 123);
             this.unBasePrice.Margin = new System.Windows.Forms.Padding(2);
             this.unBasePrice.Name = "unBasePrice";
-            this.unBasePrice.Size = new System.Drawing.Size(105, 20);
+            this.unBasePrice.Size = new System.Drawing.Size(178, 20);
             this.unBasePrice.TabIndex = 4;
             this.uvMedicalExamEdit.GetValidationSettings(this.unBasePrice).DataType = typeof(string);
             this.uvMedicalExamEdit.GetValidationSettings(this.unBasePrice).EmptyValueCriteria = Infragistics.Win.Misc.EmptyValueCriteria.NullOrEmptyString;
@@ -192,7 +210,7 @@
             this.ddlKindOfService.Location = new System.Drawing.Point(111, 98);
             this.ddlKindOfService.Margin = new System.Windows.Forms.Padding(2);
             this.ddlKindOfService.Name = "ddlKindOfService";
-            this.ddlKindOfService.Size = new System.Drawing.Size(390, 21);
+            this.ddlKindOfService.Size = new System.Drawing.Size(554, 21);
             this.ddlKindOfService.TabIndex = 63;
             this.uvMedicalExamEdit.GetValidationSettings(this.ddlKindOfService).Condition = new Infragistics.Win.OperatorCondition(Infragistics.Win.ConditionOperator.NotEquals, "--Seleccionar--", true, typeof(string));
             this.uvMedicalExamEdit.GetValidationSettings(this.ddlKindOfService).DataType = typeof(string);
@@ -207,7 +225,7 @@
             this.cbRecargable.Location = new System.Drawing.Point(111, 70);
             this.cbRecargable.Margin = new System.Windows.Forms.Padding(2);
             this.cbRecargable.Name = "cbRecargable";
-            this.cbRecargable.Size = new System.Drawing.Size(390, 21);
+            this.cbRecargable.Size = new System.Drawing.Size(554, 21);
             this.cbRecargable.TabIndex = 65;
             this.uvMedicalExamEdit.GetValidationSettings(this.cbRecargable).Condition = new Infragistics.Win.OperatorCondition(Infragistics.Win.ConditionOperator.NotEquals, "--Seleccionar--", true, typeof(string));
             this.uvMedicalExamEdit.GetValidationSettings(this.cbRecargable).DataType = typeof(string);
@@ -230,7 +248,7 @@
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
             this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancel.Location = new System.Drawing.Point(426, 280);
+            this.btnCancel.Location = new System.Drawing.Point(487, 357);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 24);
@@ -245,7 +263,7 @@
             this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOK.Image = ((System.Drawing.Image)(resources.GetObject("btnOK.Image")));
             this.btnOK.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOK.Location = new System.Drawing.Point(346, 280);
+            this.btnOK.Location = new System.Drawing.Point(590, 357);
             this.btnOK.Margin = new System.Windows.Forms.Padding(2);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 24);
@@ -266,7 +284,7 @@
             this.btnAgregarLinea.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregarLinea.ForeColor = System.Drawing.Color.Black;
             this.btnAgregarLinea.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarLinea.Image")));
-            this.btnAgregarLinea.Location = new System.Drawing.Point(505, 251);
+            this.btnAgregarLinea.Location = new System.Drawing.Point(638, 250);
             this.btnAgregarLinea.Margin = new System.Windows.Forms.Padding(2);
             this.btnAgregarLinea.Name = "btnAgregarLinea";
             this.btnAgregarLinea.Size = new System.Drawing.Size(27, 21);
@@ -295,20 +313,20 @@
             // 
             // txtTarifaSegus
             // 
-            this.txtTarifaSegus.Location = new System.Drawing.Point(396, 227);
+            this.txtTarifaSegus.Location = new System.Drawing.Point(488, 227);
             this.txtTarifaSegus.Margin = new System.Windows.Forms.Padding(2);
             this.txtTarifaSegus.MaxLength = 250;
             this.txtTarifaSegus.Name = "txtTarifaSegus";
-            this.txtTarifaSegus.Size = new System.Drawing.Size(105, 20);
+            this.txtTarifaSegus.Size = new System.Drawing.Size(177, 20);
             this.txtTarifaSegus.TabIndex = 11;
             // 
             // txtCodigoSegus
             // 
-            this.txtCodigoSegus.Location = new System.Drawing.Point(109, 226);
+            this.txtCodigoSegus.Location = new System.Drawing.Point(112, 227);
             this.txtCodigoSegus.Margin = new System.Windows.Forms.Padding(2);
             this.txtCodigoSegus.MaxLength = 250;
             this.txtCodigoSegus.Name = "txtCodigoSegus";
-            this.txtCodigoSegus.Size = new System.Drawing.Size(137, 20);
+            this.txtCodigoSegus.Size = new System.Drawing.Size(250, 20);
             this.txtCodigoSegus.TabIndex = 10;
             // 
             // label4
@@ -324,7 +342,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(328, 127);
+            this.label1.Location = new System.Drawing.Point(419, 125);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(64, 13);
@@ -344,7 +362,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(325, 230);
+            this.label10.Location = new System.Drawing.Point(416, 230);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(67, 13);
@@ -389,7 +407,7 @@
             this.ddlUnidadProductiva.Location = new System.Drawing.Point(111, 250);
             this.ddlUnidadProductiva.Margin = new System.Windows.Forms.Padding(2);
             this.ddlUnidadProductiva.Name = "ddlUnidadProductiva";
-            this.ddlUnidadProductiva.Size = new System.Drawing.Size(390, 21);
+            this.ddlUnidadProductiva.Size = new System.Drawing.Size(514, 21);
             this.ddlUnidadProductiva.TabIndex = 12;
             // 
             // label6
@@ -406,19 +424,19 @@
             // 
             this.unUIIndex.AutoSize = false;
             this.unUIIndex.Enabled = false;
-            this.unUIIndex.Location = new System.Drawing.Point(396, 178);
+            this.unUIIndex.Location = new System.Drawing.Point(488, 178);
             this.unUIIndex.Margin = new System.Windows.Forms.Padding(2);
             this.unUIIndex.MaxValue = 9999;
             this.unUIIndex.Name = "unUIIndex";
             this.unUIIndex.PromptChar = ' ';
             this.unUIIndex.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.unUIIndex.Size = new System.Drawing.Size(105, 20);
+            this.unUIIndex.Size = new System.Drawing.Size(177, 20);
             this.unUIIndex.TabIndex = 7;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(336, 178);
+            this.label7.Location = new System.Drawing.Point(427, 178);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(56, 13);
@@ -438,19 +456,19 @@
             // unValidInDays
             // 
             this.unValidInDays.AutoSize = false;
-            this.unValidInDays.Location = new System.Drawing.Point(396, 203);
+            this.unValidInDays.Location = new System.Drawing.Point(488, 203);
             this.unValidInDays.Margin = new System.Windows.Forms.Padding(2);
             this.unValidInDays.MaxValue = 9999;
             this.unValidInDays.Name = "unValidInDays";
             this.unValidInDays.PromptChar = ' ';
             this.unValidInDays.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.unValidInDays.Size = new System.Drawing.Size(105, 20);
+            this.unValidInDays.Size = new System.Drawing.Size(177, 20);
             this.unValidInDays.TabIndex = 9;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(319, 202);
+            this.label9.Location = new System.Drawing.Point(410, 202);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(73, 13);
@@ -480,7 +498,7 @@
             // rbDeduciblePay
             // 
             this.rbDeduciblePay.AutoSize = true;
-            this.rbDeduciblePay.Location = new System.Drawing.Point(487, 47);
+            this.rbDeduciblePay.Location = new System.Drawing.Point(651, 48);
             this.rbDeduciblePay.Name = "rbDeduciblePay";
             this.rbDeduciblePay.Size = new System.Drawing.Size(14, 13);
             this.rbDeduciblePay.TabIndex = 67;
@@ -492,20 +510,125 @@
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.Blue;
-            this.label14.Location = new System.Drawing.Point(404, 47);
+            this.label14.Location = new System.Drawing.Point(568, 48);
             this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(78, 13);
             this.label14.TabIndex = 68;
             this.label14.Text = "¿Deducible?";
             // 
+            // txtProcedId
+            // 
+            this.txtProcedId.Enabled = false;
+            this.txtProcedId.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProcedId.Location = new System.Drawing.Point(111, 304);
+            this.txtProcedId.Name = "txtProcedId";
+            this.txtProcedId.Size = new System.Drawing.Size(121, 20);
+            this.txtProcedId.TabIndex = 127;
+            this.txtProcedId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(54, 307);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(51, 13);
+            this.label16.TabIndex = 126;
+            this.label16.Text = "CPMS ID";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.Blue;
+            this.label15.Location = new System.Drawing.Point(108, 283);
+            this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(41, 13);
+            this.label15.TabIndex = 128;
+            this.label15.Text = "CPMS";
+            this.label15.Click += new System.EventHandler(this.label15_Click);
+            // 
+            // cbProcedimiento
+            // 
+            appearance1.BackColor = System.Drawing.SystemColors.Window;
+            appearance1.BorderColor = System.Drawing.SystemColors.InactiveCaption;
+            this.cbProcedimiento.DisplayLayout.Appearance = appearance1;
+            this.cbProcedimiento.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.cbProcedimiento.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
+            appearance2.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            appearance2.BackColor2 = System.Drawing.SystemColors.ControlDark;
+            appearance2.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical;
+            appearance2.BorderColor = System.Drawing.SystemColors.Window;
+            this.cbProcedimiento.DisplayLayout.GroupByBox.Appearance = appearance2;
+            appearance3.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.cbProcedimiento.DisplayLayout.GroupByBox.BandLabelAppearance = appearance3;
+            this.cbProcedimiento.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            appearance4.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            appearance4.BackColor2 = System.Drawing.SystemColors.Control;
+            appearance4.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
+            appearance4.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.cbProcedimiento.DisplayLayout.GroupByBox.PromptAppearance = appearance4;
+            appearance5.BackColor = System.Drawing.SystemColors.Window;
+            appearance5.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.cbProcedimiento.DisplayLayout.Override.ActiveCellAppearance = appearance5;
+            appearance6.BackColor = System.Drawing.SystemColors.Highlight;
+            appearance6.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.cbProcedimiento.DisplayLayout.Override.ActiveRowAppearance = appearance6;
+            this.cbProcedimiento.DisplayLayout.Override.AllowColSizing = Infragistics.Win.UltraWinGrid.AllowColSizing.Free;
+            this.cbProcedimiento.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.cbProcedimiento.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
+            appearance7.BackColor = System.Drawing.SystemColors.Window;
+            this.cbProcedimiento.DisplayLayout.Override.CardAreaAppearance = appearance7;
+            appearance8.BorderColor = System.Drawing.Color.Silver;
+            appearance8.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter;
+            this.cbProcedimiento.DisplayLayout.Override.CellAppearance = appearance8;
+            this.cbProcedimiento.DisplayLayout.Override.CellPadding = 0;
+            this.cbProcedimiento.DisplayLayout.Override.ColumnSizingArea = Infragistics.Win.UltraWinGrid.ColumnSizingArea.EntireColumn;
+            appearance9.BackColor = System.Drawing.SystemColors.Control;
+            appearance9.BackColor2 = System.Drawing.SystemColors.ControlDark;
+            appearance9.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element;
+            appearance9.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
+            appearance9.BorderColor = System.Drawing.SystemColors.Window;
+            this.cbProcedimiento.DisplayLayout.Override.GroupByRowAppearance = appearance9;
+            appearance10.TextHAlignAsString = "Left";
+            this.cbProcedimiento.DisplayLayout.Override.HeaderAppearance = appearance10;
+            this.cbProcedimiento.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
+            appearance11.BackColor = System.Drawing.SystemColors.Window;
+            appearance11.BorderColor = System.Drawing.Color.Silver;
+            this.cbProcedimiento.DisplayLayout.Override.RowAppearance = appearance11;
+            appearance12.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.cbProcedimiento.DisplayLayout.Override.TemplateAddRowAppearance = appearance12;
+            this.cbProcedimiento.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbProcedimiento.Location = new System.Drawing.Point(109, 330);
+            this.cbProcedimiento.Name = "cbProcedimiento";
+            this.cbProcedimiento.Size = new System.Drawing.Size(556, 22);
+            this.cbProcedimiento.TabIndex = 130;
+            this.cbProcedimiento.RowSelected += new Infragistics.Win.UltraWinGrid.RowSelectedEventHandler(this.cbProcedimiento_RowSelected);
+            this.cbProcedimiento.MouseDown += new System.Windows.Forms.MouseEventHandler(this.cbProcedimiento_MouseDown);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(27, 334);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(80, 13);
+            this.label17.TabIndex = 129;
+            this.label17.Text = "Procedimiento: ";
+            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // frmMedicalExamEdicion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(551, 316);
+            this.ClientSize = new System.Drawing.Size(677, 385);
             this.ControlBox = false;
+            this.Controls.Add(this.cbProcedimiento);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.txtProcedId);
+            this.Controls.Add(this.label16);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.rbDeduciblePay);
             this.Controls.Add(this.cbRecargable);
@@ -550,6 +673,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.uvMedicalExamEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.unUIIndex)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.unValidInDays)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbProcedimiento)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -593,5 +717,10 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.RadioButton rbDeduciblePay;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox txtProcedId;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label15;
+        private Infragistics.Win.UltraWinGrid.UltraCombo cbProcedimiento;
+        private System.Windows.Forms.Label label17;
     }
 }

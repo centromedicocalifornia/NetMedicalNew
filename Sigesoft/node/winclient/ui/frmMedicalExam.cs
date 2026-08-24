@@ -450,7 +450,19 @@ namespace Sigesoft.Node.WinClient.UI
             
             strMedicalExamId = grdDataMedicalExam.Selected.Rows[0].Cells[0].Value.ToString();
             _ComponentName = grdDataMedicalExam.Selected.Rows[0].Cells[1].Value.ToString();
+
+            string cpmsCodigo = grdDataMedicalExam.Selected.Rows[0].Cells[37].Value.ToString();
+            string cpmsDescp = grdDataMedicalExam.Selected.Rows[0].Cells[38].Value.ToString();
+
+            string cpms = "";
+            if (cpmsCodigo != "")
+            {
+                cpms = " | CPMS: " + cpmsCodigo + " - " + cpmsDescp;
+            }
+
             BindGridMedicalExamFields(strMedicalExamId);
+
+            txtnombre.Text = _ComponentName + cpms;
            
         }
 

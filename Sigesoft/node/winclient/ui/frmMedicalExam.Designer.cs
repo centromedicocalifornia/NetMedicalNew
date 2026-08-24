@@ -59,6 +59,8 @@
             Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn26 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("ServicioID");
             Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn27 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("i_DeduciblePay");
             Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn28 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("Segus", -1, null, 0, Infragistics.Win.UltraWinGrid.SortIndicator.Ascending, false);
+            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn29 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("v_CodigoCPMS");
+            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn30 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("v_DescripcionCPMS");
             Infragistics.Win.Appearance appearance14 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance15 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance16 = new Infragistics.Win.Appearance();
@@ -123,6 +125,8 @@
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.ultraGridExcelExporter1 = new Infragistics.Win.UltraWinGrid.ExcelExport.UltraGridExcelExporter(this.components);
             this.lblRecordCountCalendar = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtnombre = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbLine)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -331,22 +335,22 @@
             ultraGridColumn4.Header.VisiblePosition = 4;
             ultraGridColumn4.Width = 247;
             ultraGridColumn3.Header.Caption = "Tipo Componente";
-            ultraGridColumn3.Header.VisiblePosition = 10;
+            ultraGridColumn3.Header.VisiblePosition = 12;
             ultraGridColumn6.Header.Caption = "Diagnosticable";
-            ultraGridColumn6.Header.VisiblePosition = 9;
+            ultraGridColumn6.Header.VisiblePosition = 11;
             ultraGridColumn5.Header.Caption = "Usuario Crea.";
-            ultraGridColumn5.Header.VisiblePosition = 8;
+            ultraGridColumn5.Header.VisiblePosition = 13;
             ultraGridColumn5.Width = 125;
             ultraGridColumn10.Format = "dd/MM/yyyy hh:mm tt";
             ultraGridColumn10.Header.Caption = "Fecha Crea.";
-            ultraGridColumn10.Header.VisiblePosition = 11;
+            ultraGridColumn10.Header.VisiblePosition = 14;
             ultraGridColumn10.Width = 150;
             ultraGridColumn12.Header.Caption = "Usuario Act.";
-            ultraGridColumn12.Header.VisiblePosition = 12;
+            ultraGridColumn12.Header.VisiblePosition = 15;
             ultraGridColumn12.Width = 125;
             ultraGridColumn13.Format = "dd/MM/yyyy hh:mm tt";
             ultraGridColumn13.Header.Caption = "Fecha Act.";
-            ultraGridColumn13.Header.VisiblePosition = 13;
+            ultraGridColumn13.Header.VisiblePosition = 16;
             ultraGridColumn13.Width = 150;
             ultraGridColumn11.Header.Caption = "Orden";
             ultraGridColumn11.Header.VisiblePosition = 1;
@@ -354,11 +358,15 @@
             ultraGridColumn16.Header.VisiblePosition = 6;
             ultraGridColumn16.Width = 96;
             ultraGridColumn17.Header.VisiblePosition = 7;
-            ultraGridColumn26.Header.VisiblePosition = 14;
+            ultraGridColumn26.Header.VisiblePosition = 17;
             ultraGridColumn26.Hidden = true;
             ultraGridColumn27.Header.Caption = "¿Deducible?";
-            ultraGridColumn27.Header.VisiblePosition = 15;
+            ultraGridColumn27.Header.VisiblePosition = 10;
             ultraGridColumn28.Header.VisiblePosition = 3;
+            ultraGridColumn29.Header.Caption = "CodigoCPMS";
+            ultraGridColumn29.Header.VisiblePosition = 8;
+            ultraGridColumn30.Header.Caption = "DescripcionCPMS";
+            ultraGridColumn30.Header.VisiblePosition = 9;
             ultraGridBand1.Columns.AddRange(new object[] {
             ultraGridColumn1,
             ultraGridColumn2,
@@ -375,7 +383,9 @@
             ultraGridColumn17,
             ultraGridColumn26,
             ultraGridColumn27,
-            ultraGridColumn28});
+            ultraGridColumn28,
+            ultraGridColumn29,
+            ultraGridColumn30});
             this.grdDataMedicalExam.DisplayLayout.BandsSerializer.Add(ultraGridBand1);
             this.grdDataMedicalExam.DisplayLayout.InterBandSpacing = 10;
             this.grdDataMedicalExam.DisplayLayout.MaxColScrollRegions = 1;
@@ -495,7 +505,7 @@
             // 
             this.lblRecordCountMedicalExamFields.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblRecordCountMedicalExamFields.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRecordCountMedicalExamFields.Location = new System.Drawing.Point(474, 21);
+            this.lblRecordCountMedicalExamFields.Location = new System.Drawing.Point(804, 21);
             this.lblRecordCountMedicalExamFields.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblRecordCountMedicalExamFields.Name = "lblRecordCountMedicalExamFields";
             this.lblRecordCountMedicalExamFields.Size = new System.Drawing.Size(231, 19);
@@ -681,6 +691,8 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.txtnombre);
+            this.splitContainer1.Panel2.Controls.Add(this.label15);
             this.splitContainer1.Panel2.Controls.Add(this.lblRecordCountMedicalExamFields);
             this.splitContainer1.Panel2.Controls.Add(this.grdDataMedicalExamFields);
             this.splitContainer1.Size = new System.Drawing.Size(1073, 667);
@@ -844,6 +856,30 @@
             this.lblRecordCountCalendar.Text = "No se ha realizado la búsqueda aún.";
             this.lblRecordCountCalendar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.Blue;
+            this.label15.Location = new System.Drawing.Point(2, 11);
+            this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(162, 13);
+            this.label15.TabIndex = 129;
+            this.label15.Text = "EXAMEN / COMPONENTE:";
+            // 
+            // txtnombre
+            // 
+            this.txtnombre.AutoSize = true;
+            this.txtnombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtnombre.ForeColor = System.Drawing.Color.Blue;
+            this.txtnombre.Location = new System.Drawing.Point(173, 11);
+            this.txtnombre.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.txtnombre.Name = "txtnombre";
+            this.txtnombre.Size = new System.Drawing.Size(11, 13);
+            this.txtnombre.TabIndex = 130;
+            this.txtnombre.Text = ".";
+            // 
             // frmMedicalExam
             // 
             this.AcceptButton = this.btnFilter;
@@ -879,6 +915,7 @@
             this.contextMenuMedicalExamFields.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
+            this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -924,6 +961,8 @@
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private Infragistics.Win.UltraWinGrid.ExcelExport.UltraGridExcelExporter ultraGridExcelExporter1;
         private System.Windows.Forms.Label lblRecordCountCalendar;
+        private System.Windows.Forms.Label txtnombre;
+        private System.Windows.Forms.Label label15;
     }
 }
 

@@ -349,6 +349,8 @@
           <ScalarProperty Name="i_KindOfService" ColumnName="i_KindOfService" />
           <ScalarProperty Name="i_PriceIsRecharged" ColumnName="i_PriceIsRecharged" />
           <ScalarProperty Name="i_DeduciblePay" ColumnName="i_DeduciblePay" />
+          <ScalarProperty Name="v_CodigoCPMS" ColumnName="v_CodigoCPMS" />
+          <ScalarProperty Name="v_DescripcionCPMS" ColumnName="v_DescripcionCPMS" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -451,38 +453,6 @@
           <ScalarProperty Name="i_UpdateUserId" ColumnName="i_UpdateUserId" />
           <ScalarProperty Name="d_UpdateDate" ColumnName="d_UpdateDate" />
           <ScalarProperty Name="v_ComentaryUpdate" ColumnName="v_ComentaryUpdate" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="configdx">
-      <EntityTypeMapping TypeName="Sigesoft.Node.WinClient.DAL.configdx">
-        <MappingFragment StoreEntitySet="configdxes">
-          <ScalarProperty Name="v_ConfigDxId" ColumnName="v_ConfigDxId" />
-          <ScalarProperty Name="v_DiseaseId" ColumnName="v_DiseaseId" />
-          <ScalarProperty Name="v_ProductId" ColumnName="v_ProductId" />
-          <ScalarProperty Name="i_IsDeleted" ColumnName="i_IsDeleted" />
-          <ScalarProperty Name="i_InsertUserId" ColumnName="i_InsertUserId" />
-          <ScalarProperty Name="d_InsertDate" ColumnName="d_InsertDate" />
-          <ScalarProperty Name="i_UpdateUserId" ColumnName="i_UpdateUserId" />
-          <ScalarProperty Name="d_UpdateDate" ColumnName="d_UpdateDate" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="cotizacion">
-      <EntityTypeMapping TypeName="Sigesoft.Node.WinClient.DAL.cotizacion">
-        <MappingFragment StoreEntitySet="cotizacions">
-          <ScalarProperty Name="v_CotizacionId" ColumnName="v_CotizacionId" />
-          <ScalarProperty Name="v_PersonId" ColumnName="v_PersonId" />
-          <ScalarProperty Name="v_ProtocolId" ColumnName="v_ProtocolId" />
-          <ScalarProperty Name="d_CostoTotal" ColumnName="d_CostoTotal" />
-          <ScalarProperty Name="d_aCuenta" ColumnName="d_aCuenta" />
-          <ScalarProperty Name="d_Saldo" ColumnName="d_Saldo" />
-          <ScalarProperty Name="i_IsDeleted" ColumnName="i_IsDeleted" />
-          <ScalarProperty Name="i_InsertUserId" ColumnName="i_InsertUserId" />
-          <ScalarProperty Name="d_InsertDate" ColumnName="d_InsertDate" />
-          <ScalarProperty Name="i_UpdateUserId" ColumnName="i_UpdateUserId" />
-          <ScalarProperty Name="d_UpdateDate" ColumnName="d_UpdateDate" />
-          <ScalarProperty Name="i_Procesado" ColumnName="i_Procesado" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -750,24 +720,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="especiality">
-      <EntityTypeMapping TypeName="Sigesoft.Node.WinClient.DAL.especiality">
-        <MappingFragment StoreEntitySet="especialities">
-          <ScalarProperty Name="v_EspecialityId" ColumnName="v_EspecialityId" />
-          <ScalarProperty Name="v_EspecialityName" ColumnName="v_EspecialityName" />
-          <ScalarProperty Name="b_EspecialityPicture" ColumnName="b_EspecialityPicture" />
-          <ScalarProperty Name="t_TimeForAttention" ColumnName="t_TimeForAttention" />
-          <ScalarProperty Name="r_Cost" ColumnName="r_Cost" />
-          <ScalarProperty Name="v_Description" ColumnName="v_Description" />
-          <ScalarProperty Name="i_IsDeleted" ColumnName="i_IsDeleted" />
-          <ScalarProperty Name="t_StartTime" ColumnName="t_StartTime" />
-          <ScalarProperty Name="t_EndTime" ColumnName="t_EndTime" />
-          <ScalarProperty Name="t_StartTime2" ColumnName="t_StartTime2" />
-          <ScalarProperty Name="t_EndTime2" ColumnName="t_EndTime2" />
-          <ScalarProperty Name="v_ProtocolId" ColumnName="v_ProtocolId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="facturacion">
       <EntityTypeMapping TypeName="Sigesoft.Node.WinClient.DAL.facturacion">
         <MappingFragment StoreEntitySet="facturacions">
@@ -855,15 +807,6 @@
           <ScalarProperty Name="i_UpdateUserId" ColumnName="i_UpdateUserId" />
           <ScalarProperty Name="d_UpdateDate" ColumnName="d_UpdateDate" />
           <ScalarProperty Name="v_ComentaryUpdate" ColumnName="v_ComentaryUpdate" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="historialaccessuser">
-      <EntityTypeMapping TypeName="Sigesoft.Node.WinClient.DAL.historialaccessuser">
-        <MappingFragment StoreEntitySet="HistorialAccessUsers">
-          <ScalarProperty Name="i_HistorialAccessUser" ColumnName="i_HistorialAccessUser" />
-          <ScalarProperty Name="v_PersonId" ColumnName="v_PersonId" />
-          <ScalarProperty Name="d_dateAccess" ColumnName="d_dateAccess" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1030,26 +973,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="inmunizaciones">
-      <EntityTypeMapping TypeName="Sigesoft.Node.WinClient.DAL.inmunizaciones">
-        <MappingFragment StoreEntitySet="inmunizaciones">
-          <ScalarProperty Name="v_VacunacionId" ColumnName="v_VacunacionId" />
-          <ScalarProperty Name="v_PersonId" ColumnName="v_PersonId" />
-          <ScalarProperty Name="i_TipoVacuna" ColumnName="i_TipoVacuna" />
-          <ScalarProperty Name="i_Marca" ColumnName="i_Marca" />
-          <ScalarProperty Name="v_Lote" ColumnName="v_Lote" />
-          <ScalarProperty Name="d_FechaVacuna" ColumnName="d_FechaVacuna" />
-          <ScalarProperty Name="i_IsDeleted" ColumnName="i_IsDeleted" />
-          <ScalarProperty Name="i_InsertUserId" ColumnName="i_InsertUserId" />
-          <ScalarProperty Name="d_InsertDate" ColumnName="d_InsertDate" />
-          <ScalarProperty Name="i_UpdateUserId" ColumnName="i_UpdateUserId" />
-          <ScalarProperty Name="d_UpdateDate" ColumnName="d_UpdateDate" />
-          <ScalarProperty Name="v_ComentaryUpdate" ColumnName="v_ComentaryUpdate" />
-          <ScalarProperty Name="i_Dosis" ColumnName="i_Dosis" />
-          <ScalarProperty Name="v_Lugar" ColumnName="v_Lugar" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="liquidacion">
       <EntityTypeMapping TypeName="Sigesoft.Node.WinClient.DAL.liquidacion">
         <MappingFragment StoreEntitySet="liquidacions">
@@ -1098,25 +1021,6 @@
           <ScalarProperty Name="i_Success" ColumnName="i_Success" />
           <ScalarProperty Name="v_ErrorException" ColumnName="v_ErrorException" />
           <ScalarProperty Name="v_ComentaryUpdate" ColumnName="v_ComentaryUpdate" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="markings">
-      <EntityTypeMapping TypeName="Sigesoft.Node.WinClient.DAL.markings">
-        <MappingFragment StoreEntitySet="markings">
-          <ScalarProperty Name="i_DialingId" ColumnName="i_DialingId" />
-          <ScalarProperty Name="v_PersonId" ColumnName="v_PersonId" />
-          <ScalarProperty Name="d_DialingDate" ColumnName="d_DialingDate" />
-          <ScalarProperty Name="i_IsDeleted" ColumnName="i_IsDeleted" />
-          <ScalarProperty Name="i_InsertUserId" ColumnName="i_InsertUserId" />
-          <ScalarProperty Name="d_InsertDate" ColumnName="d_InsertDate" />
-          <ScalarProperty Name="i_UpdateUserId" ColumnName="i_UpdateUserId" />
-          <ScalarProperty Name="d_UpdateDate" ColumnName="d_UpdateDate" />
-          <ScalarProperty Name="v_TypeMarking" ColumnName="v_TypeMarking" />
-          <ScalarProperty Name="i_PaidOut" ColumnName="i_PaidOut" />
-          <ScalarProperty Name="t_ExtraHours" ColumnName="t_ExtraHours" />
-          <ScalarProperty Name="t_HoursAgainst" ColumnName="t_HoursAgainst" />
-          <ScalarProperty Name="v_ScheduleDetailId" ColumnName="v_ScheduleDetailId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1183,22 +1087,6 @@
           <ScalarProperty Name="i_UpdateUserId" ColumnName="i_UpdateUserId" />
           <ScalarProperty Name="d_UpdateDate" ColumnName="d_UpdateDate" />
           <ScalarProperty Name="v_ComentaryUpdate" ColumnName="v_ComentaryUpdate" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="menssge">
-      <EntityTypeMapping TypeName="Sigesoft.Node.WinClient.DAL.menssge">
-        <MappingFragment StoreEntitySet="menssges">
-          <ScalarProperty Name="i_smsId" ColumnName="i_smsId" />
-          <ScalarProperty Name="v_phoneNummber" ColumnName="v_phoneNummber" />
-          <ScalarProperty Name="v_smsContent" ColumnName="v_smsContent" />
-          <ScalarProperty Name="i_status" ColumnName="i_status" />
-          <ScalarProperty Name="v_componentName" ColumnName="v_componentName" />
-          <ScalarProperty Name="v_ProtocolName" ColumnName="v_ProtocolName" />
-          <ScalarProperty Name="v_smsContent2" ColumnName="v_smsContent2" />
-          <ScalarProperty Name="v_NameClient" ColumnName="v_NameClient" />
-          <ScalarProperty Name="v_user" ColumnName="v_user" />
-          <ScalarProperty Name="v_pass" ColumnName="v_pass" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1454,28 +1342,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="notification">
-      <EntityTypeMapping TypeName="Sigesoft.Node.WinClient.DAL.notification">
-        <MappingFragment StoreEntitySet="notifications">
-          <ScalarProperty Name="v_NotificationId" ColumnName="v_NotificationId" />
-          <ScalarProperty Name="v_OrganizationId" ColumnName="v_OrganizationId" />
-          <ScalarProperty Name="d_NotificationDate" ColumnName="d_NotificationDate" />
-          <ScalarProperty Name="v_PersonId" ColumnName="v_PersonId" />
-          <ScalarProperty Name="v_Title" ColumnName="v_Title" />
-          <ScalarProperty Name="v_Body" ColumnName="v_Body" />
-          <ScalarProperty Name="i_IsRead" ColumnName="i_IsRead" />
-          <ScalarProperty Name="i_TypeNotificationId" ColumnName="i_TypeNotificationId" />
-          <ScalarProperty Name="d_ScheduleDate" ColumnName="d_ScheduleDate" />
-          <ScalarProperty Name="i_StateNotificationId" ColumnName="i_StateNotificationId" />
-          <ScalarProperty Name="v_Path" ColumnName="v_Path" />
-          <ScalarProperty Name="i_IsDeleted" ColumnName="i_IsDeleted" />
-          <ScalarProperty Name="i_InsertUserId" ColumnName="i_InsertUserId" />
-          <ScalarProperty Name="d_InsertDate" ColumnName="d_InsertDate" />
-          <ScalarProperty Name="i_UpdateUserId" ColumnName="i_UpdateUserId" />
-          <ScalarProperty Name="d_UpdateDate" ColumnName="d_UpdateDate" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="noxioushabits">
       <EntityTypeMapping TypeName="Sigesoft.Node.WinClient.DAL.noxioushabits">
         <MappingFragment StoreEntitySet="noxioushabits">
@@ -1722,6 +1588,32 @@
           <ScalarProperty Name="i_EtniaRaza" ColumnName="i_EtniaRaza" />
           <ScalarProperty Name="i_Migrante" ColumnName="i_Migrante" />
           <ScalarProperty Name="v_Migrante" ColumnName="v_Migrante" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="persona">
+      <EntityTypeMapping TypeName="Sigesoft.Node.WinClient.DAL.persona">
+        <MappingFragment StoreEntitySet="Personas">
+          <ScalarProperty Name="v_PersonaId" ColumnName="v_PersonaId" />
+          <ScalarProperty Name="v_Apellidos" ColumnName="v_Apellidos" />
+          <ScalarProperty Name="v_Nombres" ColumnName="v_Nombres" />
+          <ScalarProperty Name="v_DocNumero" ColumnName="v_DocNumero" />
+          <ScalarProperty Name="d_FechNac" ColumnName="d_FechNac" />
+          <ScalarProperty Name="v_NumeroTelefono" ColumnName="v_NumeroTelefono" />
+          <ScalarProperty Name="i_TipoSexo" ColumnName="i_TipoSexo" />
+          <ScalarProperty Name="i_EstadoCivil" ColumnName="i_EstadoCivil" />
+          <ScalarProperty Name="i_GradoInstruccion" ColumnName="i_GradoInstruccion" />
+          <ScalarProperty Name="i_GrupoSanguineo" ColumnName="i_GrupoSanguineo" />
+          <ScalarProperty Name="i_FactorSanguineo" ColumnName="i_FactorSanguineo" />
+          <ScalarProperty Name="i_Distrito" ColumnName="i_Distrito" />
+          <ScalarProperty Name="i_Provincia" ColumnName="i_Provincia" />
+          <ScalarProperty Name="i_Departamento" ColumnName="i_Departamento" />
+          <ScalarProperty Name="i_NumHijosVivos" ColumnName="i_NumHijosVivos" />
+          <ScalarProperty Name="d_FechaInsercion" ColumnName="d_FechaInsercion" />
+          <ScalarProperty Name="i_UsuarioInsertaId" ColumnName="i_UsuarioInsertaId" />
+          <ScalarProperty Name="d_FechaActualizacion" ColumnName="d_FechaActualizacion" />
+          <ScalarProperty Name="i_UsuarioActualizaId" ColumnName="i_UsuarioActualizaId" />
+          <ScalarProperty Name="i_EsEliminado" ColumnName="i_EsEliminado" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1984,6 +1876,16 @@
           <ScalarProperty Name="d_CamaHosp" ColumnName="d_CamaHosp" />
           <ScalarProperty Name="d_SalaOperaciones" ColumnName="d_SalaOperaciones" />
           <ScalarProperty Name="d_PrecioAmbulancia" ColumnName="d_PrecioAmbulancia" />
+          <ScalarProperty Name="i_mktWork" ColumnName="i_mktWork" />
+          <ScalarProperty Name="i_DateVald" ColumnName="i_DateVald" />
+          <ScalarProperty Name="v_DateVAR" ColumnName="v_DateVAR" />
+          <ScalarProperty Name="i_TipoConvenio" ColumnName="i_TipoConvenio" />
+          <ScalarProperty Name="r_PrecioConvenio" ColumnName="r_PrecioConvenio" />
+          <ScalarProperty Name="v_NombreConvenio" ColumnName="v_NombreConvenio" />
+          <ScalarProperty Name="r_PrecioConsultaFijo" ColumnName="r_PrecioConsultaFijo" />
+          <ScalarProperty Name="r_PrecioConsultaEspecialidad1" ColumnName="r_PrecioConsultaEspecialidad1" />
+          <ScalarProperty Name="r_PrecioConsultaEspecialidad2" ColumnName="r_PrecioConsultaEspecialidad2" />
+          <ScalarProperty Name="r_PrecioConsultaEspecialidad3" ColumnName="r_PrecioConsultaEspecialidad3" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -2024,6 +1926,62 @@
           <ScalarProperty Name="i_UpdateUserId" ColumnName="i_UpdateUserId" />
           <ScalarProperty Name="d_UpdateDate" ColumnName="d_UpdateDate" />
           <ScalarProperty Name="v_ComentaryUpdate" ColumnName="v_ComentaryUpdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="psicologia">
+      <EntityTypeMapping TypeName="Sigesoft.Node.WinClient.DAL.psicologia">
+        <MappingFragment StoreEntitySet="Psicologias">
+          <ScalarProperty Name="v_PsicologiaId" ColumnName="v_PsicologiaId" />
+          <ScalarProperty Name="v_ServicioId" ColumnName="v_ServicioId" />
+          <ScalarProperty Name="v_CoeficienteIntelectual" ColumnName="v_CoeficienteIntelectual" />
+          <ScalarProperty Name="v_AptitudPsicologica" ColumnName="v_AptitudPsicologica" />
+          <ScalarProperty Name="v_ConclusionesPsicosensometrico" ColumnName="v_ConclusionesPsicosensometrico" />
+          <ScalarProperty Name="d_FechaInsercion" ColumnName="d_FechaInsercion" />
+          <ScalarProperty Name="i_UsuarioInsertaId" ColumnName="i_UsuarioInsertaId" />
+          <ScalarProperty Name="d_FechaActualizacion" ColumnName="d_FechaActualizacion" />
+          <ScalarProperty Name="i_UsuarioActualizaId" ColumnName="i_UsuarioActualizaId" />
+          <ScalarProperty Name="i_EsEliminado" ColumnName="i_EsEliminado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="psicosensometrico">
+      <EntityTypeMapping TypeName="Sigesoft.Node.WinClient.DAL.psicosensometrico">
+        <MappingFragment StoreEntitySet="Psicosensometricos">
+          <ScalarProperty Name="v_PsicosensometricoId" ColumnName="v_PsicosensometricoId" />
+          <ScalarProperty Name="v_ServicioId" ColumnName="v_ServicioId" />
+          <ScalarProperty Name="v_ConclusionesPsicosensometrico" ColumnName="v_ConclusionesPsicosensometrico" />
+          <ScalarProperty Name="d_FechaInsercion" ColumnName="d_FechaInsercion" />
+          <ScalarProperty Name="i_UsuarioInsertaId" ColumnName="i_UsuarioInsertaId" />
+          <ScalarProperty Name="d_FechaActualizacion" ColumnName="d_FechaActualizacion" />
+          <ScalarProperty Name="i_UsuarioActualizaId" ColumnName="i_UsuarioActualizaId" />
+          <ScalarProperty Name="i_EsEliminado" ColumnName="i_EsEliminado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rayosx">
+      <EntityTypeMapping TypeName="Sigesoft.Node.WinClient.DAL.rayosx">
+        <MappingFragment StoreEntitySet="Rayosxes">
+          <ScalarProperty Name="v_RayosXId" ColumnName="v_RayosXId" />
+          <ScalarProperty Name="v_ServicioId" ColumnName="v_ServicioId" />
+          <ScalarProperty Name="v_0" ColumnName="v_0" />
+          <ScalarProperty Name="v_0_0" ColumnName="v_0_0" />
+          <ScalarProperty Name="v_0_1" ColumnName="v_0_1" />
+          <ScalarProperty Name="v_1_0" ColumnName="v_1_0" />
+          <ScalarProperty Name="v_1_1" ColumnName="v_1_1" />
+          <ScalarProperty Name="v_1_2" ColumnName="v_1_2" />
+          <ScalarProperty Name="v_2_1" ColumnName="v_2_1" />
+          <ScalarProperty Name="v_2_2" ColumnName="v_2_2" />
+          <ScalarProperty Name="v_2_3" ColumnName="v_2_3" />
+          <ScalarProperty Name="v_3_1" ColumnName="v_3_1" />
+          <ScalarProperty Name="v_3_2" ColumnName="v_3_2" />
+          <ScalarProperty Name="v_3_" ColumnName="v_3_" />
+          <ScalarProperty Name="v_ConclusionesRayosX" ColumnName="v_ConclusionesRayosX" />
+          <ScalarProperty Name="d_FechaInsercion" ColumnName="d_FechaInsercion" />
+          <ScalarProperty Name="i_UsuarioInsertaId" ColumnName="i_UsuarioInsertaId" />
+          <ScalarProperty Name="d_FechaActualizacion" ColumnName="d_FechaActualizacion" />
+          <ScalarProperty Name="i_UsuarioActualizaId" ColumnName="i_UsuarioActualizaId" />
+          <ScalarProperty Name="i_EsEliminado" ColumnName="i_EsEliminado" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -2136,6 +2094,36 @@
           <ScalarProperty Name="d_UpdateDate" ColumnName="d_UpdateDate" />
           <ScalarProperty Name="i_UpdateUserId" ColumnName="i_UpdateUserId" />
           <ScalarProperty Name="v_ComentaryUpdate" ColumnName="v_ComentaryUpdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="riesgos">
+      <EntityTypeMapping TypeName="Sigesoft.Node.WinClient.DAL.riesgos">
+        <MappingFragment StoreEntitySet="Riesgos">
+          <ScalarProperty Name="v_RiesgoId" ColumnName="v_RiesgoId" />
+          <ScalarProperty Name="v_ServicioId" ColumnName="v_ServicioId" />
+          <ScalarProperty Name="b_Ruido" ColumnName="b_Ruido" />
+          <ScalarProperty Name="b_Polvo" ColumnName="b_Polvo" />
+          <ScalarProperty Name="b_VidaSedentaria" ColumnName="b_VidaSedentaria" />
+          <ScalarProperty Name="b_VibTotal" ColumnName="b_VibTotal" />
+          <ScalarProperty Name="b_Cancerigenos" ColumnName="b_Cancerigenos" />
+          <ScalarProperty Name="b_Mutagenicos" ColumnName="b_Mutagenicos" />
+          <ScalarProperty Name="b_Solventes" ColumnName="b_Solventes" />
+          <ScalarProperty Name="b_MetalPesado" ColumnName="b_MetalPesado" />
+          <ScalarProperty Name="b_Temperatura" ColumnName="b_Temperatura" />
+          <ScalarProperty Name="b_Biologicos" ColumnName="b_Biologicos" />
+          <ScalarProperty Name="b_Posturas" ColumnName="b_Posturas" />
+          <ScalarProperty Name="b_Turnos" ColumnName="b_Turnos" />
+          <ScalarProperty Name="b_Cargas" ColumnName="b_Cargas" />
+          <ScalarProperty Name="b_MovimientosRepetitivos" ColumnName="b_MovimientosRepetitivos" />
+          <ScalarProperty Name="b_PantallaPVD" ColumnName="b_PantallaPVD" />
+          <ScalarProperty Name="b_Otros" ColumnName="b_Otros" />
+          <ScalarProperty Name="i_Descripcion" ColumnName="i_Descripcion" />
+          <ScalarProperty Name="d_FechaInsercion" ColumnName="d_FechaInsercion" />
+          <ScalarProperty Name="i_UsuarioInsertaId" ColumnName="i_UsuarioInsertaId" />
+          <ScalarProperty Name="d_FechaActualizacion" ColumnName="d_FechaActualizacion" />
+          <ScalarProperty Name="i_UsuarioActualizaId" ColumnName="i_UsuarioActualizaId" />
+          <ScalarProperty Name="i_EsEliminado" ColumnName="i_EsEliminado" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -2607,6 +2595,32 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="servicio">
+      <EntityTypeMapping TypeName="Sigesoft.Node.WinClient.DAL.servicio">
+        <MappingFragment StoreEntitySet="Servicios">
+          <ScalarProperty Name="v_ServicioId" ColumnName="v_ServicioId" />
+          <ScalarProperty Name="v_PersonaId" ColumnName="v_PersonaId" />
+          <ScalarProperty Name="i_TipoExamen" ColumnName="i_TipoExamen" />
+          <ScalarProperty Name="v_NombreExamen" ColumnName="v_NombreExamen" />
+          <ScalarProperty Name="d_FechaExamen" ColumnName="d_FechaExamen" />
+          <ScalarProperty Name="v_Ocupacion" ColumnName="v_Ocupacion" />
+          <ScalarProperty Name="v_EmpresaTrabajo" ColumnName="v_EmpresaTrabajo" />
+          <ScalarProperty Name="v_Contrata" ColumnName="v_Contrata" />
+          <ScalarProperty Name="v_ClinicaExamen" ColumnName="v_ClinicaExamen" />
+          <ScalarProperty Name="v_Diagnosticos" ColumnName="v_Diagnosticos" />
+          <ScalarProperty Name="v_Recomendaciones" ColumnName="v_Recomendaciones" />
+          <ScalarProperty Name="v_Restricciones" ColumnName="v_Restricciones" />
+          <ScalarProperty Name="i_Aptitud" ColumnName="i_Aptitud" />
+          <ScalarProperty Name="v_MotivoObservacion" ColumnName="v_MotivoObservacion" />
+          <ScalarProperty Name="d_FechaVigencia" ColumnName="d_FechaVigencia" />
+          <ScalarProperty Name="d_FechaInsercion" ColumnName="d_FechaInsercion" />
+          <ScalarProperty Name="i_UsuarioInsertaId" ColumnName="i_UsuarioInsertaId" />
+          <ScalarProperty Name="d_FechaActualizacion" ColumnName="d_FechaActualizacion" />
+          <ScalarProperty Name="i_UsuarioActualizaId" ColumnName="i_UsuarioActualizaId" />
+          <ScalarProperty Name="i_EsEliminado" ColumnName="i_EsEliminado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="sms">
       <EntityTypeMapping TypeName="Sigesoft.Node.WinClient.DAL.sms">
         <MappingFragment StoreEntitySet="sms">
@@ -2659,6 +2673,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="Sigesoft.Node.WinClient.DAL.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="systemparameter">
       <EntityTypeMapping TypeName="Sigesoft.Node.WinClient.DAL.systemparameter">
         <MappingFragment StoreEntitySet="systemparameters">
@@ -2698,6 +2723,11 @@
           <ScalarProperty Name="i_RolVentaId" ColumnName="i_RolVentaId" />
           <ScalarProperty Name="v_ComentaryUpdate" ColumnName="v_ComentaryUpdate" />
           <ScalarProperty Name="i_LoginFrecuency" ColumnName="i_LoginFrecuency" />
+          <ScalarProperty Name="i_Permiso1" ColumnName="i_Permiso1" />
+          <ScalarProperty Name="i_Permiso2" ColumnName="i_Permiso2" />
+          <ScalarProperty Name="i_Permiso3" ColumnName="i_Permiso3" />
+          <ScalarProperty Name="i_Permiso4" ColumnName="i_Permiso4" />
+          <ScalarProperty Name="i_Permiso5" ColumnName="i_Permiso5" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -2817,6 +2847,32 @@
           <ScalarProperty Name="d_UpdateDate" ColumnName="d_UpdateDate" />
           <ScalarProperty Name="v_ComentaryUpdate" ColumnName="v_ComentaryUpdate" />
           <ScalarProperty Name="v_ServiceId" ColumnName="v_ServiceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="triaje">
+      <EntityTypeMapping TypeName="Sigesoft.Node.WinClient.DAL.triaje">
+        <MappingFragment StoreEntitySet="Triajes">
+          <ScalarProperty Name="v_TriajeId" ColumnName="v_TriajeId" />
+          <ScalarProperty Name="v_ServicioId" ColumnName="v_ServicioId" />
+          <ScalarProperty Name="dec_Peso" ColumnName="dec_Peso" />
+          <ScalarProperty Name="dec_Talla" ColumnName="dec_Talla" />
+          <ScalarProperty Name="dec_IMC" ColumnName="dec_IMC" />
+          <ScalarProperty Name="dec_IndiceCintura" ColumnName="dec_IndiceCintura" />
+          <ScalarProperty Name="dec_Temperatura" ColumnName="dec_Temperatura" />
+          <ScalarProperty Name="dec_PerimetroCadera" ColumnName="dec_PerimetroCadera" />
+          <ScalarProperty Name="dec_PerimetroAbdominal" ColumnName="dec_PerimetroAbdominal" />
+          <ScalarProperty Name="i_PresionSistolica" ColumnName="i_PresionSistolica" />
+          <ScalarProperty Name="i_PresionDiastolica" ColumnName="i_PresionDiastolica" />
+          <ScalarProperty Name="i_FrecResp" ColumnName="i_FrecResp" />
+          <ScalarProperty Name="i_FrecCard" ColumnName="i_FrecCard" />
+          <ScalarProperty Name="dec_SaturacionOxigeno" ColumnName="dec_SaturacionOxigeno" />
+          <ScalarProperty Name="v_ConclusionesTriaje" ColumnName="v_ConclusionesTriaje" />
+          <ScalarProperty Name="d_FechaInsercion" ColumnName="d_FechaInsercion" />
+          <ScalarProperty Name="i_UsuarioInsertaId" ColumnName="i_UsuarioInsertaId" />
+          <ScalarProperty Name="d_FechaActualizacion" ColumnName="d_FechaActualizacion" />
+          <ScalarProperty Name="i_UsuarioActualizaId" ColumnName="i_UsuarioActualizaId" />
+          <ScalarProperty Name="i_EsEliminado" ColumnName="i_EsEliminado" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -3478,53 +3534,7 @@
     <FunctionImportMapping FunctionImportName="getservices" FunctionName="Sigesoft.Node.WinClient.DAL.Store.getServices" />
     <FunctionImportMapping FunctionImportName="getservicescomponentarchivo_sp" FunctionName="Sigesoft.Node.WinClient.DAL.Store.GetServicesComponentArchivo_SP" />
     <FunctionImportMapping FunctionImportName="getservicesconsolidateforservice_sp" FunctionName="Sigesoft.Node.WinClient.DAL.Store.GetServicesConsolidateForService_SP" />
-    <FunctionImportMapping FunctionImportName="getservicescovid19_filters_sp" FunctionName="Sigesoft.Node.WinClient.DAL.Store.GetServicesCovid19_FILTERS_SP">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="Sigesoft.Node.WinClient.DAL.getservicescovid19_filters_spResult">
-          <ScalarProperty Name="SERVICIO" ColumnName="SERVICIO" />
-          <ScalarProperty Name="ID_PACIENTE" ColumnName="ID_PACIENTE" />
-          <ScalarProperty Name="PACIENTE" ColumnName="PACIENTE" />
-          <ScalarProperty Name="DNI" ColumnName="DNI" />
-          <ScalarProperty Name="NACIMIENTO" ColumnName="NACIMIENTO" />
-          <ScalarProperty Name="EDAD" ColumnName="EDAD" />
-          <ScalarProperty Name="OCUPACION" ColumnName="OCUPACION" />
-          <ScalarProperty Name="SEXO" ColumnName="SEXO" />
-          <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
-          <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
-          <ScalarProperty Name="CONTACTO_EMERGENCIA" ColumnName="CONTACTO EMERGENCIA" />
-          <ScalarProperty Name="TELEFONO_EMERGENCIA" ColumnName="TELEFONO EMERGENCIA" />
-          <ScalarProperty Name="EXAMEN" ColumnName="EXAMEN" />
-          <ScalarProperty Name="PRECIO" ColumnName="PRECIO" />
-          <ScalarProperty Name="FECHA" ColumnName="FECHA" />
-          <ScalarProperty Name="COMPROBANTE" ColumnName="COMPROBANTE" />
-          <ScalarProperty Name="PROTOCOLOID" ColumnName="PROTOCOLOID" />
-          <ScalarProperty Name="PROTOCOLO" ColumnName="PROTOCOLO" />
-          <ScalarProperty Name="RESULTADO" ColumnName="RESULTADO" />
-          <ScalarProperty Name="PRIMER_RES" ColumnName="PRIMER_RES" />
-          <ScalarProperty Name="SEGUNDO_RES" ColumnName="SEGUNDO_RES" />
-          <ScalarProperty Name="ATENCION" ColumnName="ATENCION" />
-          <ScalarProperty Name="USUARIO" ColumnName="USUARIO" />
-          <ScalarProperty Name="DEPARTAMENTO" ColumnName="DEPARTAMENTO" />
-          <ScalarProperty Name="PROVINCIA" ColumnName="PROVINCIA" />
-          <ScalarProperty Name="DISTRITO" ColumnName="DISTRITO" />
-          <ScalarProperty Name="MINAID" ColumnName="MINAID" />
-          <ScalarProperty Name="MINANAME" ColumnName="MINANAME" />
-          <ScalarProperty Name="CONTRATAID" ColumnName="CONTRATAID" />
-          <ScalarProperty Name="CONTRATANAME" ColumnName="CONTRATANAME" />
-          <ScalarProperty Name="TERCEROID" ColumnName="TERCEROID" />
-          <ScalarProperty Name="TERCERONAME" ColumnName="TERCERONAME" />
-          <ScalarProperty Name="v_ServiceComponentId" ColumnName="v_ServiceComponentId" />
-          <ScalarProperty Name="i_StatusLiquidation" ColumnName="i_StatusLiquidation" />
-          <ScalarProperty Name="i_MasterServiceId" ColumnName="i_MasterServiceId" />
-          <ScalarProperty Name="GradoInstruc" ColumnName="GradoInstruc" />
-          <ScalarProperty Name="EstadoCivil" ColumnName="EstadoCivil" />
-          <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
-          <ScalarProperty Name="AltaCovid19_1" ColumnName="AltaCovid19_1" />
-          <ScalarProperty Name="AltaCovid19_2" ColumnName="AltaCovid19_2" />
-          <ScalarProperty Name="VACUNAS" ColumnName="VACUNAS" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="getservicescovid19_filters_sp" FunctionName="Sigesoft.Node.WinClient.DAL.Store.GetServicesCovid19_FILTERS_SP" />
     <FunctionImportMapping FunctionImportName="getservicescovid19_seg_val_sp" FunctionName="Sigesoft.Node.WinClient.DAL.Store.GetServicesCovid19_SEG_VAL_SP" />
     <FunctionImportMapping FunctionImportName="getservicescovid19_sp" FunctionName="Sigesoft.Node.WinClient.DAL.Store.GetServicesCovid19_SP">
       <ResultMapping>
@@ -3565,100 +3575,8 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="getservicescovid19antigeno_filters_sp" FunctionName="Sigesoft.Node.WinClient.DAL.Store.GetServicesCovid19ANTIGENO_FILTERS_SP">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="Sigesoft.Node.WinClient.DAL.getservicescovid19antigeno_filters_spResult">
-          <ScalarProperty Name="SERVICIO" ColumnName="SERVICIO" />
-          <ScalarProperty Name="ID_PACIENTE" ColumnName="ID_PACIENTE" />
-          <ScalarProperty Name="PACIENTE" ColumnName="PACIENTE" />
-          <ScalarProperty Name="AP_PATERNO" ColumnName="AP_PATERNO" />
-          <ScalarProperty Name="AP_MATERNO" ColumnName="AP_MATERNO" />
-          <ScalarProperty Name="NOMBRES" ColumnName="NOMBRES" />
-          <ScalarProperty Name="DNI" ColumnName="DNI" />
-          <ScalarProperty Name="NACIMIENTO" ColumnName="NACIMIENTO" />
-          <ScalarProperty Name="EDAD" ColumnName="EDAD" />
-          <ScalarProperty Name="OCUPACION" ColumnName="OCUPACION" />
-          <ScalarProperty Name="SEXO" ColumnName="SEXO" />
-          <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
-          <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
-          <ScalarProperty Name="CONTACTO_EMERGENCIA" ColumnName="CONTACTO EMERGENCIA" />
-          <ScalarProperty Name="TELEFONO_EMERGENCIA" ColumnName="TELEFONO EMERGENCIA" />
-          <ScalarProperty Name="EXAMEN" ColumnName="EXAMEN" />
-          <ScalarProperty Name="PRECIO" ColumnName="PRECIO" />
-          <ScalarProperty Name="FECHA" ColumnName="FECHA" />
-          <ScalarProperty Name="COMPROBANTE" ColumnName="COMPROBANTE" />
-          <ScalarProperty Name="PROTOCOLOID" ColumnName="PROTOCOLOID" />
-          <ScalarProperty Name="PROTOCOLO" ColumnName="PROTOCOLO" />
-          <ScalarProperty Name="RESULTADO" ColumnName="RESULTADO" />
-          <ScalarProperty Name="ATENCION" ColumnName="ATENCION" />
-          <ScalarProperty Name="USUARIO" ColumnName="USUARIO" />
-          <ScalarProperty Name="DEPARTAMENTO" ColumnName="DEPARTAMENTO" />
-          <ScalarProperty Name="PROVINCIA" ColumnName="PROVINCIA" />
-          <ScalarProperty Name="DISTRITO" ColumnName="DISTRITO" />
-          <ScalarProperty Name="MINAID" ColumnName="MINAID" />
-          <ScalarProperty Name="MINANAME" ColumnName="MINANAME" />
-          <ScalarProperty Name="CONTRATAID" ColumnName="CONTRATAID" />
-          <ScalarProperty Name="CONTRATANAME" ColumnName="CONTRATANAME" />
-          <ScalarProperty Name="TERCEROID" ColumnName="TERCEROID" />
-          <ScalarProperty Name="TERCERONAME" ColumnName="TERCERONAME" />
-          <ScalarProperty Name="v_ServiceComponentId" ColumnName="v_ServiceComponentId" />
-          <ScalarProperty Name="i_StatusLiquidation" ColumnName="i_StatusLiquidation" />
-          <ScalarProperty Name="i_MasterServiceId" ColumnName="i_MasterServiceId" />
-          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
-          <ScalarProperty Name="Lugar" ColumnName="Lugar" />
-          <ScalarProperty Name="AltaCovid19_1" ColumnName="AltaCovid19_1" />
-          <ScalarProperty Name="AltaCovid19_2" ColumnName="AltaCovid19_2" />
-          <ScalarProperty Name="VACUNAS" ColumnName="VACUNAS" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="getservicescovid19molecular_filters_sp" FunctionName="Sigesoft.Node.WinClient.DAL.Store.GetServicesCovid19MOLECULAR_FILTERS_SP">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="Sigesoft.Node.WinClient.DAL.getservicescovid19antigeno_filters_spResult">
-          <ScalarProperty Name="SERVICIO" ColumnName="SERVICIO" />
-          <ScalarProperty Name="ID_PACIENTE" ColumnName="ID_PACIENTE" />
-          <ScalarProperty Name="PACIENTE" ColumnName="PACIENTE" />
-          <ScalarProperty Name="AP_PATERNO" ColumnName="AP_PATERNO" />
-          <ScalarProperty Name="AP_MATERNO" ColumnName="AP_MATERNO" />
-          <ScalarProperty Name="NOMBRES" ColumnName="NOMBRES" />
-          <ScalarProperty Name="DNI" ColumnName="DNI" />
-          <ScalarProperty Name="NACIMIENTO" ColumnName="NACIMIENTO" />
-          <ScalarProperty Name="EDAD" ColumnName="EDAD" />
-          <ScalarProperty Name="OCUPACION" ColumnName="OCUPACION" />
-          <ScalarProperty Name="SEXO" ColumnName="SEXO" />
-          <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
-          <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
-          <ScalarProperty Name="CONTACTO_EMERGENCIA" ColumnName="CONTACTO EMERGENCIA" />
-          <ScalarProperty Name="TELEFONO_EMERGENCIA" ColumnName="TELEFONO EMERGENCIA" />
-          <ScalarProperty Name="EXAMEN" ColumnName="EXAMEN" />
-          <ScalarProperty Name="PRECIO" ColumnName="PRECIO" />
-          <ScalarProperty Name="FECHA" ColumnName="FECHA" />
-          <ScalarProperty Name="COMPROBANTE" ColumnName="COMPROBANTE" />
-          <ScalarProperty Name="PROTOCOLOID" ColumnName="PROTOCOLOID" />
-          <ScalarProperty Name="PROTOCOLO" ColumnName="PROTOCOLO" />
-          <ScalarProperty Name="RESULTADO" ColumnName="RESULTADO" />
-          <ScalarProperty Name="ATENCION" ColumnName="ATENCION" />
-          <ScalarProperty Name="USUARIO" ColumnName="USUARIO" />
-          <ScalarProperty Name="DEPARTAMENTO" ColumnName="DEPARTAMENTO" />
-          <ScalarProperty Name="PROVINCIA" ColumnName="PROVINCIA" />
-          <ScalarProperty Name="DISTRITO" ColumnName="DISTRITO" />
-          <ScalarProperty Name="MINAID" ColumnName="MINAID" />
-          <ScalarProperty Name="MINANAME" ColumnName="MINANAME" />
-          <ScalarProperty Name="CONTRATAID" ColumnName="CONTRATAID" />
-          <ScalarProperty Name="CONTRATANAME" ColumnName="CONTRATANAME" />
-          <ScalarProperty Name="TERCEROID" ColumnName="TERCEROID" />
-          <ScalarProperty Name="TERCERONAME" ColumnName="TERCERONAME" />
-          <ScalarProperty Name="v_ServiceComponentId" ColumnName="v_ServiceComponentId" />
-          <ScalarProperty Name="i_StatusLiquidation" ColumnName="i_StatusLiquidation" />
-          <ScalarProperty Name="i_MasterServiceId" ColumnName="i_MasterServiceId" />
-          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
-          <ScalarProperty Name="Lugar" ColumnName="Lugar" />
-          <ScalarProperty Name="AltaCovid19_1" ColumnName="AltaCovid19_1" />
-          <ScalarProperty Name="AltaCovid19_2" ColumnName="AltaCovid19_2" />
-          <ScalarProperty Name="VACUNAS" ColumnName="VACUNAS" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="getservicescovid19antigeno_filters_sp" FunctionName="Sigesoft.Node.WinClient.DAL.Store.GetServicesCovid19ANTIGENO_FILTERS_SP" />
+    <FunctionImportMapping FunctionImportName="getservicescovid19molecular_filters_sp" FunctionName="Sigesoft.Node.WinClient.DAL.Store.GetServicesCovid19MOLECULAR_FILTERS_SP" />
     <FunctionImportMapping FunctionImportName="getserviceshort_sp" FunctionName="Sigesoft.Node.WinClient.DAL.Store.GetServiceShort_SP" />
     <FunctionImportMapping FunctionImportName="getservicespagedandfiltered_sp" FunctionName="Sigesoft.Node.WinClient.DAL.Store.GetServicesPagedAndFiltered_SP">
       <ResultMapping>
@@ -4084,6 +4002,9 @@
     <FunctionImportMapping FunctionImportName="searchpersonforadmin" FunctionName="Sigesoft.Node.WinClient.DAL.Store.searchPersonForAdmin" />
     <FunctionImportMapping FunctionImportName="setemvironmentvariables" FunctionName="Sigesoft.Node.WinClient.DAL.Store.setEmvironmentVariables" />
     <FunctionImportMapping FunctionImportName="setstatusaprobardenegarsolicitud" FunctionName="Sigesoft.Node.WinClient.DAL.Store.setStatusAprobarDenegarSolicitud" />
+    <FunctionImportMapping FunctionImportName="sp_getdatahierarchy" FunctionName="Sigesoft.Node.WinClient.DAL.Store.SP_GetDataHierarchy" />
+    <FunctionImportMapping FunctionImportName="sp_getservicespaginatedbyuser" FunctionName="Sigesoft.Node.WinClient.DAL.Store.sp_GetServicesPaginatedByUser" />
+    <FunctionImportMapping FunctionImportName="sp_getsystemparameters" FunctionName="Sigesoft.Node.WinClient.DAL.Store.SP_GetSystemParameters" />
     <FunctionImportMapping FunctionImportName="updatepass" FunctionName="Sigesoft.Node.WinClient.DAL.Store.upDatePass" />
     <FunctionImportMapping FunctionImportName="updatereportfreeocupacional" FunctionName="Sigesoft.Node.WinClient.DAL.Store.updateReportFreeOcupacional" />
     <FunctionImportMapping FunctionImportName="updatereportfreeparticular" FunctionName="Sigesoft.Node.WinClient.DAL.Store.updateReportFreeParticular" />
