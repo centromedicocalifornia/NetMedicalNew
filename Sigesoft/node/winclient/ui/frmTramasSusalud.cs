@@ -225,12 +225,29 @@ namespace Sigesoft.Node.WinClient.UI
 
                 this.grProcedimientosCirugia.DisplayLayout.AutoFitStyle = AutoFitStyle.ResizeAllColumns;
             }
+            else if (tabName == "Procedimientos")
+            {
+                var objData = GetData(0, null, "d_FechaIngreso ASC", strFilterExpression);
+                grProcedimientos.DataSource = objData;
+
+                label3.Text = string.Format("Se encontraron {0} registros.", objData.Count());
+                if (objData.Count() >= 1)
+                {
+                    btnExportProcedimientos.Enabled = true;
+                }
+                else
+                {
+                    btnExportProcedimientos.Enabled = false;
+                }
+
+                this.grProcedimientos.DisplayLayout.AutoFitStyle = AutoFitStyle.ResizeAllColumns;
+            }
             else if (tabName == "Partos")
             {
                 var objData = GetData(0, null, "d_FechaIngreso ASC", strFilterExpression);
                 grPartos.DataSource = objData;
 
-                lblRecordCount3.Text = string.Format("Se encontraron {0} registros.", objData.Count());
+                lblRecordCount4.Text = string.Format("Se encontraron {0} registros.", objData.Count());
                 if (objData.Count() >= 1)
                 {
                     btnExportartos.Enabled = true;
@@ -273,6 +290,10 @@ namespace Sigesoft.Node.WinClient.UI
             {
                 _objData = _objTramasBL.GettramasPageAndFilteredProcedimientosCirugia(ref objOperationResult, pintPageIndex, pintPageSize, pstrSortExpression, pstrFilterExpression, pdatBeginDate, pdatEndDate);
             }
+            else if (tabName == "Procedimientos")
+            {
+                _objData = _objTramasBL.GettramasPageAndFilteredProcedimientos(ref objOperationResult, pintPageIndex, pintPageSize, pstrSortExpression, pstrFilterExpression, pdatBeginDate, pdatEndDate);
+            }
 
             if (objOperationResult.Success != 1)
             {
@@ -310,6 +331,10 @@ namespace Sigesoft.Node.WinClient.UI
             else if (tabName == "Procedimientos / Cirugía")
             {
                 _objDataLista = new ServiceBL().GetServiceForTramasPageAndFilteredProcedimientosCirugias(ref objOperationResult, pintPageIndex, pintPageSize, pstrSortExpression, pstrFilterExpression, pdatBeginDate, pdatEndDate);
+            }
+            else if (tabName == "Procedimientos")
+            {
+                _objDataLista = new ServiceBL().GetServiceForTramasPageAndFilteredProcedimientos(ref objOperationResult, pintPageIndex, pintPageSize, pstrSortExpression, pstrFilterExpression, pdatBeginDate, pdatEndDate);
             }
 
             if (objOperationResult.Success != 1)
@@ -732,6 +757,22 @@ namespace Sigesoft.Node.WinClient.UI
             {
                 MessageBox.Show("REVISE LOS REGISTROS A GUARDAR", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 //this.Close();
+            }
+        }
+
+        private void btnExportProcedimientos_Click(object sender, EventArgs e)
+        {
+            string NombreArchivo = "";
+            NombreArchivo = "Reporte Datos Procedimientos del " + dtpDateTimeStar.Text + " al " + dptDateTimeEnd.Text + "-tramas";
+            NombreArchivo = NombreArchivo.Replace("/", "_");
+            NombreArchivo = NombreArchivo.Replace(":", "_");
+
+            saveFileDialog1.FileName = NombreArchivo;
+            saveFileDialog1.Filter = "Files (*.xls;*.xlsx;*)|*.xls;*.xlsx;*";
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                this.ultraGridExcelExporter1.Export(this.grProcedimientos, saveFileDialog1.FileName);
+                MessageBox.Show("Se exportaron correctamente los datos.", " ¡ INFORMACIÓN !", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
         

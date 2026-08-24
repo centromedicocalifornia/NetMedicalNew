@@ -423,6 +423,117 @@ namespace Sigesoft.Node.WinClient.BLL
             }
         }
 
+        public List<TramasList> GettramasPageAndFilteredProcedimientos(ref OperationResult pobjOperationResult, int? pintPageIndex, int? pintResultsPerPage, string pstrSortExpression, string pstrFilterExpression, DateTime? pdatBeginDate, DateTime? pdatEndDate)
+        {
+            try
+            {
+                SigesoftEntitiesModel dbContext = new SigesoftEntitiesModel();
+
+                var query = from A in dbContext.tramas
+
+                            join C in dbContext.systemuser on A.i_InsertUserId equals C.i_SystemUserId
+                            join D in dbContext.person on C.v_PersonId equals D.v_PersonId
+                            join E in dbContext.systemuser on new { i_UpdateUserId = A.i_UpdateUserId.Value }
+                                equals new { i_UpdateUserId = E.i_SystemUserId } into E_join
+                            from E in E_join.DefaultIfEmpty()
+
+                            join F in dbContext.person on new { v_PersonId = E.v_PersonId }
+                                equals new { v_PersonId = F.v_PersonId } into F_join
+                            from F in F_join.DefaultIfEmpty()
+
+                            join G in dbContext.systemparameter on new { a = A.i_UPS.Value, b = 349 }
+                                equals new { a = G.i_ParameterId, b = G.i_GroupId } into G_join // UPS DETAIL
+                            from G in G_join.DefaultIfEmpty()
+
+                            join H in dbContext.systemparameter on new { a = A.i_Procedimiento.Value, b = 348 }
+                                equals new { a = H.i_ParameterId, b = H.i_GroupId } into H_join // PROCEDIMIENTO DETAIL
+                            from H in H_join.DefaultIfEmpty()
+
+                            where A.i_IsDeleted == 0 && A.v_TipoRegistro == "Procedimientos"
+
+                            select new TramasList
+                            {
+                                v_TramaId = A.v_TramaId,
+                                v_ServiceId = A.v_ServiceId,
+                                v_TipoRegistro = A.v_TipoRegistro,
+                                d_FechaIngreso = A.d_FechaIngreso.Value,
+                                i_UPS = A.i_UPS.Value,
+                                ups_Detail = G.v_Value1,
+                                i_Procedimiento = A.i_Procedimiento,
+                                procedimiento_Detail = H.v_Value1,
+                                //programacion_Detail = I.v_Value1,
+                                //tipoCirugia_Detail = J.v_Value1,
+                                i_HorasProg = A.i_HorasProg,
+                                i_HorasEfect = A.i_HorasEfect,
+                                i_HorasActo = A.i_HorasActo,
+                                d_InsertDate = A.d_InsertDate.Value,
+                                d_UpdateDate = A.d_UpdateDate.Value,
+                                User_Crea = D.v_FirstName + " " + D.v_FirstLastName + " " + D.v_SecondLastName,
+                                User_Act = E.i_SystemUserId == null ? "---" : F.v_FirstName + " " + F.v_FirstLastName + " " + F.v_SecondLastName,
+                                v_ComentaryUpdate = A.v_ComentaryUpdate
+
+                            };
+                #region
+                if (!string.IsNullOrEmpty(pstrFilterExpression))
+                {
+                    query = query.Where(pstrFilterExpression);
+                }
+                if (pdatBeginDate.HasValue && pdatEndDate.HasValue)
+                {
+                    query = query.Where("d_FechaIngreso >= @0 && d_FechaIngreso <= @1", pdatBeginDate.Value, pdatEndDate.Value);
+                }
+                if (!string.IsNullOrEmpty(pstrSortExpression))
+                {
+                    query = query.OrderBy(pstrSortExpression);
+                }
+                if (pintPageIndex.HasValue && pintResultsPerPage.HasValue)
+                {
+                    int intStartRowIndex = pintPageIndex.Value * pintResultsPerPage.Value;
+                    query = query.Skip(intStartRowIndex);
+                }
+                if (pintResultsPerPage.HasValue)
+                {
+                    query = query.Take(pintResultsPerPage.Value);
+                }
+                #endregion
+                List<TramasList> objData = query.ToList();
+                var tramasdetalle = (from a in objData
+                                     select new TramasList
+                                     {
+                                         v_TramaId = a.v_TramaId,
+                                         v_ServiceId = a.v_ServiceId,
+                                         v_TipoRegistro = a.v_TipoRegistro,
+                                         d_FechaIngreso = a.d_FechaIngreso,
+                                         i_UPS = a.i_UPS,
+                                         ups_Detail = a.ups_Detail,
+                                         i_Procedimiento = a.i_Procedimiento,
+                                         procedimiento_Detail = a.procedimiento_Detail,
+                                         //programacion_Detail = a.programacion_Detail,
+                                         //tipoCirugia_Detail = a.tipoCirugia_Detail,
+                                         i_HorasProg = a.i_HorasProg,
+                                         i_HorasEfect = a.i_HorasEfect,
+                                         i_HorasActo = a.i_HorasActo,
+                                         User_Crea = a.User_Crea,
+                                         User_Act = a.User_Act,
+                                         d_InsertDate = a.d_InsertDate,
+                                         d_UpdateDate = a.d_UpdateDate,
+                                         v_ComentaryUpdate = a.v_ComentaryUpdate == null ? "" : a.v_ComentaryUpdate
+
+                                     }).ToList();
+                pobjOperationResult.Success = 1;
+                return tramasdetalle;
+
+            }
+            catch (Exception e)
+            {
+                pobjOperationResult.Success = 0;
+                pobjOperationResult.ExceptionMessage = Common.Utils.ExceptionFormatter(e);
+                return null;
+                //Console.WriteLine(e);
+                //throw;
+            }
+        }
+
         public List<TramasList> GettramasPageAndFilteredPartos(ref OperationResult pobjOperationResult, int? pintPageIndex, int? pintResultsPerPage, string pstrSortExpression, string pstrFilterExpression, DateTime? pdatBeginDate, DateTime? pdatEndDate)
         {
             try

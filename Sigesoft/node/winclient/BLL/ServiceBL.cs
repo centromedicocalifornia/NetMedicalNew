@@ -42805,6 +42805,44 @@ namespace Sigesoft.Node.WinClient.BLL
                 return null;
             }
         }
+
+        public List<ServiciosTramas> GetServiceForTramasPageAndFilteredProcedimientos(ref OperationResult pobjOperationResult, int? pintPageIndex, int? pintResultsPerPage, string pstrSortExpression, string pstrFilterExpression, DateTime? pdatBeginDate, DateTime? pdatEndDate)
+        {
+            try
+            {
+                SigesoftEntitiesModel dbContext = new SigesoftEntitiesModel();
+
+                var query = (from a in dbContext.getservicefortramaspageandfilteredprocedimientoscirugias_sp(pdatBeginDate, pdatEndDate)
+                             select new ServiciosTramas
+                             {
+                                 v_ServiceId = a.v_ServiceId,
+                                 nombre = a.nombre,
+                                 genero = a.genero,
+                                 fechaservicio = a.fechaservicio,
+                                 edad = a.edad,
+                                 tipoServicio = a.tipoServicio,
+                                 i_TramaCargada = a.i_TramaCargada,
+                                 Medico = a.Medico,
+                                 CIE_10 = a.CIE_10,
+                                 Diagnostico = a.Diagnostico,
+                                 HospId = a.HospId,
+                                 TramaHosp = a.TramaHosp,
+                                 TramaSop = a.TramaSop,
+                                 Value1 = a.Value1,
+                                 Value2 = a.Value2
+                             }).ToList();
+
+                pobjOperationResult.Success = 1;
+                return query;
+            }
+            catch (Exception e)
+            {
+                pobjOperationResult.Success = 0;
+                pobjOperationResult.ExceptionMessage = Common.Utils.ExceptionFormatter(e);
+                return null;
+            }
+        }
+
         public List<ServiciosTramas> GetServiceForTramasPageAndFiltered(ref OperationResult pobjOperationResult, int? pintPageIndex, int? pintResultsPerPage, string pstrSortExpression, string pstrFilterExpression, DateTime? pdatBeginDate, DateTime? pdatEndDate)
         {
             try
