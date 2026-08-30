@@ -3499,6 +3499,28 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="getservicefortramaspageandfilteredprocedimientos_sp" FunctionName="Sigesoft.Node.WinClient.DAL.Store.GetServiceForTramasPageAndFilteredProcedimientos_SP">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Sigesoft.Node.WinClient.DAL.getservicefortramaspageandfilteredhospitalizacion_spResult">
+          <ScalarProperty Name="v_ServiceId" ColumnName="v_ServiceId" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="genero" ColumnName="genero" />
+          <ScalarProperty Name="fechaservicio" ColumnName="fechaservicio" />
+          <ScalarProperty Name="edad" ColumnName="edad" />
+          <ScalarProperty Name="d_BirthDate" ColumnName="d_BirthDate" />
+          <ScalarProperty Name="tipoServicio" ColumnName="tipoServicio" />
+          <ScalarProperty Name="i_TramaCargada" ColumnName="i_TramaCargada" />
+          <ScalarProperty Name="Medico" ColumnName="Medico" />
+          <ScalarProperty Name="CIE_10" ColumnName="CIE-10" />
+          <ScalarProperty Name="Diagnostico" ColumnName="Diagnostico" />
+          <ScalarProperty Name="HospId" ColumnName="HospId" />
+          <ScalarProperty Name="TramaHosp" ColumnName="TramaHosp" />
+          <ScalarProperty Name="TramaSop" ColumnName="TramaSop" />
+          <ScalarProperty Name="Value1" ColumnName="Value1" />
+          <ScalarProperty Name="Value2" ColumnName="Value2" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="getservicefortramaspageandfilteredprocedimientoscirugias_sp" FunctionName="Sigesoft.Node.WinClient.DAL.Store.GetServiceForTramasPageAndFilteredProcedimientosCirugias_SP">
       <ResultMapping>
         <ComplexTypeMapping TypeName="Sigesoft.Node.WinClient.DAL.getservicefortramaspageandfilteredhospitalizacion_spResult">

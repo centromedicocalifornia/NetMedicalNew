@@ -6016,6 +6016,10 @@
     <Parameter Name="pdatBeginDate" Type="datetime" Mode="In" />
     <Parameter Name="pdatEndDate" Type="datetime" Mode="In" />
   </Function>
+  <Function Name="GetServiceForTramasPageAndFilteredProcedimientos_SP" IsComposable="false" BuiltIn="false" Aggregate="false" NiladicFunction="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="GetServiceForTramasPageAndFilteredProcedimientos_SP">
+    <Parameter Name="pdatBeginDate" Type="datetime" Mode="In" />
+    <Parameter Name="pdatEndDate" Type="datetime" Mode="In" />
+  </Function>
   <Function Name="GetServiceForTramasPageAndFilteredProcedimientosCirugias_SP" IsComposable="false" BuiltIn="false" Aggregate="false" NiladicFunction="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="GetServiceForTramasPageAndFilteredProcedimientosCirugias_SP">
     <Parameter Name="pdatBeginDate" Type="datetime" Mode="In" />
     <Parameter Name="pdatEndDate" Type="datetime" Mode="In" />

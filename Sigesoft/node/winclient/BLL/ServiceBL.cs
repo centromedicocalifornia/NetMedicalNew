@@ -42812,7 +42812,7 @@ namespace Sigesoft.Node.WinClient.BLL
             {
                 SigesoftEntitiesModel dbContext = new SigesoftEntitiesModel();
 
-                var query = (from a in dbContext.getservicefortramaspageandfilteredprocedimientoscirugias_sp(pdatBeginDate, pdatEndDate)
+                var query = (from a in dbContext.getservicefortramaspageandfilteredprocedimientos_sp(pdatBeginDate, pdatEndDate)
                              select new ServiciosTramas
                              {
                                  v_ServiceId = a.v_ServiceId,
