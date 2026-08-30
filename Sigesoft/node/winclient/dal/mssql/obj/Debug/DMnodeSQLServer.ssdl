@@ -1215,6 +1215,8 @@
     <Property Name="d_UpdateDate" Type="datetime2" />
     <Property Name="v_InterconsultationDestinationId" Type="varchar" MaxLength="16" />
     <Property Name="v_ComentaryUpdate" Type="varchar" MaxLength="8000" />
+    <Property Name="i_TramaCargada" Type="int" />
+    <Property Name="v_TramaId" Type="varchar" MaxLength="16" />
   </EntityType>
   <EntityType Name="DigitalContactCenter">
     <Key>
@@ -2988,6 +2990,8 @@
     <Property Name="i_ApplicantMedic" Type="int" />
     <Property Name="i_Cantidad" Type="decimal" Precision="18" Scale="2" />
     <Property Name="d_Descuento" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="i_TramaCargada" Type="int" />
+    <Property Name="v_TramaId" Type="varchar" MaxLength="16" />
   </EntityType>
   <EntityType Name="servicecomponentfields">
     <Key>
@@ -3377,6 +3381,8 @@
     <Property Name="d_UpdateDate" Type="datetime2" />
     <Property Name="v_ComentaryUpdate" Type="varchar" MaxLength="8000" />
     <Property Name="v_ServiceId" Type="varchar" MaxLength="16" />
+    <Property Name="v_ServiceComponentId" Type="varchar" MaxLength="16" />
+    <Property Name="v_DiagnosticRepositoryId" Type="varchar" MaxLength="16" />
   </EntityType>
   <EntityType Name="Triaje">
     <Key>

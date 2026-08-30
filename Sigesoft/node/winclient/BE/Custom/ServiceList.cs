@@ -493,7 +493,14 @@ namespace Sigesoft.Node.WinClient.BE
        public DateTime? d_BirthDate { get; set; }
        public int? edad { get; set; }
        public string tipoServicio { get; set; }
+       public string v_componentId { get; set; }
+       public string Examen { get; set; }
+       public string Protocolo { get; set; }
        public int? i_TramaCargada { get; set; }
+       public int? i_TramaCargadaProc { get; set; }
+       public string v_TramaId { get; set; }
+       public string v_CodigoCPMS { get; set; }
+       public string v_DescripcionCPMS { get; set; }
        public string Trama { get; set; }
        public string Medico { get; set; }
        public string CIE_10 { get; set; }
@@ -503,6 +510,10 @@ namespace Sigesoft.Node.WinClient.BE
        public int TramaSop { get; set; }
        public string Value1 { get; set; }
        public string Value2 { get; set; }
+       public string Value3 { get; set; }
+       public string Value4 { get; set; }
+       public string Value5 { get; set; }
+
    }
 
    public class DtoEscritura

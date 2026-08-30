@@ -659,7 +659,9 @@
     <Compile Include="Generated\getservicepersondata_spResultDto.cs" />
     <Compile Include="Generated\getserviceinformationResultDto.cs" />
     <Compile Include="Generated\getserviceidResultDto.cs" />
+    <Compile Include="Generated\getservicefortramaspageandfilteredprocedimientos_spResultDto.cs" />
     <Compile Include="Generated\getservicefortramaspageandfilteredhospitalizacion_spResultDto.cs" />
+    <Compile Include="Generated\getservicefortramaspageandfilteredemergencia_spResultDto.cs" />
     <Compile Include="Generated\getservicefortramaspageandfilteredambulatorio_spResultDto.cs" />
     <Compile Include="Generated\getservicedisgnosticsreports_spResultDto.cs" />
     <Compile Include="Generated\getservicedata_spResultDto.cs" />

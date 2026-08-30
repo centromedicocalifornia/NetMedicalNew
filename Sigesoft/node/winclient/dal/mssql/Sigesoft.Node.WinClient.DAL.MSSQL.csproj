@@ -330,7 +330,9 @@
     <Compile Include="GeneratedAssemblers\getservicepersondata_spResultAssembler.cs" />
     <Compile Include="GeneratedAssemblers\getserviceinformationResultAssembler.cs" />
     <Compile Include="GeneratedAssemblers\getserviceidResultAssembler.cs" />
+    <Compile Include="GeneratedAssemblers\getservicefortramaspageandfilteredprocedimientos_spResultAssembler.cs" />
     <Compile Include="GeneratedAssemblers\getservicefortramaspageandfilteredhospitalizacion_spResultAssembler.cs" />
+    <Compile Include="GeneratedAssemblers\getservicefortramaspageandfilteredemergencia_spResultAssembler.cs" />
     <Compile Include="GeneratedAssemblers\getservicefortramaspageandfilteredambulatorio_spResultAssembler.cs" />
     <Compile Include="GeneratedAssemblers\getservicedisgnosticsreports_spResultAssembler.cs" />
     <Compile Include="GeneratedAssemblers\getservicedata_spResultAssembler.cs" />

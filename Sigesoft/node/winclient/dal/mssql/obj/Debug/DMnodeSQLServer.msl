@@ -603,6 +603,8 @@
           <ScalarProperty Name="d_UpdateDate" ColumnName="d_UpdateDate" />
           <ScalarProperty Name="v_InterconsultationDestinationId" ColumnName="v_InterconsultationDestinationId" />
           <ScalarProperty Name="v_ComentaryUpdate" ColumnName="v_ComentaryUpdate" />
+          <ScalarProperty Name="i_TramaCargada" ColumnName="i_TramaCargada" />
+          <ScalarProperty Name="v_TramaId" ColumnName="v_TramaId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -2442,6 +2444,8 @@
           <ScalarProperty Name="i_ApplicantMedic" ColumnName="i_ApplicantMedic" />
           <ScalarProperty Name="i_Cantidad" ColumnName="i_Cantidad" />
           <ScalarProperty Name="d_Descuento" ColumnName="d_Descuento" />
+          <ScalarProperty Name="i_TramaCargada" ColumnName="i_TramaCargada" />
+          <ScalarProperty Name="v_TramaId" ColumnName="v_TramaId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -2847,6 +2851,8 @@
           <ScalarProperty Name="d_UpdateDate" ColumnName="d_UpdateDate" />
           <ScalarProperty Name="v_ComentaryUpdate" ColumnName="v_ComentaryUpdate" />
           <ScalarProperty Name="v_ServiceId" ColumnName="v_ServiceId" />
+          <ScalarProperty Name="v_ServiceComponentId" ColumnName="v_ServiceComponentId" />
+          <ScalarProperty Name="v_DiagnosticRepositoryId" ColumnName="v_DiagnosticRepositoryId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -3430,18 +3436,27 @@
           <ScalarProperty Name="edad" ColumnName="edad" />
           <ScalarProperty Name="d_BirthDate" ColumnName="d_BirthDate" />
           <ScalarProperty Name="tipoServicio" ColumnName="tipoServicio" />
+          <ScalarProperty Name="Examen" ColumnName="Examen" />
+          <ScalarProperty Name="Protocolo" ColumnName="Protocolo" />
           <ScalarProperty Name="i_TramaCargada" ColumnName="i_TramaCargada" />
+          <ScalarProperty Name="i_TramaCargadaProc" ColumnName="i_TramaCargadaProc" />
+          <ScalarProperty Name="v_TramaId" ColumnName="v_TramaId" />
+          <ScalarProperty Name="v_CodigoCPMS" ColumnName="v_CodigoCPMS" />
+          <ScalarProperty Name="v_DescripcionCPMS" ColumnName="v_DescripcionCPMS" />
           <ScalarProperty Name="Medico" ColumnName="Medico" />
           <ScalarProperty Name="CIE_10" ColumnName="CIE-10" />
           <ScalarProperty Name="Diagnostico" ColumnName="Diagnostico" />
           <ScalarProperty Name="Value1" ColumnName="Value1" />
           <ScalarProperty Name="Value2" ColumnName="Value2" />
+          <ScalarProperty Name="Value3" ColumnName="Value3" />
+          <ScalarProperty Name="Value4" ColumnName="Value4" />
+          <ScalarProperty Name="Value5" ColumnName="Value5" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="getservicefortramaspageandfilteredemergencia_sp" FunctionName="Sigesoft.Node.WinClient.DAL.Store.GetServiceForTramasPageAndFilteredEmergencia_SP">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="Sigesoft.Node.WinClient.DAL.getservicefortramaspageandfilteredambulatorio_spResult">
+        <ComplexTypeMapping TypeName="Sigesoft.Node.WinClient.DAL.getservicefortramaspageandfilteredemergencia_spResult">
           <ScalarProperty Name="v_ServiceId" ColumnName="v_ServiceId" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
           <ScalarProperty Name="genero" ColumnName="genero" />
@@ -3482,7 +3497,7 @@
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="getservicefortramaspageandfilteredpartos_sp" FunctionName="Sigesoft.Node.WinClient.DAL.Store.GetServiceForTramasPageAndFilteredPartos_SP">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="Sigesoft.Node.WinClient.DAL.getservicefortramaspageandfilteredambulatorio_spResult">
+        <ComplexTypeMapping TypeName="Sigesoft.Node.WinClient.DAL.getservicefortramaspageandfilteredemergencia_spResult">
           <ScalarProperty Name="v_ServiceId" ColumnName="v_ServiceId" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
           <ScalarProperty Name="genero" ColumnName="genero" />
@@ -3501,7 +3516,7 @@
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="getservicefortramaspageandfilteredprocedimientos_sp" FunctionName="Sigesoft.Node.WinClient.DAL.Store.GetServiceForTramasPageAndFilteredProcedimientos_SP">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="Sigesoft.Node.WinClient.DAL.getservicefortramaspageandfilteredhospitalizacion_spResult">
+        <ComplexTypeMapping TypeName="Sigesoft.Node.WinClient.DAL.getservicefortramaspageandfilteredprocedimientos_spResult">
           <ScalarProperty Name="v_ServiceId" ColumnName="v_ServiceId" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
           <ScalarProperty Name="genero" ColumnName="genero" />
@@ -3509,7 +3524,14 @@
           <ScalarProperty Name="edad" ColumnName="edad" />
           <ScalarProperty Name="d_BirthDate" ColumnName="d_BirthDate" />
           <ScalarProperty Name="tipoServicio" ColumnName="tipoServicio" />
+          <ScalarProperty Name="v_componentId" ColumnName="v_componentId" />
+          <ScalarProperty Name="Examen" ColumnName="Examen" />
+          <ScalarProperty Name="Protocolo" ColumnName="Protocolo" />
           <ScalarProperty Name="i_TramaCargada" ColumnName="i_TramaCargada" />
+          <ScalarProperty Name="i_TramaCargadaProc" ColumnName="i_TramaCargadaProc" />
+          <ScalarProperty Name="v_TramaId" ColumnName="v_TramaId" />
+          <ScalarProperty Name="v_CodigoCPMS" ColumnName="v_CodigoCPMS" />
+          <ScalarProperty Name="v_DescripcionCPMS" ColumnName="v_DescripcionCPMS" />
           <ScalarProperty Name="Medico" ColumnName="Medico" />
           <ScalarProperty Name="CIE_10" ColumnName="CIE-10" />
           <ScalarProperty Name="Diagnostico" ColumnName="Diagnostico" />
@@ -3518,6 +3540,9 @@
           <ScalarProperty Name="TramaSop" ColumnName="TramaSop" />
           <ScalarProperty Name="Value1" ColumnName="Value1" />
           <ScalarProperty Name="Value2" ColumnName="Value2" />
+          <ScalarProperty Name="Value3" ColumnName="Value3" />
+          <ScalarProperty Name="Value4" ColumnName="Value4" />
+          <ScalarProperty Name="Value5" ColumnName="Value5" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
