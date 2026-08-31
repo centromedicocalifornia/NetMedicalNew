@@ -49,6 +49,7 @@ namespace Sigesoft.Node.WinClient.BLL
                                 d_InsertDate = A.d_InsertDate,
                                 d_UpdateDate = A.d_UpdateDate,
                                 v_ServiceId = A.v_ServiceId,
+                                v_DiagnosticRepositoryId = A.v_DiagnosticRepositoryId,
                                 User_Crea = D.v_FirstName + " " + D.v_FirstLastName + " " + D.v_SecondLastName,
                                 User_Act = E.i_SystemUserId == null ? "---" : F.v_FirstName + " " + F.v_FirstLastName + " " + F.v_SecondLastName
                             };
@@ -90,7 +91,8 @@ namespace Sigesoft.Node.WinClient.BLL
                                          User_Crea = a.User_Crea,
                                          User_Act = a.User_Act,
                                          d_InsertDate = a.d_InsertDate,
-                                         d_UpdateDate = a.d_UpdateDate
+                                         d_UpdateDate = a.d_UpdateDate,
+                                         v_DiagnosticRepositoryId = a.v_DiagnosticRepositoryId
                                      }).ToList();
                 pobjOperationResult.Success = 1;
                 return tramasdetalle;
@@ -633,7 +635,7 @@ namespace Sigesoft.Node.WinClient.BLL
             }
         }
 
-        public void AddTramas(ref OperationResult pobjOperationResult, tramasDto pobjDtoEntity, List<string> ClientSession)
+        public string AddTramas(ref OperationResult pobjOperationResult, tramasDto pobjDtoEntity, List<string> ClientSession)
         {
             string NewId = "(No generado)";
             try
@@ -655,7 +657,7 @@ namespace Sigesoft.Node.WinClient.BLL
                 pobjOperationResult.Success = 1;
                 // Llenar entidad Log
                 LogBL.SaveLog(ClientSession[0], ClientSession[1], ClientSession[2], LogEventType.CREACION, "TRAMA", "v_TramaId=" + NewId.ToString(), Success.Ok, null);
-                return;
+                return NewId;
             }
             catch (Exception ex)
             {
@@ -663,9 +665,41 @@ namespace Sigesoft.Node.WinClient.BLL
                 pobjOperationResult.ExceptionMessage = Common.Utils.ExceptionFormatter(ex);
                 // Llenar entidad Log
                 LogBL.SaveLog(ClientSession[0], ClientSession[1], ClientSession[2], LogEventType.CREACION, "TRAMA", "v_TramaId=" + NewId.ToString(), Success.Failed, pobjOperationResult.ExceptionMessage);
-                return;
+                return "NO REGISTRADO";
             }
 
+        }
+
+        public void ActualizarDxRepositoryTrama(int estado, string diagnostico, string tramaId)
+        {
+            ConexionSigesoft conectasam = new ConexionSigesoft();
+            conectasam.opensigesoft();
+            //var cadena1 =
+            //    " UPDATE service SET i_TramaCargada = " + estado +
+            //    "  where v_ServiceId = '" + serviceId + "'";
+            var cadena1 =
+                " UPDATE diagnosticrepository SET i_TramaCargada = " + estado + ", v_TramaId = '" + tramaId + "'" +
+                "  where v_DiagnosticRepositoryId = '" + diagnostico + "'";
+            SqlCommand comando = new SqlCommand(cadena1, connection: conectasam.conectarsigesoft);
+            SqlDataReader lector1 = comando.ExecuteReader();
+            lector1.Close();
+            conectasam.closesigesoft();
+        }
+
+        public void ActualizarDxRepositoryTramaDelete(int estado, string diagnostico)
+        {
+            ConexionSigesoft conectasam = new ConexionSigesoft();
+            conectasam.opensigesoft();
+            //var cadena1 =
+            //    " UPDATE service SET i_TramaCargada = " + estado +
+            //    "  where v_ServiceId = '" + serviceId + "'";
+            var cadena1 =
+                " UPDATE diagnosticrepository SET i_TramaCargada = " + estado + ", v_TramaId = 'null'" +
+                "  where v_DiagnosticRepositoryId = '" + diagnostico + "'";
+            SqlCommand comando = new SqlCommand(cadena1, connection: conectasam.conectarsigesoft);
+            SqlDataReader lector1 = comando.ExecuteReader();
+            lector1.Close();
+            conectasam.closesigesoft();
         }
 
         public void ActualizarServicioTrama(string serviceId, int estado)

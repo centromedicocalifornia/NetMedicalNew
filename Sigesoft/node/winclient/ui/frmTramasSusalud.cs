@@ -152,7 +152,7 @@ namespace Sigesoft.Node.WinClient.UI
             ListServiciosTramas = objDataService;
             grService.DataSource = objDataService;
             lblServices.Text = string.Format("Se encontraron {0} registros.", objDataService.Count());
-            this.grService.DisplayLayout.AutoFitStyle = Infragistics.Win.UltraWinGrid.AutoFitStyle.ResizeAllColumns;
+            //this.grService.DisplayLayout.AutoFitStyle = Infragistics.Win.UltraWinGrid.AutoFitStyle.ResizeAllColumns;
 
             //
             string tabName = utcSusalud.SelectedTab.Text;
@@ -172,7 +172,7 @@ namespace Sigesoft.Node.WinClient.UI
                     btnExportAmbulatorio.Enabled = false;
                 }
 
-                this.grAmbulatorio.DisplayLayout.AutoFitStyle = AutoFitStyle.ResizeAllColumns;
+                //this.grAmbulatorio.DisplayLayout.AutoFitStyle = AutoFitStyle.ResizeAllColumns;
             }
             else if (tabName == "Emergencia")
             {
@@ -315,6 +315,39 @@ namespace Sigesoft.Node.WinClient.UI
             if (tabName == "Ambulatorio")
             {
                 _objDataLista = new ServiceBL().GetServiceForTramasPageAndFilteredAmbulatorio(ref objOperationResult, pintPageIndex, pintPageSize, pstrSortExpression, pstrFilterExpression, pdatBeginDate, pdatEndDate);
+
+                grService.DisplayLayout.Bands[0].Columns["v_componentId"].Hidden = true;
+                grService.DisplayLayout.Bands[0].Columns["d_BirthDate"].Hidden = true;
+                grService.DisplayLayout.Bands[0].Columns["Examen"].Hidden = true;
+                grService.DisplayLayout.Bands[0].Columns["v_CodigoCPMS"].Hidden = true;
+                grService.DisplayLayout.Bands[0].Columns["v_DescripcionCPMS"].Hidden = true;
+                grService.DisplayLayout.Bands[0].Columns["i_TramaCargada"].Hidden = true;
+                grService.DisplayLayout.Bands[0].Columns["HospId"].Hidden = true;
+                grService.DisplayLayout.Bands[0].Columns["TramaHosp"].Hidden = true;
+                grService.DisplayLayout.Bands[0].Columns["TramaSop"].Hidden = true;
+                grService.DisplayLayout.Bands[0].Columns["Value3"].Hidden = true;
+                grService.DisplayLayout.Bands[0].Columns["Value4"].Hidden = true;
+                grService.DisplayLayout.Bands[0].Columns["Value5"].Hidden = true;
+
+                grService.DisplayLayout.Bands[0].Columns["v_ServiceId"].Header.VisiblePosition = 0;
+                grService.DisplayLayout.Bands[0].Columns["nombre"].Header.VisiblePosition = 1;
+                grService.DisplayLayout.Bands[0].Columns["genero"].Header.VisiblePosition = 2;
+                grService.DisplayLayout.Bands[0].Columns["fechaservicio"].Header.VisiblePosition = 3;
+                grService.DisplayLayout.Bands[0].Columns["edad"].Header.VisiblePosition = 4;
+                grService.DisplayLayout.Bands[0].Columns["tipoServicio"].Header.VisiblePosition = 5;
+                grService.DisplayLayout.Bands[0].Columns["Medico"].Header.VisiblePosition = 6;
+                grService.DisplayLayout.Bands[0].Columns["Protocolo"].Header.VisiblePosition = 7;
+                grService.DisplayLayout.Bands[0].Columns["CIE_10"].Header.VisiblePosition = 8;
+                grService.DisplayLayout.Bands[0].Columns["Diagnostico"].Header.VisiblePosition = 9;
+                grService.DisplayLayout.Bands[0].Columns["Value1"].Header.VisiblePosition = 10;
+                grService.DisplayLayout.Bands[0].Columns["Value2"].Header.VisiblePosition = 11;
+                grService.DisplayLayout.Bands[0].Columns["i_TramaCargadaProc"].Header.VisiblePosition = 12;
+                grService.DisplayLayout.Bands[0].Columns["v_TramaId"].Header.VisiblePosition = 13;
+
+                grService.DisplayLayout.Bands[0].Columns["Value1"].Header.Caption = "CIE-BASE";
+                grService.DisplayLayout.Bands[0].Columns["Value2"].Header.Caption = "DX-BASE";
+
+            
             }
             else if (tabName == "Emergencia")
             {
@@ -524,13 +557,14 @@ namespace Sigesoft.Node.WinClient.UI
                 string tramaId = null;
                 string ServiceId = null;
                 string HospId = null;
+                string DiagnosticRepositoryId = null;
 
                 string tabName = utcSusalud.SelectedTab.Text;
                 string modo = "";
                 if (tabName == "Ambulatorio")
                 {
                     tramaId = grAmbulatorio.Selected.Rows[0].Cells["v_TramaId"].Value.ToString();
-                    ServiceId = grAmbulatorio.Selected.Rows[0].Cells["v_ServiceId"].Value == null ? "" : grAmbulatorio.Selected.Rows[0].Cells["v_ServiceId"].Value.ToString();
+                    DiagnosticRepositoryId = grAmbulatorio.Selected.Rows[0].Cells["v_DiagnosticRepositoryId"].Value == null ? "" : grAmbulatorio.Selected.Rows[0].Cells["v_DiagnosticRepositoryId"].Value.ToString();
                 }
                 else if (tabName == "Emergencia")
                 {
@@ -566,8 +600,21 @@ namespace Sigesoft.Node.WinClient.UI
                 {
                     if (ServiceId != "")
                     {
-                        _objTramasBL.ActualizarServicioTrama(ServiceId, 0);
-                        _objTramasBL.ActualizarHospTrama(HospId, 0, modo);
+                        if (tabName == "Ambulatorio")
+                        {
+                            _objTramasBL.ActualizarDxRepositoryTramaDelete(0, DiagnosticRepositoryId);
+
+                        }
+                        else if (tabName == "Hospitalización")
+                        {
+                            _objTramasBL.ActualizarServicioTrama(ServiceId, 0);
+                            _objTramasBL.ActualizarHospTrama(HospId, 0, modo);
+                        }
+                        else
+                        {
+
+                        }
+                        
                     }
                     _objTramasBL.DeleteTrama(tramaId, Globals.ClientSession.GetAsList());
                 }
@@ -629,61 +676,6 @@ namespace Sigesoft.Node.WinClient.UI
 
         }
 
-        private void grService_InitializeRow(object sender, Infragistics.Win.UltraWinGrid.InitializeRowEventArgs e)
-        {
-            //i_TramaCargada
-            var banda = e.Row.Band.Index.ToString();
-            var row = e.Row;
-            if (banda == "0")
-            {
-                if (row.Band.Index.ToString() == "0")
-                {
-                    if (e.Row.Cells["i_TramaCargada"].Value.ToString() == "1" && e.Row.Cells["Value1"].Value.ToString() != "HOSP" 
-                                                                              && e.Row.Cells["Value1"].Value.ToString() != "SOP"
-                                                                              && e.Row.Cells["Value1"].Value.ToString() != "SOP_NO")
-                    {
-                        e.Row.Appearance.BackColor = Color.Yellow;
-                        e.Row.Appearance.BackColor2 = Color.White;
-                        //Y doy el efecto degradado vertical
-                        e.Row.Appearance.BackGradientStyle = Infragistics.Win.GradientStyle.VerticalBump;
-                    }
-                    else if (e.Row.Cells["TramaHosp"].Value.ToString() == "1" && e.Row.Cells["Value1"].Value.ToString() == "HOSP")
-                    {
-                        e.Row.Appearance.BackColor = Color.LightBlue;
-                        e.Row.Appearance.BackColor2 = Color.White;
-                        //Y doy el efecto degradado vertical
-                        e.Row.Appearance.BackGradientStyle = Infragistics.Win.GradientStyle.VerticalBump; 
-                    }  
-                    else if(e.Row.Cells["TramaSop"].Value.ToString() == "1" && e.Row.Cells["Value1"].Value.ToString() == "SOP")
-                    {
-                        e.Row.Appearance.BackColor = Color.GreenYellow;
-                        e.Row.Appearance.BackColor2 = Color.White;
-                        //Y doy el efecto degradado vertical
-                        e.Row.Appearance.BackGradientStyle = Infragistics.Win.GradientStyle.VerticalBump; 
-                    }  
-                    else if(e.Row.Cells["i_TramaCargada"].Value.ToString() == "1" && e.Row.Cells["Value1"].Value.ToString() == "SOP_NO")
-                    {
-                        e.Row.Appearance.BackColor = Color.LightYellow;
-                        e.Row.Appearance.BackColor2 = Color.White;
-                        //Y doy el efecto degradado vertical
-                        e.Row.Appearance.BackGradientStyle = Infragistics.Win.GradientStyle.VerticalBump; 
-                    }
-                    //else if (e.Row.Cells["i_TramaCargada"].Value.ToString() == ((int)ServiceStatus.Culminado).ToString())
-                    //{
-                    //    e.Row.Appearance.BackColor = Color.GreenYellow;
-                    //    e.Row.Appearance.BackColor2 = Color.White;
-                    //    //Y doy el efecto degradado vertical
-                    //    e.Row.Appearance.BackGradientStyle = Infragistics.Win.GradientStyle.VerticalBump;
-                    //}
-
-                }
-                if (e.Row.Cells["i_TramaCargada"].Value == null || e.Row.Cells["TramaHosp"].Value == null || e.Row.Cells["TramaSop"].Value == null)
-                    return;
-
-                
-            }
-        }
-
         private void btnExportarServicios_Click(object sender, EventArgs e)
         {
             string NombreArchivo = "";
@@ -740,14 +732,15 @@ namespace Sigesoft.Node.WinClient.UI
 
                     _tramaDto.v_TipoRegistro = "Ambulatorio";
                     _tramaDto.d_FechaIngreso = parsedDate;
-                    _tramaDto.i_Genero = item.genero == "MASCULINO" ? 1 : 2;
+                    _tramaDto.i_Genero = item.genero == "M" ? 1 : 2;
                     _tramaDto.i_GrupoEtario = grupoEt;
                     _tramaDto.v_DiseasesName = item.Value2;
                     _tramaDto.v_CIE10Id = item.Value1;
                     _tramaDto.v_ServiceId = item.v_ServiceId;
+                    _tramaDto.v_DiagnosticRepositoryId = item.Value3;
 
-                    _objTramasBL.AddTramas(ref objOperationResult, _tramaDto, Globals.ClientSession.GetAsList());
-                    _objTramasBL.ActualizarServicioTrama(item.v_ServiceId, 1);
+                    string idTrama = _objTramasBL.AddTramas(ref objOperationResult, _tramaDto, Globals.ClientSession.GetAsList());
+                    _objTramasBL.ActualizarDxRepositoryTrama(1, item.Value3, idTrama);
                 }
 
                 MessageBox.Show("Registro Exitoso de " + list.Count() + " servicios.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -773,6 +766,69 @@ namespace Sigesoft.Node.WinClient.UI
             {
                 this.ultraGridExcelExporter1.Export(this.grProcedimientos, saveFileDialog1.FileName);
                 MessageBox.Show("Se exportaron correctamente los datos.", " ¡ INFORMACIÓN !", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void grService_InitializeRow_1(object sender, Infragistics.Win.UltraWinGrid.InitializeRowEventArgs e)
+        {
+            //i_TramaCargada
+            var banda = e.Row.Band.Index.ToString();
+            var row = e.Row;
+            if (banda == "0")
+            {
+                if (row.Band.Index.ToString() == "0")
+                {
+
+                    if (e.Row.Cells["i_TramaCargadaProc"].Value.ToString() == "1" && e.Row.Cells["v_TramaId"].Value.ToString() != "-")
+                    {
+                        e.Row.Appearance.BackColor = Color.Yellow;
+                        e.Row.Appearance.BackColor2 = Color.White;
+                        //Y doy el efecto degradado vertical
+                        e.Row.Appearance.BackGradientStyle = Infragistics.Win.GradientStyle.VerticalBump;
+                    }
+                    else if (e.Row.Cells["i_TramaCargada"].Value.ToString() == "1" && e.Row.Cells["Value1"].Value.ToString() != "HOSP"
+                                                                              && e.Row.Cells["Value1"].Value.ToString() != "SOP"
+                                                                              && e.Row.Cells["Value1"].Value.ToString() != "SOP_NO")
+                    {
+                        e.Row.Appearance.BackColor = Color.Yellow;
+                        e.Row.Appearance.BackColor2 = Color.White;
+                        //Y doy el efecto degradado vertical
+                        e.Row.Appearance.BackGradientStyle = Infragistics.Win.GradientStyle.VerticalBump;
+                    }
+                    else if (e.Row.Cells["TramaHosp"].Value.ToString() == "1" && e.Row.Cells["Value1"].Value.ToString() == "HOSP")
+                    {
+                        e.Row.Appearance.BackColor = Color.LightBlue;
+                        e.Row.Appearance.BackColor2 = Color.White;
+                        //Y doy el efecto degradado vertical
+                        e.Row.Appearance.BackGradientStyle = Infragistics.Win.GradientStyle.VerticalBump;
+                    }
+                    else if (e.Row.Cells["TramaSop"].Value.ToString() == "1" && e.Row.Cells["Value1"].Value.ToString() == "SOP")
+                    {
+                        e.Row.Appearance.BackColor = Color.GreenYellow;
+                        e.Row.Appearance.BackColor2 = Color.White;
+                        //Y doy el efecto degradado vertical
+                        e.Row.Appearance.BackGradientStyle = Infragistics.Win.GradientStyle.VerticalBump;
+                    }
+                    else if (e.Row.Cells["i_TramaCargada"].Value.ToString() == "1" && e.Row.Cells["Value1"].Value.ToString() == "SOP_NO")
+                    {
+                        e.Row.Appearance.BackColor = Color.LightYellow;
+                        e.Row.Appearance.BackColor2 = Color.White;
+                        //Y doy el efecto degradado vertical
+                        e.Row.Appearance.BackGradientStyle = Infragistics.Win.GradientStyle.VerticalBump;
+                    }
+                    //else if (e.Row.Cells["i_TramaCargada"].Value.ToString() == ((int)ServiceStatus.Culminado).ToString())
+                    //{
+                    //    e.Row.Appearance.BackColor = Color.GreenYellow;
+                    //    e.Row.Appearance.BackColor2 = Color.White;
+                    //    //Y doy el efecto degradado vertical
+                    //    e.Row.Appearance.BackGradientStyle = Infragistics.Win.GradientStyle.VerticalBump;
+                    //}
+
+                }
+                if (e.Row.Cells["i_TramaCargada"].Value == null || e.Row.Cells["TramaHosp"].Value == null || e.Row.Cells["TramaSop"].Value == null)
+                    return;
+
+
             }
         }
         

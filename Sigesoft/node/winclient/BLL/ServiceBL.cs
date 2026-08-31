@@ -42640,16 +42640,27 @@ namespace Sigesoft.Node.WinClient.BLL
                              {
                                  v_ServiceId = a.v_ServiceId,
                                  nombre = a.nombre,
-                                 genero = a.genero,
+                                 genero = a.genero == "MASCULINO" ? "M":"F",
                                  fechaservicio = a.fechaservicio,
+                                 d_BirthDate = a.d_BirthDate,
                                  edad = a.edad,
                                  tipoServicio = a.tipoServicio,
+                                 Examen = a.Examen,
+                                 Protocolo = a.Protocolo,
                                  i_TramaCargada = a.i_TramaCargada,
+                                 i_TramaCargadaProc = a.i_TramaCargadaProc,
+                                 v_TramaId = a.v_TramaId,
+                                 v_CodigoCPMS = a.v_CodigoCPMS,
+                                 v_DescripcionCPMS = a.v_DescripcionCPMS,
                                  Medico = a.Medico,
                                  CIE_10 = a.CIE_10,
                                  Diagnostico = a.Diagnostico,
                                  Value1 = a.Value1,
-                                 Value2 = a.Value2
+                                 Value2 = a.Value2,
+                                 Value3 = a.Value3,
+                                 Value4 = a.Value4,
+                                 Value5 = a.Value5
+
                              }).ToList();
 
                 pobjOperationResult.Success = 1;

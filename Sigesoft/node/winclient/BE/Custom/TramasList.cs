@@ -80,5 +80,8 @@ namespace Sigesoft.Node.WinClient.BE.Custom
         public string User_Act { get; set; }
         public string ups_Detail { get; set; }
 
+        public string v_ServiceComponentId { get; set; }
+        public string v_DiagnosticRepositoryId { get; set; }
+
     }
 }
