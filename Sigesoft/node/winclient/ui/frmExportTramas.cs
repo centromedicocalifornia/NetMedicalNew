@@ -309,7 +309,7 @@ namespace Sigesoft.Node.WinClient.UI
 
             #region  Procedimientos (Tabla G0)
             #region Select
-            cadena1 = "select i_Procedimiento, i_UPS  from Tramas where MONTH(d_FechaIngreso)=" + mes + " and YEAR(d_FechaIngreso)=" + anio + " and v_TipoRegistro='Procedimientos / Cirugía' and i_IsDeleted=0";
+            cadena1 = "select i_Procedimiento, i_UPS  from Tramas where MONTH(d_FechaIngreso)=" + mes + " and YEAR(d_FechaIngreso)=" + anio + " and (v_TipoRegistro='Procedimientos / Cirugía' or v_TipoRegistro='Procedimientos') and i_IsDeleted=0";
             comando = new SqlCommand(cadena1, connection: conectasam.conectarsigesoft);
             lector = comando.ExecuteReader();
             while (lector.Read())
