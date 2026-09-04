@@ -26,17 +26,25 @@ namespace Sigesoft.Node.WinClient.UI
         object listaUps;
         object listaproc;
         string _servicio;
+        string _ServiceComponentId;
+        string _DiagnosticRepositoryId;
         string hospId;
         string Validador;
         private tramasDto _tramaDto = null;
         private TramasBL _tramasBL = new TramasBL();
-        public frmRegistroEmAmHos(string tabName, string idTrama, string mode, DateTime fecha, string genero, string edad, object  _lista, object _listaUps, object _listaproc, string servicio, string _hospId, string _Validador)
+        string cpmsId;
+        string procedimiento;
+        public frmRegistroEmAmHos(string tabName, string idTrama, string mode, DateTime fecha, string genero, string edad, 
+            object  _lista, object _listaUps, object _listaproc, string servicio, string _hospId, string _Validador,
+            string _cpmsId, string _procedimiento, string ServiceComponentId, string DiagnosticRepositoryId)
         {
             InitializeComponent();
             _fechaload = fecha;
             _tabName = tabName;
             _tramaId = idTrama;
             _servicio = servicio;
+            _ServiceComponentId = ServiceComponentId == null ? "" : ServiceComponentId;
+            _DiagnosticRepositoryId = DiagnosticRepositoryId == null ? "" : DiagnosticRepositoryId;
             _mode = mode;
             if (genero != String.Empty)
             {
@@ -67,7 +75,8 @@ namespace Sigesoft.Node.WinClient.UI
             lista = _lista;
             listaUps = _listaUps;
             listaproc = _listaproc;
-            
+            cpmsId = _cpmsId == null ? "" : _cpmsId;
+            procedimiento = _procedimiento == null ? "" : _procedimiento;
         }
 
         private void frmRegistroEmAmHos_Load(object sender, EventArgs e)
@@ -180,6 +189,48 @@ namespace Sigesoft.Node.WinClient.UI
                     dtpFechaIngreso.Value = _fechaload;
                     cbGenero.Text = _genero;
                     cbRangoEdad.Text = _edad;
+
+                }
+                else if (_tabName == "Procedimientos")
+                {
+                    uegbAmb.Visible = false;
+                    uegbHospi.Visible = false;
+                    uegbProcedimiento.Visible = true;
+                    uegbParto.Visible = false;
+                    uegbCirugia.Visible = false;
+                    uegbProcedimiento.Location = new Point(7, 4);
+                    #region Lista de Procedimientos
+
+                    cbProcedimiento.Select();
+
+                    cbProcedimiento.DataSource = listaproc;
+                    cbProcedimiento.DisplayMember = "v_Value1";
+                    cbProcedimiento.ValueMember = "i_ParameterId";
+                    cbProcedimiento.AutoCompleteMode = Infragistics.Win.AutoCompleteMode.Suggest;
+                    cbProcedimiento.AutoSuggestFilterMode = Infragistics.Win.AutoSuggestFilterMode.Contains;
+                    this.cbProcedimiento.DropDownWidth = 590;
+                    cbProcedimiento.DisplayLayout.Bands[0].Columns[0].Width = 550;
+                    cbProcedimiento.DisplayLayout.Bands[0].Columns[1].Width = 40;
+                    #endregion
+                    //combo especialidades
+                    cbEspecialidades.Select();
+                    dtpFechaProced.Value = _fechaload;
+                    cbEspecialidades.DataSource = listaUps;
+                    cbEspecialidades.DisplayMember = "v_Value1";
+                    cbEspecialidades.ValueMember = "i_ParameterId";
+                    cbEspecialidades.AutoCompleteMode = Infragistics.Win.AutoCompleteMode.Suggest;
+                    cbEspecialidades.AutoSuggestFilterMode = Infragistics.Win.AutoSuggestFilterMode.Contains;
+                    this.cbEspecialidades.DropDownWidth = 590;
+                    cbEspecialidades.DisplayLayout.Bands[0].Columns[0].Width = 550;
+                    cbEspecialidades.DisplayLayout.Bands[0].Columns[1].Width = 40;
+                    dtpFechaIngreso.Value = _fechaload;
+                    cbGenero.Text = _genero;
+                    cbRangoEdad.Text = _edad;
+                    if (!string.IsNullOrEmpty(cpmsId))
+                    {
+                        cbProcedimiento.Text = procedimiento;
+                        txtProcedId.Text = cpmsId;
+                    }
 
                 }
                 else if (_tabName == "Partos")
@@ -297,9 +348,8 @@ namespace Sigesoft.Node.WinClient.UI
                     uegbHospi.Visible = false;
                     uegbProcedimiento.Visible = true;
                     uegbParto.Visible = false;
-                    uegbCirugia.Visible = true;
+                    uegbCirugia.Visible = false;
                     uegbProcedimiento.Location = new Point(7, 4);
-                    uegbCirugia.Location = new Point(9, 135);
 
                     Utils.LoadDropDownList(cbProgramacion, "Value1", "Id", BLL.Utils.GetSystemParameterForCombo(ref objOperationResult, 353, null), DropDownListAction.Select);
                     Utils.LoadDropDownList(cbTipoCirugia, "Value1", "Id", BLL.Utils.GetSystemParameterForCombo(ref objOperationResult, 354, null), DropDownListAction.Select);
@@ -344,6 +394,55 @@ namespace Sigesoft.Node.WinClient.UI
                         cbEspecialidades.Text = _tramaDto.i_UPS.ToString();
                     }
                     
+                }
+                else if (_tabName == "Procedimientos")
+                {
+                    uegbAmb.Visible = false;
+                    uegbHospi.Visible = false;
+                    uegbProcedimiento.Visible = true;
+                    uegbParto.Visible = false;
+                    uegbCirugia.Visible = true;
+                    uegbProcedimiento.Location = new Point(7, 4);
+                    uegbCirugia.Location = new Point(9, 135);
+
+                    Utils.LoadDropDownList(cbProgramacion, "Value1", "Id", BLL.Utils.GetSystemParameterForCombo(ref objOperationResult, 353, null), DropDownListAction.Select);
+                    Utils.LoadDropDownList(cbTipoCirugia, "Value1", "Id", BLL.Utils.GetSystemParameterForCombo(ref objOperationResult, 354, null), DropDownListAction.Select);
+
+                    dtpFechaProced.Value = _tramaDto.d_FechaIngreso.Value;
+                    txtUpsId_2.Text = _tramaDto.i_UPS.ToString();
+                    txtProcedId.Text = _tramaDto.i_Procedimiento.ToString();
+
+                    #region Lista de Procedimientos
+
+                    cbProcedimiento.DataSource = listaproc;
+                    cbProcedimiento.DisplayMember = "v_Value1";
+                    cbProcedimiento.ValueMember = "i_ParameterId";
+                    cbProcedimiento.AutoCompleteMode = Infragistics.Win.AutoCompleteMode.Suggest;
+                    cbProcedimiento.AutoSuggestFilterMode = Infragistics.Win.AutoSuggestFilterMode.Contains;
+                    this.cbProcedimiento.DropDownWidth = 590;
+                    cbProcedimiento.DisplayLayout.Bands[0].Columns[0].Width = 550;
+                    cbProcedimiento.DisplayLayout.Bands[0].Columns[1].Width = 40;
+                    if (!string.IsNullOrEmpty(_tramaDto.i_Procedimiento.ToString()))
+                    {
+                        cbProcedimiento.Text = _tramaDto.i_Procedimiento.ToString();
+                    }
+                    #endregion
+                    //combo especialidades
+                    //cbEspecialidades.Select();
+
+                    cbEspecialidades.DataSource = listaUps;
+                    cbEspecialidades.DisplayMember = "v_Value1";
+                    cbEspecialidades.ValueMember = "i_ParameterId";
+                    cbEspecialidades.AutoCompleteMode = Infragistics.Win.AutoCompleteMode.Suggest;
+                    cbEspecialidades.AutoSuggestFilterMode = Infragistics.Win.AutoSuggestFilterMode.Contains;
+                    this.cbEspecialidades.DropDownWidth = 590;
+                    cbEspecialidades.DisplayLayout.Bands[0].Columns[0].Width = 550;
+                    cbEspecialidades.DisplayLayout.Bands[0].Columns[1].Width = 40;
+                    if (!string.IsNullOrEmpty(_tramaDto.i_UPS.ToString()))
+                    {
+                        cbEspecialidades.Text = _tramaDto.i_UPS.ToString();
+                    }
+
                 }
                 else if (_tabName == "Partos")
                 {
@@ -447,6 +546,7 @@ namespace Sigesoft.Node.WinClient.UI
                     _tramaDto.v_DiseasesName = cbDx.Text;
                     _tramaDto.v_CIE10Id = txtCie10.Text;
                     _tramaDto.v_ServiceId = _servicio;
+                    _tramaDto.v_DiagnosticRepositoryId = _DiagnosticRepositoryId;
                     if (_tabName == "Hospitalización")
                     {
                         if (cbUPS.Text == "" || cbFallecido.SelectedValue.ToString() == "-1")
@@ -465,8 +565,9 @@ namespace Sigesoft.Node.WinClient.UI
                         _tramaDto.v_ComentaryUpdate = hospId;
 
                     }
-                    _tramasBL.AddTramas(ref objOperationResult, _tramaDto, Globals.ClientSession.GetAsList());
+                    var tramaId = _tramasBL.AddTramas(ref objOperationResult, _tramaDto, Globals.ClientSession.GetAsList());
                     _tramasBL.ActualizarServicioTrama(_servicio,1);
+                    _tramasBL.ActualizarDxRepositoryTrama(1, _DiagnosticRepositoryId, tramaId);
                 }
                 else if (_tabName == "Procedimientos / Cirugía")
                 {
@@ -493,6 +594,28 @@ namespace Sigesoft.Node.WinClient.UI
                     _tramasBL.AddTramas(ref objOperationResult, _tramaDto, Globals.ClientSession.GetAsList());
                     _tramasBL.ActualizarServicioTrama(_servicio,1);
                     _tramasBL.ActualizarHospTrama(hospId, 1, Validador);
+
+                }
+                else if (_tabName == "Procedimientos")
+                {
+                    _tramaDto.v_TipoRegistro = _tabName;
+                    _tramaDto.d_FechaIngreso = dtpFechaProced.Value;
+                    _tramaDto.i_UPS = int.Parse(txtUpsId_2.Text);
+                    _tramaDto.v_ServiceId = _servicio;
+                    _tramaDto.v_ServiceComponentId = _ServiceComponentId;
+
+                    if (cbProcedimiento.Text == "" || cbEspecialidades.Text == "")
+                    {
+                        MessageBox.Show("No dejar campos vacíos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                  
+                    _tramaDto.v_ComentaryUpdate = hospId;
+                    _tramaDto.i_Procedimiento = int.Parse(txtProcedId.Text);
+                    string tramaId = _tramasBL.AddTramas(ref objOperationResult, _tramaDto, Globals.ClientSession.GetAsList());
+                    _tramasBL.ActualizarServicioTrama(_servicio, 1);
+                    //_tramasBL.ActualizarHospTrama(hospId, 1, Validador);
+                    _tramasBL.ActualizarComponenteTrama(1, _ServiceComponentId, tramaId);
 
                 }
                 else if (_tabName == "Partos")

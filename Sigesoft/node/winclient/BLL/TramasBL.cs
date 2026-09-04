@@ -463,16 +463,12 @@ namespace Sigesoft.Node.WinClient.BLL
                                 ups_Detail = G.v_Value1,
                                 i_Procedimiento = A.i_Procedimiento,
                                 procedimiento_Detail = H.v_Value1,
-                                //programacion_Detail = I.v_Value1,
-                                //tipoCirugia_Detail = J.v_Value1,
-                                i_HorasProg = A.i_HorasProg,
-                                i_HorasEfect = A.i_HorasEfect,
-                                i_HorasActo = A.i_HorasActo,
                                 d_InsertDate = A.d_InsertDate.Value,
                                 d_UpdateDate = A.d_UpdateDate.Value,
                                 User_Crea = D.v_FirstName + " " + D.v_FirstLastName + " " + D.v_SecondLastName,
                                 User_Act = E.i_SystemUserId == null ? "---" : F.v_FirstName + " " + F.v_FirstLastName + " " + F.v_SecondLastName,
-                                v_ComentaryUpdate = A.v_ComentaryUpdate
+                                v_ComentaryUpdate = A.v_ComentaryUpdate,
+                                v_ServiceComponentId = A.v_ServiceComponentId
 
                             };
                 #region
@@ -510,16 +506,12 @@ namespace Sigesoft.Node.WinClient.BLL
                                          ups_Detail = a.ups_Detail,
                                          i_Procedimiento = a.i_Procedimiento,
                                          procedimiento_Detail = a.procedimiento_Detail,
-                                         //programacion_Detail = a.programacion_Detail,
-                                         //tipoCirugia_Detail = a.tipoCirugia_Detail,
-                                         i_HorasProg = a.i_HorasProg,
-                                         i_HorasEfect = a.i_HorasEfect,
-                                         i_HorasActo = a.i_HorasActo,
                                          User_Crea = a.User_Crea,
                                          User_Act = a.User_Act,
                                          d_InsertDate = a.d_InsertDate,
                                          d_UpdateDate = a.d_UpdateDate,
-                                         v_ComentaryUpdate = a.v_ComentaryUpdate == null ? "" : a.v_ComentaryUpdate
+                                         v_ComentaryUpdate = a.v_ComentaryUpdate == null ? "" : a.v_ComentaryUpdate,
+                                         v_ServiceComponentId = a.v_ServiceComponentId
 
                                      }).ToList();
                 pobjOperationResult.Success = 1;
@@ -685,6 +677,22 @@ namespace Sigesoft.Node.WinClient.BLL
             lector1.Close();
             conectasam.closesigesoft();
         }
+        public void ActualizarComponenteTrama(int estado, string serviceComponent, string tramaId)
+        {
+            ConexionSigesoft conectasam = new ConexionSigesoft();
+            conectasam.opensigesoft();
+            //var cadena1 =
+            //    " UPDATE service SET i_TramaCargada = " + estado +
+            //    "  where v_ServiceId = '" + serviceId + "'";
+            var cadena1 =
+                " UPDATE servicecomponent SET i_TramaCargada = " + estado + ", v_TramaId = '" + tramaId + "'" +
+                "  where v_ServiceComponentId = '" + serviceComponent + "'";
+            SqlCommand comando = new SqlCommand(cadena1, connection: conectasam.conectarsigesoft);
+            SqlDataReader lector1 = comando.ExecuteReader();
+            lector1.Close();
+            conectasam.closesigesoft();
+        }
+
 
         public void ActualizarDxRepositoryTramaDelete(int estado, string diagnostico)
         {
@@ -696,6 +704,22 @@ namespace Sigesoft.Node.WinClient.BLL
             var cadena1 =
                 " UPDATE diagnosticrepository SET i_TramaCargada = " + estado + ", v_TramaId = 'null'" +
                 "  where v_DiagnosticRepositoryId = '" + diagnostico + "'";
+            SqlCommand comando = new SqlCommand(cadena1, connection: conectasam.conectarsigesoft);
+            SqlDataReader lector1 = comando.ExecuteReader();
+            lector1.Close();
+            conectasam.closesigesoft();
+        }
+
+        public void ActualizarServiceComponentTramaDelete(int estado, string sComponentId)
+        {
+            ConexionSigesoft conectasam = new ConexionSigesoft();
+            conectasam.opensigesoft();
+            //var cadena1 =
+            //    " UPDATE service SET i_TramaCargada = " + estado +
+            //    "  where v_ServiceId = '" + serviceId + "'";
+            var cadena1 =
+                " UPDATE servicecomponent SET i_TramaCargada = " + estado + ", v_TramaId = 'null'" +
+                "  where v_ServiceComponentId = '" + sComponentId + "'";
             SqlCommand comando = new SqlCommand(cadena1, connection: conectasam.conectarsigesoft);
             SqlDataReader lector1 = comando.ExecuteReader();
             lector1.Close();

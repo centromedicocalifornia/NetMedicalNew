@@ -130,13 +130,9 @@
             Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn92 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("ups_Detail");
             Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn93 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("i_Procedimiento");
             Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn94 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("procedimiento_Detail");
-            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn95 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("programacion_Detail");
-            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn96 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("tipoCirugia_Detail");
-            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn97 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("i_HorasProg");
-            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn98 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("i_HorasEfect");
-            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn99 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("i_HorasActo");
             Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn23 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("v_ServiceId");
             Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn35 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("v_ComentaryUpdate");
+            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn112 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("v_ServiceComponentId");
             Infragistics.Win.Appearance appearance30 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance31 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance32 = new Infragistics.Win.Appearance();
@@ -277,7 +273,7 @@
             this.tabAmbulatorio.Controls.Add(this.grAmbulatorio);
             this.tabAmbulatorio.Controls.Add(this.lblRecordCount);
             this.tabAmbulatorio.Controls.Add(this.btnExportAmbulatorio);
-            this.tabAmbulatorio.Location = new System.Drawing.Point(1, 23);
+            this.tabAmbulatorio.Location = new System.Drawing.Point(-10000, -10000);
             this.tabAmbulatorio.Name = "tabAmbulatorio";
             this.tabAmbulatorio.Size = new System.Drawing.Size(1285, 326);
             // 
@@ -881,7 +877,7 @@
             this.ultraTabPageControl1.Controls.Add(this.grProcedimientos);
             this.ultraTabPageControl1.Controls.Add(this.label3);
             this.ultraTabPageControl1.Controls.Add(this.btnExportProcedimientos);
-            this.ultraTabPageControl1.Location = new System.Drawing.Point(-10000, -10000);
+            this.ultraTabPageControl1.Location = new System.Drawing.Point(1, 23);
             this.ultraTabPageControl1.Name = "ultraTabPageControl1";
             this.ultraTabPageControl1.Size = new System.Drawing.Size(1285, 326);
             // 
@@ -898,40 +894,32 @@
             ultraGridColumn84.Header.VisiblePosition = 0;
             ultraGridColumn84.Width = 76;
             ultraGridColumn85.Header.Caption = "Tipo Registro";
-            ultraGridColumn85.Header.VisiblePosition = 2;
+            ultraGridColumn85.Header.VisiblePosition = 3;
             ultraGridColumn86.Header.Caption = "F. Ingreso";
-            ultraGridColumn86.Header.VisiblePosition = 3;
+            ultraGridColumn86.Header.VisiblePosition = 4;
             ultraGridColumn86.Width = 76;
             ultraGridColumn87.Header.Caption = "Usuario Crea";
-            ultraGridColumn87.Header.VisiblePosition = 13;
+            ultraGridColumn87.Header.VisiblePosition = 9;
             ultraGridColumn88.Header.Caption = "F. Crea";
-            ultraGridColumn88.Header.VisiblePosition = 14;
+            ultraGridColumn88.Header.VisiblePosition = 10;
             ultraGridColumn89.Header.Caption = "Usuario Act.";
-            ultraGridColumn89.Header.VisiblePosition = 15;
+            ultraGridColumn89.Header.VisiblePosition = 11;
             ultraGridColumn90.Header.Caption = "F. Act.";
-            ultraGridColumn90.Header.VisiblePosition = 16;
+            ultraGridColumn90.Header.VisiblePosition = 12;
             ultraGridColumn91.Header.Caption = "UPS";
-            ultraGridColumn91.Header.VisiblePosition = 4;
+            ultraGridColumn91.Header.VisiblePosition = 5;
             ultraGridColumn91.Width = 73;
             ultraGridColumn92.Header.Caption = "UPS Det.";
-            ultraGridColumn92.Header.VisiblePosition = 5;
+            ultraGridColumn92.Header.VisiblePosition = 6;
             ultraGridColumn93.Header.Caption = "Procedimiento";
-            ultraGridColumn93.Header.VisiblePosition = 6;
+            ultraGridColumn93.Header.VisiblePosition = 7;
             ultraGridColumn94.Header.Caption = "Procedimiento Dealle";
-            ultraGridColumn94.Header.VisiblePosition = 7;
-            ultraGridColumn95.Header.Caption = "Programacion";
-            ultraGridColumn95.Header.VisiblePosition = 8;
-            ultraGridColumn96.Header.Caption = "Tipo Cirugía";
-            ultraGridColumn96.Header.VisiblePosition = 9;
-            ultraGridColumn97.Header.Caption = "H. Programadas";
-            ultraGridColumn97.Header.VisiblePosition = 10;
-            ultraGridColumn98.Header.Caption = "H. Efectivas";
-            ultraGridColumn98.Header.VisiblePosition = 11;
-            ultraGridColumn99.Header.Caption = "H. Actual";
-            ultraGridColumn99.Header.VisiblePosition = 12;
+            ultraGridColumn94.Header.VisiblePosition = 8;
             ultraGridColumn23.Header.VisiblePosition = 1;
+            ultraGridColumn23.Hidden = true;
             ultraGridColumn35.Header.Caption = "HospId";
-            ultraGridColumn35.Header.VisiblePosition = 17;
+            ultraGridColumn35.Header.VisiblePosition = 13;
+            ultraGridColumn112.Header.VisiblePosition = 2;
             ultraGridBand5.Columns.AddRange(new object[] {
             ultraGridColumn84,
             ultraGridColumn85,
@@ -944,13 +932,9 @@
             ultraGridColumn92,
             ultraGridColumn93,
             ultraGridColumn94,
-            ultraGridColumn95,
-            ultraGridColumn96,
-            ultraGridColumn97,
-            ultraGridColumn98,
-            ultraGridColumn99,
             ultraGridColumn23,
-            ultraGridColumn35});
+            ultraGridColumn35,
+            ultraGridColumn112});
             this.grProcedimientos.DisplayLayout.BandsSerializer.Add(ultraGridBand5);
             this.grProcedimientos.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
             this.grProcedimientos.DisplayLayout.InterBandSpacing = 10;
