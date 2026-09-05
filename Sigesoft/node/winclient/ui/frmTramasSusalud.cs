@@ -71,7 +71,9 @@ namespace Sigesoft.Node.WinClient.UI
 
             if (tabName == "Ambulatorio" )
             {
-                _DiagnosticRepositoryId = grService.Selected.Rows[0].Cells["Value3"].Value.ToString();
+
+                _DiagnosticRepositoryId = grService.Selected.Rows[0].Cells["Value3"].Value == null ? "" : grService.Selected.Rows[0].Cells["Value3"].Value.ToString();
+
             }
             else if (tabName == "Procedimientos")
             {
@@ -565,11 +567,18 @@ namespace Sigesoft.Node.WinClient.UI
                 string tramaId = null;
                 string ServiceId = null;
                 string tabName = utcSusalud.SelectedTab.Text;
+                string _DiagnosticRepositoryId = null;
+                string _ServiceComponentId = null;
+                string cpmsId = null;
+                string procedimiento = null;
+
 
                 if (tabName == "Ambulatorio")
                 {
                     tramaId = grAmbulatorio.Selected.Rows[0].Cells["v_TramaId"].Value.ToString();
                     ServiceId = grAmbulatorio.Selected.Rows[0].Cells["v_ServiceId"].Value == null ? "" : grAmbulatorio.Selected.Rows[0].Cells["v_ServiceId"].Value.ToString();
+                    _DiagnosticRepositoryId = grAmbulatorio.Selected.Rows[0].Cells["v_DiagnosticRepositoryId"].Value == null ? "" : grAmbulatorio.Selected.Rows[0].Cells["v_DiagnosticRepositoryId"].Value.ToString();
+
                 }
                 else if (tabName == "Emergencia")
                 {
@@ -586,6 +595,17 @@ namespace Sigesoft.Node.WinClient.UI
                     tramaId = grProcedimientosCirugia.Selected.Rows[0].Cells["v_TramaId"].Value.ToString();
                     ServiceId = grProcedimientosCirugia.Selected.Rows[0].Cells["v_ServiceId"].Value == null ? "" : grProcedimientosCirugia.Selected.Rows[0].Cells["v_ServiceId"].Value.ToString();
                 }
+                else if (tabName == "Procedimientos")
+                {
+                    tramaId = grProcedimientos.Selected.Rows[0].Cells["v_TramaId"].Value.ToString();
+
+                    ServiceId = grProcedimientos.Selected.Rows[0].Cells["v_ServiceId"].Value == null ? "" : grProcedimientos.Selected.Rows[0].Cells["v_ServiceId"].Value.ToString();
+
+                    cpmsId = grProcedimientos.Selected.Rows[0].Cells["i_Procedimiento"].Value.ToString();
+                    //procedimiento = grProcedimientos.Selected.Rows[0].Cells["v_DescripcionCPMS"].Value.ToString();
+                    _ServiceComponentId = grProcedimientos.Selected.Rows[0].Cells["v_ServiceComponentId"].Value.ToString();
+
+                }
                 else if (tabName == "Partos")
                 {
                     tramaId = grPartos.Selected.Rows[0].Cells["v_TramaId"].Value.ToString();
@@ -594,7 +614,7 @@ namespace Sigesoft.Node.WinClient.UI
 
 
                 //string tabName = utcSusalud.SelectedTab.Text;
-                frmRegistroEmAmHos frmRegistroEm = new frmRegistroEmAmHos(tabName, tramaId, "Edit", DateTime.Now, string.Empty, string.Empty, lista, listaUps, listaproc, ServiceId, "", "",null,null,null,null);
+                frmRegistroEmAmHos frmRegistroEm = new frmRegistroEmAmHos(tabName, tramaId, "Edit", DateTime.Now, string.Empty, string.Empty, lista, listaUps, listaproc, ServiceId, "", "", cpmsId, procedimiento, _ServiceComponentId, _DiagnosticRepositoryId);
                 frmRegistroEm.Text = "Editar: " + tabName;
                 if (tabName == "Ambulatorio" || tabName == "Emergencia" || tabName == "Partos")
                 {
@@ -607,6 +627,10 @@ namespace Sigesoft.Node.WinClient.UI
                 else if (tabName == "Procedimientos / Cirugía")
                 {
                     frmRegistroEm.Size = new Size(638, 300);
+                }
+                else if (tabName == "Procedimientos")
+                {
+                    frmRegistroEm.Size = new Size(638, 236);
                 }
                 frmRegistroEm.Show();
                 btnAgregar.Enabled = false;
@@ -639,7 +663,7 @@ namespace Sigesoft.Node.WinClient.UI
                 if (tabName == "Ambulatorio")
                 {
                     tramaId = grAmbulatorio.Selected.Rows[0].Cells["v_TramaId"].Value.ToString();
-                    ServiceId = grAmbulatorio.Selected.Rows[0].Cells["v_ServiceId"].Value == null ? "" : grEmergencia.Selected.Rows[0].Cells["v_ServiceId"].Value.ToString();
+                    ServiceId = grAmbulatorio.Selected.Rows[0].Cells["v_ServiceId"].Value == null ? "" : grAmbulatorio.Selected.Rows[0].Cells["v_ServiceId"].Value.ToString();
 
                     DiagnosticRepositoryId = grAmbulatorio.Selected.Rows[0].Cells["v_DiagnosticRepositoryId"].Value == null ? "" : grAmbulatorio.Selected.Rows[0].Cells["v_DiagnosticRepositoryId"].Value.ToString();
                 }

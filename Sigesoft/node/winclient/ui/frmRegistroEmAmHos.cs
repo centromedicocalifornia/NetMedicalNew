@@ -401,14 +401,9 @@ namespace Sigesoft.Node.WinClient.UI
                     uegbHospi.Visible = false;
                     uegbProcedimiento.Visible = true;
                     uegbParto.Visible = false;
-                    uegbCirugia.Visible = true;
+                    uegbCirugia.Visible = false;
                     uegbProcedimiento.Location = new Point(7, 4);
-                    uegbCirugia.Location = new Point(9, 135);
 
-                    Utils.LoadDropDownList(cbProgramacion, "Value1", "Id", BLL.Utils.GetSystemParameterForCombo(ref objOperationResult, 353, null), DropDownListAction.Select);
-                    Utils.LoadDropDownList(cbTipoCirugia, "Value1", "Id", BLL.Utils.GetSystemParameterForCombo(ref objOperationResult, 354, null), DropDownListAction.Select);
-
-                    dtpFechaProced.Value = _tramaDto.d_FechaIngreso.Value;
                     txtUpsId_2.Text = _tramaDto.i_UPS.ToString();
                     txtProcedId.Text = _tramaDto.i_Procedimiento.ToString();
 
@@ -546,7 +541,12 @@ namespace Sigesoft.Node.WinClient.UI
                     _tramaDto.v_DiseasesName = cbDx.Text;
                     _tramaDto.v_CIE10Id = txtCie10.Text;
                     _tramaDto.v_ServiceId = _servicio;
-                    _tramaDto.v_DiagnosticRepositoryId = _DiagnosticRepositoryId;
+
+                    if (_DiagnosticRepositoryId != "")
+                    {
+                        _tramaDto.v_DiagnosticRepositoryId = _DiagnosticRepositoryId;
+                    }
+
                     if (_tabName == "Hospitalización")
                     {
                         if (cbUPS.Text == "" || cbFallecido.SelectedValue.ToString() == "-1")
@@ -602,7 +602,13 @@ namespace Sigesoft.Node.WinClient.UI
                     _tramaDto.d_FechaIngreso = dtpFechaProced.Value;
                     _tramaDto.i_UPS = int.Parse(txtUpsId_2.Text);
                     _tramaDto.v_ServiceId = _servicio;
-                    _tramaDto.v_ServiceComponentId = _ServiceComponentId;
+
+                    if (_ServiceComponentId != "")
+                    {
+                        _tramaDto.v_ServiceComponentId = _ServiceComponentId;
+                    }
+
+
 
                     if (cbProcedimiento.Text == "" || cbEspecialidades.Text == "")
                     {
@@ -681,6 +687,11 @@ namespace Sigesoft.Node.WinClient.UI
                     }
                     else
                         _tramaDto.v_ServiceId = "";
+
+                    if (_DiagnosticRepositoryId != "")
+                    {
+                        _tramaDto.v_DiagnosticRepositoryId = _DiagnosticRepositoryId;
+                    }
                     
                     if (cbGenero.SelectedValue.ToString() == "-1" || cbRangoEdad.SelectedValue.ToString() == "-1" || cbDx.Text == "")
                     {
@@ -736,6 +747,37 @@ namespace Sigesoft.Node.WinClient.UI
                         _tramaDto.i_HorasEfect = int.Parse(txtHrsEfect.Text);
                         _tramaDto.i_HorasActo = int.Parse(txtHrsAct.Text);
                     }
+
+                    _tramaDto.i_Procedimiento = int.Parse(txtProcedId.Text);
+
+                    _tramaDto.d_InsertDate = _getTrama.d_InsertDate.Value;
+                    _tramaDto.i_InsertUserId = _getTrama.i_InsertUserId;
+                    _tramasBL.UpdateTrama(ref objOperationResult, _tramaDto, Globals.ClientSession.GetAsList());
+                }
+                else if (_tabName == "Procedimientos")
+                {
+                    _tramaDto.v_TramaId = _tramaId;
+                    _tramaDto.v_TipoRegistro = _tabName;
+                    _tramaDto.d_FechaIngreso = dtpFechaProced.Value;
+                    _tramaDto.i_UPS = int.Parse(txtUpsId_2.Text);
+
+                    if (_ServiceComponentId != "")
+                    {
+                        _tramaDto.v_ServiceComponentId = _ServiceComponentId;
+                    }
+
+                    if (_servicio != "")
+                    {
+                        _tramaDto.v_ServiceId = _servicio;
+                    }
+                    else
+                        _tramaDto.v_ServiceId = "";
+                    if (cbProcedimiento.Text == "" || cbEspecialidades.Text == "")
+                    {
+                        MessageBox.Show("No dejar campos vacíos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    
 
                     _tramaDto.i_Procedimiento = int.Parse(txtProcedId.Text);
 
