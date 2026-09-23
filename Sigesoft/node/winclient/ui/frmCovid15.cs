@@ -550,7 +550,7 @@ namespace Sigesoft.Node.WinClient.UI
                     ((Excel.Worksheet)excel.ActiveWorkbook.Sheets["Hoja1"]).Delete();   //Borro hoja que crea en el libro por defecto
 
                     
-                    //LOGO CSL
+                    //LOGO CMC
                     rango = (Microsoft.Office.Interop.Excel.Range)hoja.get_Range("B2", "D5");
                     rango.Select();
                     rango.RowHeight = 25;
@@ -842,7 +842,7 @@ namespace Sigesoft.Node.WinClient.UI
                 hoja.get_Range("G11", "I11").VerticalAlignment = Excel.XlHAlign.xlHAlignCenter;
 
 
-                hoja.Cells[12, 7] = "T° de salida de laboratorio CSL:";
+                hoja.Cells[12, 7] = "T° de salida de laboratorio CMC:";
                 hoja.Cells[12, 9] = "T° de llegada a laboratorio UNILABS:";
 
                 hoja.get_Range("G12", "H12").Merge(true);

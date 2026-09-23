@@ -317,7 +317,7 @@ namespace Sigesoft.Node.WinClient.BLL
                                  v_RazonSocial = A.v_RazonSocial,
                                  v_RepresentanteLegal = A.v_RepresentanteLegal,
                                  v_DireccionEmpresa = A.v_DireccionEmpresa,
-                                 v_Sumilla = "CARTA: (XXX) -CSL S.R.L.-CAJ/GG.",
+                                 v_Sumilla = "CARTA: (XXX) -CMC-TRUJ/GG.",
                                  v_Asunto = A.v_Asunto,
                                  i_IsDeleted = A.i_IsDeleted.Value,
                                  FirmaUsuario = J4.b_SignatureImage,

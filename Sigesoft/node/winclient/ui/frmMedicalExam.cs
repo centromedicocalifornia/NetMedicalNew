@@ -687,7 +687,7 @@ namespace Sigesoft.Node.WinClient.UI
             //}
             //else
             //{
-            NombreArchivo = "Examenes CSL - " + DateTime.Now.ToShortDateString();
+            NombreArchivo = "Examenes CMC - " + DateTime.Now.ToShortDateString();
             //NombreArchivo = "Matriz de datos";
             //}
 

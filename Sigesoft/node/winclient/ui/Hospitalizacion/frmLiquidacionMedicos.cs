@@ -131,7 +131,7 @@ namespace Sigesoft.Node.WinClient.UI.Hospitalizacion
                 string ruta = Common.Utils.GetApplicationConfigValue("rutaPagoMedicos").ToString();
 
                 string fecha = DateTime.Now.ToString().Split('/')[0] + "-" + DateTime.Now.ToString().Split('/')[1] + "-" + DateTime.Now.ToString().Split('/')[2];
-                string nombre = "Pago Medico - CSL";
+                string nombre = "Pago Medico - CMC";
 
                 var medico_info = new ServiceBL().GetSystemUser(ref objOperationResult, int.Parse(ddlUsuario.SelectedValue.ToString()));
 
@@ -221,7 +221,7 @@ namespace Sigesoft.Node.WinClient.UI.Hospitalizacion
                 string ruta = Common.Utils.GetApplicationConfigValue("rutaPagoMedicos").ToString();
 
                 string fecha = DateTime.Now.ToString().Split('/')[0] + "-" + DateTime.Now.ToString().Split('/')[1] + "-" + DateTime.Now.ToString().Split('/')[2];
-                string nombre = "Pago Medico - CSL";
+                string nombre = "Pago Medico - CMC";
 
                 var medico_info = new ServiceBL().GetSystemUser(ref objOperationResult, int.Parse(ddlUsuario.SelectedValue.ToString()));
 

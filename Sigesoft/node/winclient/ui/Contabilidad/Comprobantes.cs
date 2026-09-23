@@ -174,7 +174,7 @@ namespace Sigesoft.Node.WinClient.UI.Contabilidad
                 string ruta = Common.Utils.GetApplicationConfigValue("rutaLiquidacion").ToString();
 
                 string fecha = DateTime.Now.ToString().Split('/')[0] + "-" + DateTime.Now.ToString().Split('/')[1] + "-" + DateTime.Now.ToString().Split('/')[2];
-                string nombre = "Listado en comprobante ° " + coprobanteId + " - CSL";
+                string nombre = "Listado en comprobante ° " + coprobanteId + " - CMC";
 
                 var traerEmpresa = new ServiceBL().ServiceIdbyComprobante(ref _objOperationResult, coprobanteId);
                 string idEmpresa = traerEmpresa.v_OrganizationId;

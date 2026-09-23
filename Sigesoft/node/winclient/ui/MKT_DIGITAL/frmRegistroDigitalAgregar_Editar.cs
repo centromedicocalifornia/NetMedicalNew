@@ -314,7 +314,7 @@ namespace Sigesoft.Node.WinClient.UI.MKT_DIGITAL
                     _PersonObjNew.i_NroHermanos = 0;
                     _PersonObjNew.v_Religion = "CATOLICO";
                     _PersonObjNew.v_Nacionalidad = "PERUANO";
-                    _PersonObjNew.v_ResidenciaAnterior = "CAJAMARCA";
+                    _PersonObjNew.v_ResidenciaAnterior = "TRUJILLO";
                     _PersonObjNew.i_EtniaRaza = 0;
                     _PersonObjNew.i_Migrante = 0;
                     _PersonObjNew.v_Migrante = "PERU";

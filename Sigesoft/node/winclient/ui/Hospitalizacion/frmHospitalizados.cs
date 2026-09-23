@@ -1579,7 +1579,7 @@ namespace Sigesoft.Node.WinClient.UI.Hospitalizacion
                         }
                     }
 
-                    //LOGO CSL
+                    //LOGO CMC
                     string x7 = "B" + (fila + i + 4).ToString();
                     string y7 = "J" + (fila + i + 4).ToString();
                     rango = (Microsoft.Office.Interop.Excel.Range)hoja.get_Range(x7, y7);

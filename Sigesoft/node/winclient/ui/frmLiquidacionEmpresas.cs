@@ -186,7 +186,7 @@ namespace Sigesoft.Node.WinClient.UI
                     string ruta = Common.Utils.GetApplicationConfigValue("rutaLiquidacion").ToString();
 
                     string fecha = DateTime.Now.ToString().Split('/')[0] + "-" + DateTime.Now.ToString().Split('/')[1] + "-" + DateTime.Now.ToString().Split('/')[2];
-                    string nombre = "Cuentas X Cobrar - CSL";
+                    string nombre = "Cuentas X Cobrar - CMC";
                     //query para validar si la empresa es deudora ARNOLD
 
                     Liquidacion_EMO_EMPRESAS.CreateLiquidacion_EMO_EMPRESAS(ruta + nombre + ".pdf", MedicalCenter, ListaLiquidacion, fechaInicio_1, fechaFin_1);
@@ -348,7 +348,7 @@ namespace Sigesoft.Node.WinClient.UI
                     string ruta = Common.Utils.GetApplicationConfigValue("rutaLiquidacion").ToString();
 
                     string fecha = DateTime.Now.ToString().Split('/')[0] + "-" + DateTime.Now.ToString().Split('/')[1] + "-" + DateTime.Now.ToString().Split('/')[2];
-                    string nombre = "Liquidaciones de EMPRESAS - CSL";
+                    string nombre = "Liquidaciones de EMPRESAS - CMC";
 
                     DateTime? fechaFin_1 = DateTime.Now;
                     DateTime? fechaInicio_1 = DateTime.Now.AddDays(-30);
@@ -952,7 +952,7 @@ namespace Sigesoft.Node.WinClient.UI
                     string ruta = Common.Utils.GetApplicationConfigValue("rutaLiquidacion").ToString();
 
                     string fecha = DateTime.Now.ToString().Split('/')[0] + "-" + DateTime.Now.ToString().Split('/')[1] + "-" + DateTime.Now.ToString().Split('/')[2];
-                    string nombre = "EMPRESAS POR FACTURAR - CSL";
+                    string nombre = "EMPRESAS POR FACTURAR - CMC";
 
                     DateTime? fechaFin_1 = DateTime.Now;
                     DateTime? fechaInicio_1 = DateTime.Now.AddDays(-30);
@@ -1058,7 +1058,7 @@ namespace Sigesoft.Node.WinClient.UI
 
                     string fecha = DateTime.Now.ToString().Split('/')[0] + "" + DateTime.Now.ToString().Split('/')[1] + "" + DateTime.Now.ToString().Split('/')[2];
                     string a = fecha.ToString();
-                    string nombre = "EMPRESAS LIQUIDADAS POR FACTURAR DETALLE - CSL";
+                    string nombre = "EMPRESAS LIQUIDADAS POR FACTURAR DETALLE - CMC";
 
                     DateTime? fechaFin_1 = DateTime.Now;
                     DateTime? fechaInicio_1 = DateTime.Now.AddDays(-30);
@@ -1277,7 +1277,7 @@ namespace Sigesoft.Node.WinClient.UI
                 string ruta = Common.Utils.GetApplicationConfigValue("rutaLiquidacion").ToString();
 
                 string fecha = DateTime.Now.ToString().Split('/')[0] + "-" + DateTime.Now.ToString().Split('/')[1] + "-" + DateTime.Now.ToString().Split('/')[2];
-                string nombre = "EMPRESAS SIN LIQUIDAR - CSL";
+                string nombre = "EMPRESAS SIN LIQUIDAR - CMC";
 
                 DateTime? fechaFin_1 = DateTime.Now;
                 DateTime? fechaInicio_1 = DateTime.Now.AddDays(-30);
@@ -1300,7 +1300,7 @@ namespace Sigesoft.Node.WinClient.UI
                 string ruta = Common.Utils.GetApplicationConfigValue("rutaLiquidacion").ToString();
 
                 string fecha = DateTime.Now.ToString().Split('/')[0] + "-" + DateTime.Now.ToString().Split('/')[1] + "-" + DateTime.Now.ToString().Split('/')[2];
-                string nombre = "EMPRESAS SIN LIQUIDAR - CSL";
+                string nombre = "EMPRESAS SIN LIQUIDAR - CMC";
 
                 string fechaInicio_2 = _fInicio.ToString().Split(' ')[0];
                 string fechaFin_2 = _fFin.ToString().Split(' ')[0];

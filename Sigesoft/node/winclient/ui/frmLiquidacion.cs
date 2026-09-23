@@ -340,7 +340,7 @@ namespace Sigesoft.Node.WinClient.UI
                     string ruta = Common.Utils.GetApplicationConfigValue("rutaLiquidacion").ToString();
 
                     string fecha = DateTime.Now.ToString().Split('/')[0] + "-" + DateTime.Now.ToString().Split('/')[1] + "-" + DateTime.Now.ToString().Split('/')[2];
-                    string nombre = "Liquidación N° " + liquidacionID + " - CSL";
+                    string nombre = "Liquidación N° " + liquidacionID + " - CMC";
 
                     var traerEmpresa = new ServiceBL().ListaLiquidacionById(ref _objOperationResult, liquidacionID);
                     string idEmpresa = traerEmpresa.v_OrganizationId;
@@ -364,7 +364,7 @@ namespace Sigesoft.Node.WinClient.UI
                     string ruta = Common.Utils.GetApplicationConfigValue("rutaLiquidacion").ToString();
 
                     string fecha = DateTime.Now.ToString().Split('/')[0] + "-" + DateTime.Now.ToString().Split('/')[1] + "-" + DateTime.Now.ToString().Split('/')[2];
-                    string nombre = "Liquidación N° " + liquidacionID + " - CSL";
+                    string nombre = "Liquidación N° " + liquidacionID + " - MC";
 
                     var traerEmpresa = new ServiceBL().ListaLiquidacionById(ref _objOperationResult, liquidacionID);
                     string idEmpresa = traerEmpresa.v_OrganizationId;
@@ -500,7 +500,7 @@ namespace Sigesoft.Node.WinClient.UI
                     string ruta = Common.Utils.GetApplicationConfigValue("rutaLiquidacion").ToString();
 
                     string fecha = DateTime.Now.ToString().Split('/')[0] + "-" + DateTime.Now.ToString().Split('/')[1] + "-" + DateTime.Now.ToString().Split('/')[2];
-                    string nombre = "Carta N° " + liquidacionID + " - CSL";
+                    string nombre = "Carta N° " + liquidacionID + " - CMC";
 
 
                     int systemUser = 205;
@@ -538,7 +538,7 @@ namespace Sigesoft.Node.WinClient.UI
                     string ruta = Common.Utils.GetApplicationConfigValue("rutaLiquidacion").ToString();
 
                     string fecha = DateTime.Now.ToString().Split('/')[0] + "-" + DateTime.Now.ToString().Split('/')[1] + "-" + DateTime.Now.ToString().Split('/')[2];
-                    string nombre = "Carta N° " + liquidacionID + " - CSL";
+                    string nombre = "Carta N° " + liquidacionID + " - CMC";
 
 
                     int systemUser = 205;
@@ -775,7 +775,7 @@ namespace Sigesoft.Node.WinClient.UI
                 string ruta = Common.Utils.GetApplicationConfigValue("rutaLiquidacion").ToString();
 
                 string fecha = DateTime.Now.ToString().Split('/')[0] + "-" + DateTime.Now.ToString().Split('/')[1] + "-" + DateTime.Now.ToString().Split('/')[2];
-                string nombre = "EMPRESAS SIN LIQUIDAR - CSL";
+                string nombre = "EMPRESAS SIN LIQUIDAR - CMC";
 
                 string fechaInicio_2 = dtpDateTimeStar.Value.ToString().Split(' ')[0];
                 string fechaFin_2 = dptDateTimeEnd.Value.ToString().Split(' ')[0];

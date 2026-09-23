@@ -194,7 +194,7 @@
             this.txtCodificacion.Name = "txtCodificacion";
             this.txtCodificacion.Size = new System.Drawing.Size(541, 20);
             this.txtCodificacion.TabIndex = 72;
-            this.txtCodificacion.Text = "CARTA: (XXX) -CSL S.R.L.-CAJ/GG.";
+            this.txtCodificacion.Text = "CARTA: (XXX) -CMC-TRUJ/GG.";
             // 
             // label16
             // 

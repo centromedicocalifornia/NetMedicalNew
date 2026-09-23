@@ -2928,7 +2928,7 @@ namespace Sigesoft.Node.WinClient.UI
                 string ruta = Common.Utils.GetApplicationConfigValue("rutaHistoriaClinica").ToString();
 
                 string fecha = DateTime.Now.ToString().Split('/')[0] + "-" + DateTime.Now.ToString().Split('/')[1] + "-" + DateTime.Now.ToString().Split('/')[2];
-                string nombre = "Historia Clinica N° " + serviceID + " - CSL";
+                string nombre = "Historia Clinica N° " + serviceID + " - CMC";
 
                 //var obtenerInformacionEmpresas = new ServiceBL().ObtenerInformacionEmpresas(serviceID);
 
@@ -2955,7 +2955,7 @@ namespace Sigesoft.Node.WinClient.UI
                 string ruta = Common.Utils.GetApplicationConfigValue("rutaLiquidacion").ToString();
 
                 string fecha = DateTime.Now.ToString().Split('/')[0] + "-" + DateTime.Now.ToString().Split('/')[1] + "-" + DateTime.Now.ToString().Split('/')[2];
-                string nombre = "EGRESOS DE PRUEBA - CSL";
+                string nombre = "EGRESOS DE PRUEBA - CMC";
 
                 Reporte_Egresos.CreateReporte_Egresos(ruta + nombre + ".pdf", MedicalCenter);
                 this.Enabled = true;

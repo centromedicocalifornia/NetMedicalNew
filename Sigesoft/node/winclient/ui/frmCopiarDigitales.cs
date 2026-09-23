@@ -90,7 +90,7 @@ namespace Sigesoft.Node.WinClient.UI
         private void btnExportExamenes_Click(object sender, EventArgs e)
         {
             string NombreArchivo = "";
-            NombreArchivo = "Reporte Digitales CSL";
+            NombreArchivo = "Reporte Digitales CMC";
             NombreArchivo = NombreArchivo.Replace("/", "_");
             NombreArchivo = NombreArchivo.Replace(":", "_");
 
