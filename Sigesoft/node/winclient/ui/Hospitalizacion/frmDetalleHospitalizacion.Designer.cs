@@ -2370,7 +2370,7 @@
             this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(249, 199);
+            this.textBox2.Size = new System.Drawing.Size(232, 199);
             this.textBox2.TabIndex = 197;
             this.textBox2.Text = "- - -";
             // 
@@ -2609,7 +2609,7 @@
             this.textBox3.Margin = new System.Windows.Forms.Padding(2);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(249, 199);
+            this.textBox3.Size = new System.Drawing.Size(232, 199);
             this.textBox3.TabIndex = 197;
             this.textBox3.Text = "- - -";
             // 
@@ -2861,7 +2861,7 @@
             this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(249, 90);
+            this.textBox1.Size = new System.Drawing.Size(232, 90);
             this.textBox1.TabIndex = 197;
             this.textBox1.Text = "- - -";
             // 

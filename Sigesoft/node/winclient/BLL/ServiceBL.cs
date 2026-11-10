@@ -37834,7 +37834,7 @@ namespace Sigesoft.Node.WinClient.BLL
                                           CCosto = A.CCosto
                                       }).ToList();
 
-                        var ListaServicios = result.OrderBy(x => x.FechaExamen).ToList();
+                        var ListaServicios = result.GroupBy(g => g.v_ServiceId).Select(g => g.First()).OrderBy(x => x.FechaExamen).ToList();
                         var tipoEsos = result.ToList().GroupBy(g => g.i_EsoTypeId).Select(p => p.FirstOrDefault());
 
 
@@ -37983,7 +37983,7 @@ namespace Sigesoft.Node.WinClient.BLL
                                           CCosto = A.CCosto
                                       }).ToList();
 
-                        var ListaServicios = result.OrderBy(x => x.FechaExamen).ToList();
+                        var ListaServicios = result.GroupBy(g => g.v_ServiceId).Select(g => g.First()).OrderBy(x => x.FechaExamen).ToList();
                         var tipoEsos = result.ToList().GroupBy(g => g.i_EsoTypeId).Select(p => p.FirstOrDefault());
 
 
@@ -38133,7 +38133,7 @@ namespace Sigesoft.Node.WinClient.BLL
                                       }).ToList();
 
 
-                        var ListaServicios = result.OrderBy(x => x.FechaExamen).ToList();
+                        var ListaServicios = result.GroupBy(g => g.v_ServiceId).Select(g => g.First()).OrderBy(x => x.FechaExamen).ToList();
                         var tipoEsos = result.ToList().GroupBy(g => g.i_EsoTypeId).Select(p => p.FirstOrDefault());
 
 
@@ -38287,7 +38287,7 @@ namespace Sigesoft.Node.WinClient.BLL
                                       CCosto = A.CCosto
                                   }).ToList();
 
-                    var ListaServicios = result.OrderBy(x => x.FechaExamen).ToList();
+                    var ListaServicios = result.GroupBy(g => g.v_ServiceId).Select(g => g.First()).OrderBy(x => x.FechaExamen).ToList();
                     var tipoEsos = result.ToList().GroupBy(g => g.i_EsoTypeId).Select(p => p.FirstOrDefault());
 
 
@@ -38436,7 +38436,7 @@ namespace Sigesoft.Node.WinClient.BLL
                                       CCosto = A.CCosto
                                   }).ToList();
 
-                    var ListaServicios = result.OrderBy(x => x.FechaExamen).ToList();
+                    var ListaServicios = result.GroupBy(g => g.v_ServiceId).Select(g => g.First()).OrderBy(x => x.FechaExamen).ToList();
                     var tipoEsos = result.ToList().GroupBy(g => g.i_EsoTypeId).Select(p => p.FirstOrDefault());
 
 
