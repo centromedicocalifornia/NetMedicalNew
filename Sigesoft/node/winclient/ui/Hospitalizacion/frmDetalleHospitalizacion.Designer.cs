@@ -62,6 +62,7 @@
             Infragistics.Win.Appearance appearance12 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance13 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance14 = new Infragistics.Win.Appearance();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDetalleHospitalizacion));
             Infragistics.Win.Appearance appearance15 = new Infragistics.Win.Appearance();
             Infragistics.Win.UltraWinGrid.UltraGridBand ultraGridBand4 = new Infragistics.Win.UltraWinGrid.UltraGridBand("Band 0", -1);
             Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn30 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("v_ServiceId");
@@ -1116,7 +1117,7 @@
             this.btnHorasSala.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHorasSala.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHorasSala.ForeColor = System.Drawing.Color.Black;
-            this.btnHorasSala.Image = global::Sigesoft.Node.WinClient.UI.Resources.color_swatch;
+            this.btnHorasSala.Image = ((System.Drawing.Image)(resources.GetObject("btnHorasSala.Image")));
             this.btnHorasSala.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnHorasSala.Location = new System.Drawing.Point(541, 76);
             this.btnHorasSala.Margin = new System.Windows.Forms.Padding(2);
@@ -1186,7 +1187,7 @@
             this.btnDxSalida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDxSalida.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDxSalida.ForeColor = System.Drawing.Color.Black;
-            this.btnDxSalida.Image = global::Sigesoft.Node.WinClient.UI.Resources.color_swatch;
+            this.btnDxSalida.Image = ((System.Drawing.Image)(resources.GetObject("btnDxSalida.Image")));
             this.btnDxSalida.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDxSalida.Location = new System.Drawing.Point(1177, 76);
             this.btnDxSalida.Margin = new System.Windows.Forms.Padding(2);
@@ -1257,7 +1258,7 @@
             this.btnDx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDx.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDx.ForeColor = System.Drawing.Color.Black;
-            this.btnDx.Image = global::Sigesoft.Node.WinClient.UI.Resources.color_swatch;
+            this.btnDx.Image = ((System.Drawing.Image)(resources.GetObject("btnDx.Image")));
             this.btnDx.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDx.Location = new System.Drawing.Point(1177, 47);
             this.btnDx.Margin = new System.Windows.Forms.Padding(2);
@@ -1277,7 +1278,7 @@
             this.btnDarAlta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDarAlta.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDarAlta.ForeColor = System.Drawing.Color.Red;
-            this.btnDarAlta.Image = global::Sigesoft.Node.WinClient.UI.Resources.alta_medica_1;
+            this.btnDarAlta.Image = ((System.Drawing.Image)(resources.GetObject("btnDarAlta.Image")));
             this.btnDarAlta.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnDarAlta.Location = new System.Drawing.Point(1204, 14);
             this.btnDarAlta.Margin = new System.Windows.Forms.Padding(2);
@@ -1801,7 +1802,7 @@
             this.btnEliminarExamen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminarExamen.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminarExamen.ForeColor = System.Drawing.Color.Black;
-            this.btnEliminarExamen.Image = global::Sigesoft.Node.WinClient.UI.Properties.Resources.delete;
+            this.btnEliminarExamen.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminarExamen.Image")));
             this.btnEliminarExamen.Location = new System.Drawing.Point(621, 100);
             this.btnEliminarExamen.Margin = new System.Windows.Forms.Padding(2);
             this.btnEliminarExamen.Name = "btnEliminarExamen";
@@ -1822,7 +1823,7 @@
             this.btnEditExamen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditExamen.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditExamen.ForeColor = System.Drawing.Color.Black;
-            this.btnEditExamen.Image = global::Sigesoft.Node.WinClient.UI.Properties.Resources.pencil;
+            this.btnEditExamen.Image = ((System.Drawing.Image)(resources.GetObject("btnEditExamen.Image")));
             this.btnEditExamen.Location = new System.Drawing.Point(621, 62);
             this.btnEditExamen.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditExamen.Name = "btnEditExamen";
@@ -1843,7 +1844,7 @@
             this.btnAgregarExamenes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarExamenes.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregarExamenes.ForeColor = System.Drawing.Color.Black;
-            this.btnAgregarExamenes.Image = global::Sigesoft.Node.WinClient.UI.Properties.Resources.add;
+            this.btnAgregarExamenes.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarExamenes.Image")));
             this.btnAgregarExamenes.Location = new System.Drawing.Point(621, 24);
             this.btnAgregarExamenes.Margin = new System.Windows.Forms.Padding(2);
             this.btnAgregarExamenes.Name = "btnAgregarExamenes";
@@ -1903,7 +1904,7 @@
             this.btnLimpieza.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpieza.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpieza.ForeColor = System.Drawing.Color.Black;
-            this.btnLimpieza.Image = global::Sigesoft.Node.WinClient.UI.Resources.eject_green;
+            this.btnLimpieza.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpieza.Image")));
             this.btnLimpieza.Location = new System.Drawing.Point(621, 166);
             this.btnLimpieza.Margin = new System.Windows.Forms.Padding(2);
             this.btnLimpieza.Name = "btnLimpieza";
@@ -1924,7 +1925,7 @@
             this.btnEditarHabitacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditarHabitacion.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditarHabitacion.ForeColor = System.Drawing.Color.Black;
-            this.btnEditarHabitacion.Image = global::Sigesoft.Node.WinClient.UI.Resources.habitacionEdit;
+            this.btnEditarHabitacion.Image = ((System.Drawing.Image)(resources.GetObject("btnEditarHabitacion.Image")));
             this.btnEditarHabitacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEditarHabitacion.Location = new System.Drawing.Point(621, 82);
             this.btnEditarHabitacion.Margin = new System.Windows.Forms.Padding(2);
@@ -1946,7 +1947,7 @@
             this.btnEliminarHabitacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminarHabitacion.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminarHabitacion.ForeColor = System.Drawing.Color.Black;
-            this.btnEliminarHabitacion.Image = global::Sigesoft.Node.WinClient.UI.Resources.habitacionDelet;
+            this.btnEliminarHabitacion.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminarHabitacion.Image")));
             this.btnEliminarHabitacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEliminarHabitacion.Location = new System.Drawing.Point(621, 118);
             this.btnEliminarHabitacion.Margin = new System.Windows.Forms.Padding(2);
@@ -1967,7 +1968,7 @@
             this.btnCerarHabitacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerarHabitacion.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCerarHabitacion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnCerarHabitacion.Image = global::Sigesoft.Node.WinClient.UI.Resources.door_out;
+            this.btnCerarHabitacion.Image = ((System.Drawing.Image)(resources.GetObject("btnCerarHabitacion.Image")));
             this.btnCerarHabitacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCerarHabitacion.Location = new System.Drawing.Point(150, 8);
             this.btnCerarHabitacion.Margin = new System.Windows.Forms.Padding(2);
@@ -1989,7 +1990,7 @@
             this.btnAsignarHabitacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAsignarHabitacion.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAsignarHabitacion.ForeColor = System.Drawing.Color.Black;
-            this.btnAsignarHabitacion.Image = global::Sigesoft.Node.WinClient.UI.Resources.habitacionAdd;
+            this.btnAsignarHabitacion.Image = ((System.Drawing.Image)(resources.GetObject("btnAsignarHabitacion.Image")));
             this.btnAsignarHabitacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAsignarHabitacion.Location = new System.Drawing.Point(621, 46);
             this.btnAsignarHabitacion.Margin = new System.Windows.Forms.Padding(2);
@@ -2037,7 +2038,7 @@
             this.btnImprimirTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnImprimirTicket.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImprimirTicket.ForeColor = System.Drawing.Color.Black;
-            this.btnImprimirTicket.Image = global::Sigesoft.Node.WinClient.UI.Resources.printer_color;
+            this.btnImprimirTicket.Image = ((System.Drawing.Image)(resources.GetObject("btnImprimirTicket.Image")));
             this.btnImprimirTicket.Location = new System.Drawing.Point(621, 130);
             this.btnImprimirTicket.Margin = new System.Windows.Forms.Padding(2);
             this.btnImprimirTicket.Name = "btnImprimirTicket";
@@ -2058,7 +2059,7 @@
             this.btnEliminarTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminarTicket.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminarTicket.ForeColor = System.Drawing.Color.Black;
-            this.btnEliminarTicket.Image = global::Sigesoft.Node.WinClient.UI.Resources.application_delete;
+            this.btnEliminarTicket.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminarTicket.Image")));
             this.btnEliminarTicket.Location = new System.Drawing.Point(621, 94);
             this.btnEliminarTicket.Margin = new System.Windows.Forms.Padding(2);
             this.btnEliminarTicket.Name = "btnEliminarTicket";
@@ -2079,7 +2080,7 @@
             this.btnTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTicket.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTicket.ForeColor = System.Drawing.Color.Black;
-            this.btnTicket.Image = global::Sigesoft.Node.WinClient.UI.Resources.application_form_add;
+            this.btnTicket.Image = ((System.Drawing.Image)(resources.GetObject("btnTicket.Image")));
             this.btnTicket.Location = new System.Drawing.Point(621, 22);
             this.btnTicket.Margin = new System.Windows.Forms.Padding(2);
             this.btnTicket.Name = "btnTicket";
@@ -2100,7 +2101,7 @@
             this.btnEditarTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditarTicket.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditarTicket.ForeColor = System.Drawing.Color.Black;
-            this.btnEditarTicket.Image = global::Sigesoft.Node.WinClient.UI.Resources.application_edit;
+            this.btnEditarTicket.Image = ((System.Drawing.Image)(resources.GetObject("btnEditarTicket.Image")));
             this.btnEditarTicket.Location = new System.Drawing.Point(621, 58);
             this.btnEditarTicket.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditarTicket.Name = "btnEditarTicket";
@@ -2196,7 +2197,7 @@
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.Color.Black;
-            this.button4.Image = global::Sigesoft.Node.WinClient.UI.Properties.Resources.pencil;
+            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button4.Location = new System.Drawing.Point(257, 87);
             this.button4.Margin = new System.Windows.Forms.Padding(2);
@@ -2217,7 +2218,7 @@
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.Color.Black;
-            this.button5.Image = global::Sigesoft.Node.WinClient.UI.Properties.Resources.add;
+            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
             this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button5.Location = new System.Drawing.Point(257, 51);
             this.button5.Margin = new System.Windows.Forms.Padding(2);
@@ -2238,7 +2239,7 @@
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.ForeColor = System.Drawing.Color.Black;
-            this.button6.Image = global::Sigesoft.Node.WinClient.UI.Properties.Resources.delete;
+            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
             this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button6.Location = new System.Drawing.Point(257, 123);
             this.button6.Margin = new System.Windows.Forms.Padding(2);
@@ -2370,7 +2371,7 @@
             this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(232, 199);
+            this.textBox2.Size = new System.Drawing.Size(215, 199);
             this.textBox2.TabIndex = 197;
             this.textBox2.Text = "- - -";
             // 
@@ -2447,7 +2448,7 @@
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.ForeColor = System.Drawing.Color.Black;
-            this.button7.Image = global::Sigesoft.Node.WinClient.UI.Properties.Resources.pencil;
+            this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
             this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button7.Location = new System.Drawing.Point(257, 87);
             this.button7.Margin = new System.Windows.Forms.Padding(2);
@@ -2468,7 +2469,7 @@
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button8.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button8.ForeColor = System.Drawing.Color.Black;
-            this.button8.Image = global::Sigesoft.Node.WinClient.UI.Properties.Resources.add;
+            this.button8.Image = ((System.Drawing.Image)(resources.GetObject("button8.Image")));
             this.button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button8.Location = new System.Drawing.Point(257, 51);
             this.button8.Margin = new System.Windows.Forms.Padding(2);
@@ -2489,7 +2490,7 @@
             this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button9.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button9.ForeColor = System.Drawing.Color.Black;
-            this.button9.Image = global::Sigesoft.Node.WinClient.UI.Properties.Resources.delete;
+            this.button9.Image = ((System.Drawing.Image)(resources.GetObject("button9.Image")));
             this.button9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button9.Location = new System.Drawing.Point(257, 123);
             this.button9.Margin = new System.Windows.Forms.Padding(2);
@@ -2609,7 +2610,7 @@
             this.textBox3.Margin = new System.Windows.Forms.Padding(2);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(232, 199);
+            this.textBox3.Size = new System.Drawing.Size(215, 199);
             this.textBox3.TabIndex = 197;
             this.textBox3.Text = "- - -";
             // 
@@ -2699,7 +2700,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Image = global::Sigesoft.Node.WinClient.UI.Properties.Resources.pencil;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.Location = new System.Drawing.Point(257, 87);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
@@ -2720,7 +2721,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Image = global::Sigesoft.Node.WinClient.UI.Properties.Resources.add;
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.Location = new System.Drawing.Point(257, 51);
             this.button2.Margin = new System.Windows.Forms.Padding(2);
@@ -2741,7 +2742,7 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.Black;
-            this.button3.Image = global::Sigesoft.Node.WinClient.UI.Properties.Resources.delete;
+            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button3.Location = new System.Drawing.Point(257, 123);
             this.button3.Margin = new System.Windows.Forms.Padding(2);
@@ -2861,7 +2862,7 @@
             this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(232, 90);
+            this.textBox1.Size = new System.Drawing.Size(215, 90);
             this.textBox1.TabIndex = 197;
             this.textBox1.Text = "- - -";
             // 
@@ -3575,7 +3576,7 @@
             this.bntEliminarExamen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bntEliminarExamen.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bntEliminarExamen.ForeColor = System.Drawing.Color.Black;
-            this.bntEliminarExamen.Image = global::Sigesoft.Node.WinClient.UI.Properties.Resources.delete;
+            this.bntEliminarExamen.Image = ((System.Drawing.Image)(resources.GetObject("bntEliminarExamen.Image")));
             this.bntEliminarExamen.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bntEliminarExamen.Location = new System.Drawing.Point(1034, 496);
             this.bntEliminarExamen.Margin = new System.Windows.Forms.Padding(2);

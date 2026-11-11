@@ -13,6 +13,10 @@ namespace NetPdf
 {
     public class CONSENTIMIENTO_INFORMADO_AUTORIZAR_EMO
     {
+        // Ancho útil del contenido (deja un margen interior a ambos lados del texto)
+        private const float ANCHO_CONTENIDO = 92f;
+        private const float SANGRIA_TEXTO = 21f;
+
         private static void RunFile(string filePDF)
         {
             Process proceso = Process.Start(filePDF);
@@ -20,217 +24,194 @@ namespace NetPdf
             proceso.Close();
         }
 
-        public static void CreateConseitimientoInformadoParaAutorizarEMO(string filePDF, PacientList filiationData, 
+        public static void CreateConseitimientoInformadoParaAutorizarEMO(string filePDF, PacientList filiationData,
             PacientList datosPac,
             organizationDto infoEmpresaPropietaria)
         {
-            //Document document = new Document(PageSize.A4, 40f, 40f, 80f, 50f);
             Document document = new Document(PageSize.A4, 30f, 30f, 75f, 65f);
-
             document.SetPageSize(iTextSharp.text.PageSize.A4);
 
-            //PdfWriter writer = PdfWriter.GetInstance(document, new FileStream(filePDF, FileMode.Create));
-            //pdfPage page = new pdfPage();
             PdfWriter writer = PdfWriter.GetInstance(document, new FileStream(filePDF, FileMode.Create));
             pdfPage_NEW page = new pdfPage_NEW();
             page.Title = string.Empty;
             writer.PageEvent = page;
             document.Open();
 
-            #region Declaration Tables
-            var subTitleBackGroundColor = new BaseColor(System.Drawing.Color.Gray);
-            string include = string.Empty;
-            List<PdfPCell> cells = null;
-            float[] columnWidths = null;
-            PdfPTable header2 = new PdfPTable(6);
-            header2.HorizontalAlignment = Element.ALIGN_CENTER;
-            header2.WidthPercentage = 100;
-            float[] widths1 = new float[] { 16.6f, 18.6f, 16.6f, 16.6f, 16.6f, 16.6f };
-            header2.SetWidths(widths1);
-            PdfPTable companyData = new PdfPTable(6);
-            companyData.HorizontalAlignment = Element.ALIGN_CENTER;
-            companyData.WidthPercentage = 100;
-            float[] widthscolumnsCompanyData = new float[] { 16.6f, 16.6f, 16.6f, 16.6f, 16.6f, 16.6f };
-            companyData.SetWidths(widthscolumnsCompanyData);
-            PdfPTable filiationWorker = new PdfPTable(4);
-            PdfPTable table = null;
-            document.Add(new Paragraph("\r\n"));
-            #endregion
-
             #region Fonts
-            Font fontTitle1 = FontFactory.GetFont("Calibri", 12, iTextSharp.text.Font.BOLD, new BaseColor(System.Drawing.Color.Black));
-            Font fontTitle2 = FontFactory.GetFont("Calibri", 7, iTextSharp.text.Font.NORMAL, new BaseColor(System.Drawing.Color.Black));
-            Font fontTitleTable = FontFactory.GetFont("Calibri", 6, iTextSharp.text.Font.BOLD, new BaseColor(System.Drawing.Color.Black));
-            Font fontTitleTableNegro = FontFactory.GetFont("Calibri", 6, iTextSharp.text.Font.BOLD, new BaseColor(System.Drawing.Color.Black));
-            Font fontSubTitle = FontFactory.GetFont("Calibri", 6, iTextSharp.text.Font.BOLD, new BaseColor(System.Drawing.Color.White));
-            Font fontSubTitleNegroNegrita = FontFactory.GetFont("Calibri", 6, iTextSharp.text.Font.BOLD, new BaseColor(System.Drawing.Color.Black));
-
-            Font fontColumnValue = FontFactory.GetFont("Calibri", 10, iTextSharp.text.Font.NORMAL, new BaseColor(System.Drawing.Color.Black));
-            Font fontColumnValue1 = FontFactory.GetFont("Calibri", 10, iTextSharp.text.Font.BOLD, new BaseColor(System.Drawing.Color.Black));
-            Font fontColumnValueBold = FontFactory.GetFont("Calibri", 7, iTextSharp.text.Font.BOLD, new BaseColor(System.Drawing.Color.Black));
-            Font fontColumnValueApendice = FontFactory.GetFont("Calibri", 5, iTextSharp.text.Font.BOLD, new BaseColor(System.Drawing.Color.Black));
+            Font fontTitulo = FontFactory.GetFont("Calibri", 11.5f, Font.BOLD, BaseColor.BLACK);
+            Font fontTexto = FontFactory.GetFont("Calibri", 10f, Font.NORMAL, BaseColor.BLACK);
+            Font fontNegrita = FontFactory.GetFont("Calibri", 10f, Font.BOLD, BaseColor.BLACK);
+            Font fontLeyenda = FontFactory.GetFont("Calibri", 6.5f, Font.ITALIC, BaseColor.DARK_GRAY);
             #endregion
 
-            #region TÍTULO
+            #region Datos
+            string tipoDoc;
+            switch (datosPac.i_DocTypeId)
+            {
+                case 2: tipoDoc = "Pasaporte"; break;
+                case 3: tipoDoc = "Licencia de Conducir"; break;
+                case 4: tipoDoc = "Carné de Extranjería"; break;
+                default: tipoDoc = "DNI"; break;
+            }
 
-            cells = new List<PdfPCell>();
-
-            //if (infoEmpresaPropietaria.b_Image != null)
-            //{
-            //    iTextSharp.text.Image imagenEmpresa = iTextSharp.text.Image.GetInstance(HandlingItextSharp.GetImage(infoEmpresaPropietaria.b_Image));
-            //    imagenEmpresa.ScalePercent(25);
-            //    imagenEmpresa.SetAbsolutePosition(40, 790);
-            //    document.Add(imagenEmpresa);
-            //}
-            //iTextSharp.text.Image imagenMinsa = iTextSharp.text.Image.GetInstance("C:/Banner/Minsa.png");
-            //imagenMinsa.ScalePercent(10);
-            //imagenMinsa.SetAbsolutePosition(400, 785);
-            //document.Add(imagenMinsa);
-            string[] fechaServicio = datosPac.FechaServicio.ToString().Split(' ');
-            //string mes = "";
-            var tamaño_celda = 18f;
-            //if (fechaServicio[1] == "01") mes = "Enero";
-            //else if (fechaServicio[1] == "02") mes = "Febrero";
-            //else if (fechaServicio[1] == "03") mes = "Marzo";
-            //else if (fechaServicio[1] == "04") mes = "Abril";
-            //else if (fechaServicio[1] == "05") mes = "Mayo";
-            //else if (fechaServicio[1] == "06") mes = "Junio";
-            //else if (fechaServicio[1] == "07") mes = "Julio";
-            //else if (fechaServicio[1] == "08") mes = "Agosto";
-            //else if (fechaServicio[1] == "09") mes = "Setiembre";
-            //else if (fechaServicio[1] == "10") mes = "Octubre";
-            //else if (fechaServicio[1] == "11") mes = "Noviembre";
-            //else if (fechaServicio[1] == "12") mes = "Diciembre";
-
-            var cellsTit = new List<PdfPCell>()
-                { 
-                    new PdfPCell(new Phrase("CONSENTIMIENTO INFORMADO PARA AUTORIZAR EL EXAMEN MEDICO OCUPACIONAL", fontTitle1)) {HorizontalAlignment = iTextSharp.text.Element.ALIGN_CENTER, VerticalAlignment = iTextSharp.text.Element.ALIGN_MIDDLE, MinimumHeight = 30f, BorderColor=BaseColor.WHITE },
-                    
-                    //new PdfPCell(new Phrase("\n \n  "+infoEmpresaPropietaria.v_SectorName+", "+ fechaServicio[0] + " de " + mes + " del " + fechaServicio[2], fontColumnValue))
-                    //    {HorizontalAlignment = iTextSharp.text.Element.ALIGN_RIGHT, VerticalAlignment = iTextSharp.text.Element.ALIGN_MIDDLE, MinimumHeight = tamaño_celda, BorderColor=BaseColor.WHITE },    
-
-                };
-            columnWidths = new float[] { 100f };
-            table = HandlingItextSharp.GenerateTableFromCells(cellsTit, columnWidths, null, fontTitleTable);
-            document.Add(table);
+            string nombreCompleto = string.Format("{0} {1} {2}",
+                datosPac.v_FirstLastName, datosPac.v_SecondLastName, datosPac.v_FirstName).Trim();
+            string nroDocumento = Texto(datosPac.v_DocNumber);
+            string ocupacion = Texto(datosPac.v_CurrentOccupation);
+            string empresaGeneral = Texto(filiationData.empresa_);
+            string centroSalud = Texto(infoEmpresaPropietaria.v_Name);
+            string fechaServicio = datosPac.FechaServicio == null
+                ? string.Empty
+                : datosPac.FechaServicio.ToString().Split(' ')[0];
             #endregion
 
-            string tipodoc = "";
-            if (datosPac.i_DocTypeId == 1) { tipodoc = "DNI"; }
-            else if (datosPac.i_DocTypeId == 2) { tipodoc = "Pasaporte"; }
-            else if (datosPac.i_DocTypeId == 3) { tipodoc = "Licencia de Conducir"; }
-            else if (datosPac.i_DocTypeId == 4) { tipodoc = "Carnet de Extranjeria"; }
+            #region Titulo
+            Paragraph titulo = new Paragraph("CONSENTIMIENTO INFORMADO PARA AUTORIZAR\nEL EXAMEN MÉDICO OCUPACIONAL", fontTitulo);
+            titulo.Alignment = Element.ALIGN_CENTER;
+            titulo.SetLeading(0f, 1.25f);
+            titulo.SpacingBefore = 18f;
+            titulo.SpacingAfter = 14f;
+            document.Add(titulo);
+            #endregion
 
             #region Contenido
-            string empresageneral = filiationData.empresa_;
-            string empresacontrata = filiationData.contrata;
-            string empresasubcontrata = filiationData.subcontrata;
+            document.Add(CampoSubrayado("YO,", nombreCompleto,
+                "(Apellidos y Nombres como aparece en su documento de identidad)",
+                fontTexto, fontNegrita, fontLeyenda));
 
-            string empr_Conct = "";
-            if (empresageneral != empresasubcontrata) empr_Conct = empresacontrata + " / " + empresasubcontrata;
-            else empr_Conct = empresacontrata;
-            cells = new List<PdfPCell>()
-            {          
-                
-                new PdfPCell(new Phrase("\n \nYO,  " , fontColumnValue))
-                { Colspan = 2, HorizontalAlignment = iTextSharp.text.Element.ALIGN_LEFT, VerticalAlignment = iTextSharp.text.Element.ALIGN_MIDDLE, MinimumHeight = tamaño_celda, UseVariableBorders=true, BorderColorLeft=BaseColor.WHITE,  BorderColorRight=BaseColor.WHITE,  BorderColorBottom=BaseColor.WHITE, BorderColorTop=BaseColor.WHITE},    
-               
-                new PdfPCell(new Phrase("\n \n" + datosPac.v_FirstLastName + " " + datosPac.v_SecondLastName + " " + datosPac.v_FirstName, fontColumnValue))
-                    { Colspan = 18, HorizontalAlignment = iTextSharp.text.Element.ALIGN_LEFT, VerticalAlignment = iTextSharp.text.Element.ALIGN_MIDDLE, MinimumHeight = tamaño_celda, UseVariableBorders=true, BorderColorLeft=BaseColor.WHITE,  BorderColorRight=BaseColor.WHITE,  BorderColorBottom=BaseColor.WHITE, BorderColorTop=BaseColor.WHITE},    
+            document.Add(ParrafoJustificado(10f, 8f,
+                new Chunk("identificado(a) con " + tipoDoc + " N° ", fontTexto),
+                new Chunk(nroDocumento, fontNegrita),
+                new Chunk(", con ocupación laboral de ", fontTexto),
+                new Chunk(ocupacion, fontNegrita),
+                new Chunk(", certifico que he sido informado(a) acerca de la naturaleza y propósito del examen médico " +
+                          "ocupacional, así como de las pruebas complementarias determinadas por la empresa ", fontTexto),
+                new Chunk(empresaGeneral, fontNegrita),
+                new Chunk(", de acuerdo con los peligros y riesgos identificados en mi puesto de trabajo.", fontTexto)));
 
-                new PdfPCell(new Phrase("\nIdentificado (a) con " +  tipodoc  + " N° " + datosPac.v_DocNumber + ", con ocupación laboral de", fontColumnValue)) 
-                { Colspan = 20, HorizontalAlignment = iTextSharp.text.Element.ALIGN_JUSTIFIED_ALL, VerticalAlignment = iTextSharp.text.Element.ALIGN_MIDDLE, MinimumHeight = tamaño_celda , UseVariableBorders=true, BorderColorLeft=BaseColor.WHITE,  BorderColorRight=BaseColor.WHITE,  BorderColorBottom=BaseColor.WHITE, BorderColorTop=BaseColor.WHITE, ExtraParagraphSpace = 5.0f}, 
+            document.Add(ParrafoJustificado(0f, 8f,
+                new Chunk("En este sentido, en forma consciente y voluntaria, doy mi consentimiento para que se me realice el " +
+                          "examen médico ocupacional de acuerdo con la Resolución Ministerial N° 312-2011/MINSA, y doy fe de que " +
+                          "la información brindada a ", fontTexto),
+                new Chunk(centroSalud, fontNegrita),
+                new Chunk(" es verídica.", fontTexto)));
 
-                new PdfPCell(new Phrase(datosPac.v_CurrentOccupation + ", certifico que he sido informado acerca de la naturaleza y propósito", fontColumnValue)) 
-                    { Colspan = 20, HorizontalAlignment = iTextSharp.text.Element.ALIGN_JUSTIFIED_ALL, VerticalAlignment = iTextSharp.text.Element.ALIGN_MIDDLE, MinimumHeight = tamaño_celda , UseVariableBorders=true, BorderColorLeft=BaseColor.WHITE,  BorderColorRight=BaseColor.WHITE,  BorderColorBottom=BaseColor.WHITE, BorderColorTop=BaseColor.WHITE, ExtraParagraphSpace = 5.0f}, 
+            document.Add(ParrafoJustificado(0f, 12f,
+                new Chunk("Asimismo, autorizo a ", fontTexto),
+                new Chunk(centroSalud, fontNegrita),
+                new Chunk(" para que brinde mi Historia Clínica y toda la información resultante de mi examen médico " +
+                          "ocupacional al Médico Ocupacional de mi empresa, a fin de que tenga acceso a mi Historia Clínica, " +
+                          "de acuerdo con la N.T. N° 022-MINSA/DGSP-V.02 y la ", fontTexto),
+                new Chunk("Ley N° 26842, Ley General de Salud.", fontNegrita)));
 
-                new PdfPCell(new Phrase("del examen médico ocupacional, así como pruebas complementarias determinadas por la empresa", fontColumnValue)) 
-                    { Colspan = 20, HorizontalAlignment = iTextSharp.text.Element.ALIGN_JUSTIFIED, VerticalAlignment = iTextSharp.text.Element.ALIGN_MIDDLE, MinimumHeight = tamaño_celda , UseVariableBorders=true, BorderColorLeft=BaseColor.WHITE,  BorderColorRight=BaseColor.WHITE,  BorderColorBottom=BaseColor.WHITE, BorderColorTop=BaseColor.WHITE, ExtraParagraphSpace = 5.0f}, 
-
-                new PdfPCell(new Phrase(empresageneral, fontColumnValue1)) 
-                { Colspan = 20, HorizontalAlignment = iTextSharp.text.Element.ALIGN_CENTER, VerticalAlignment = iTextSharp.text.Element.ALIGN_MIDDLE, MinimumHeight = tamaño_celda ,  UseVariableBorders=true, BorderColorLeft=BaseColor.WHITE,  BorderColorRight=BaseColor.WHITE,  BorderColorBottom=BaseColor.WHITE, BorderColorTop=BaseColor.WHITE, ExtraParagraphSpace = 5.0f}, 
-
-
-                new PdfPCell(new Phrase("De a cuerdo a los peligros y riesgos identificados en mi puesto de trabajo.", fontColumnValue)) 
-                    { Colspan = 20, HorizontalAlignment = iTextSharp.text.Element.ALIGN_JUSTIFIED, VerticalAlignment = iTextSharp.text.Element.ALIGN_MIDDLE, MinimumHeight = tamaño_celda , UseVariableBorders=true, BorderColorLeft=BaseColor.WHITE,  BorderColorRight=BaseColor.WHITE,  BorderColorBottom=BaseColor.WHITE, BorderColorTop=BaseColor.WHITE, ExtraParagraphSpace = 5.0f}, 
-
-
-
-                new PdfPCell(new Phrase("\nEn este sentido en forma consiente y voluntaria doy mi consentimiento para que se me realice el examen", fontColumnValue)) 
-                { Colspan = 20, HorizontalAlignment = iTextSharp.text.Element.ALIGN_JUSTIFIED_ALL, VerticalAlignment = iTextSharp.text.Element.ALIGN_MIDDLE, MinimumHeight = tamaño_celda , BorderColor=BaseColor.WHITE, ExtraParagraphSpace = 5.0f}, 
-                
-                new PdfPCell(new Phrase("médico ocupacional de acuerdo a la Resolución Ministerial N° 312-211/MINSA, y doy fe que la informaciión", fontColumnValue)) 
-                { Colspan = 20, HorizontalAlignment = iTextSharp.text.Element.ALIGN_JUSTIFIED_ALL, VerticalAlignment = iTextSharp.text.Element.ALIGN_MIDDLE, MinimumHeight = tamaño_celda , BorderColor=BaseColor.WHITE, ExtraParagraphSpace = 5.0f}, 
-
-                new PdfPCell(new Phrase("brindada a " + infoEmpresaPropietaria.v_Name + " es verídica.", fontColumnValue)) 
-                    { Colspan = 20, HorizontalAlignment = iTextSharp.text.Element.ALIGN_JUSTIFIED, VerticalAlignment = iTextSharp.text.Element.ALIGN_MIDDLE, MinimumHeight = tamaño_celda , BorderColor=BaseColor.WHITE, ExtraParagraphSpace = 5.0f}, 
-
-
-                new PdfPCell(new Phrase("\nAsí mismo autorizo a " + infoEmpresaPropietaria.v_Name + " para que brinde mi Historia Clínica y toda información", fontColumnValue)) 
-                    { Colspan = 20, HorizontalAlignment = iTextSharp.text.Element.ALIGN_JUSTIFIED_ALL, VerticalAlignment = iTextSharp.text.Element.ALIGN_MIDDLE, MinimumHeight = tamaño_celda , BorderColor=BaseColor.WHITE, ExtraParagraphSpace = 5.0f}, 
-
-                new PdfPCell(new Phrase("resultante de mi examen médico ocupacional al Médico Ocupacional de mi empresa para que tenga acceso a mi", fontColumnValue)) 
-                    { Colspan = 20, HorizontalAlignment = iTextSharp.text.Element.ALIGN_JUSTIFIED_ALL, VerticalAlignment = iTextSharp.text.Element.ALIGN_MIDDLE, MinimumHeight = tamaño_celda , BorderColor=BaseColor.WHITE, ExtraParagraphSpace = 5.0f}, 
-
-                new PdfPCell(new Phrase("Historia Clínica de acuerdo a la N.T. N° 022-MINSA / DGSP-V.02. y Ley N° 26842 Ley General de Salud.", fontColumnValue)) 
-                    { Colspan = 20, HorizontalAlignment = iTextSharp.text.Element.ALIGN_JUSTIFIED, VerticalAlignment = iTextSharp.text.Element.ALIGN_MIDDLE, MinimumHeight = tamaño_celda , BorderColor=BaseColor.WHITE, ExtraParagraphSpace = 5.0f}, 
-
-                    new PdfPCell(new Phrase("\nFECHA: "+ fechaServicio[0] , fontColumnValue))
-                        {Colspan=20, HorizontalAlignment = iTextSharp.text.Element.ALIGN_LEFT, VerticalAlignment = iTextSharp.text.Element.ALIGN_MIDDLE, MinimumHeight = tamaño_celda, BorderColor=BaseColor.WHITE },    
-
-                
-            };
-
-            columnWidths = new float[] { 5f, 5f, 5f, 5f, 5f, 5f, 5f, 5f, 5f, 5f, 5f, 5f, 5f, 5f, 5f, 5f, 5f, 5f, 5f, 5f };
-            table = HandlingItextSharp.GenerateTableFromCells(cells, columnWidths, null, fontTitleTable);
-            document.Add(table);
+            document.Add(CampoFecha(fechaServicio, fontTexto, fontNegrita));
             #endregion
 
-
-
-
-            PdfPCell cellFirmaTrabajador = null;
-
-            PdfPCell cellHuellaTrabajador = null;
-
+            #region Firma
+            PdfPCell cellFirmaTrabajador;
             if (filiationData.FirmaTrabajador != null)
                 cellFirmaTrabajador = new PdfPCell(HandlingItextSharp.GetImage(filiationData.FirmaTrabajador, null, null, 125, 50));
             else
-                cellFirmaTrabajador = new PdfPCell(new Phrase(" ", fontColumnValue));
+                cellFirmaTrabajador = new PdfPCell(new Phrase(" ", fontTexto));
 
-            cellFirmaTrabajador.HorizontalAlignment = PdfPCell.ALIGN_CENTER;
-            cellFirmaTrabajador.VerticalAlignment = PdfPCell.ALIGN_MIDDLE;
+            PdfPCell cellHuellaTrabajador;
             if (filiationData.HuellaTrabajador != null)
                 cellHuellaTrabajador = new PdfPCell(HandlingItextSharp.GetImage(filiationData.HuellaTrabajador, null, null, 55, 75));
             else
-                cellHuellaTrabajador = new PdfPCell(new Phrase(" ", fontColumnValue));
+                cellHuellaTrabajador = new PdfPCell(new Phrase(" ", fontTexto));
 
-            cellHuellaTrabajador.HorizontalAlignment = PdfPCell.ALIGN_CENTER;
-            cellHuellaTrabajador.VerticalAlignment = PdfPCell.ALIGN_MIDDLE;
+            foreach (PdfPCell c in new[] { cellFirmaTrabajador, cellHuellaTrabajador })
+            {
+                c.HorizontalAlignment = Element.ALIGN_CENTER;
+                c.VerticalAlignment = Element.ALIGN_MIDDLE;
+                c.MinimumHeight = 90f;
+                c.BorderWidth = 0.75f;
+            }
 
-
-            #region Fecha / Firmmal
-            cells = new List<PdfPCell>()
-            {          
-                
-                
-                new PdfPCell(cellFirmaTrabajador ) {Colspan=10, HorizontalAlignment = iTextSharp.text.Element.ALIGN_RIGHT, VerticalAlignment = iTextSharp.text.Element.ALIGN_BOTTOM, FixedHeight=120, BorderColor=BaseColor.WHITE},
-                new PdfPCell(cellHuellaTrabajador ) {Colspan=10, HorizontalAlignment = iTextSharp.text.Element.ALIGN_LEFT, VerticalAlignment = iTextSharp.text.Element.ALIGN_BOTTOM, FixedHeight=120, BorderColor=BaseColor.WHITE},
-                new PdfPCell(new Phrase("_____________________________________", fontColumnValue)){ Colspan=20, HorizontalAlignment = iTextSharp.text.Element.ALIGN_CENTER, VerticalAlignment = iTextSharp.text.Element.ALIGN_MIDDLE,FixedHeight = tamaño_celda , BorderColor=BaseColor.WHITE},
-                new PdfPCell(new Phrase("Firma del Paciente", fontColumnValue)){ Colspan=20, HorizontalAlignment = iTextSharp.text.Element.ALIGN_CENTER, VerticalAlignment = iTextSharp.text.Element.ALIGN_MIDDLE,FixedHeight = tamaño_celda , BorderColor=BaseColor.WHITE},
-                //new PdfPCell(new Phrase("N° DNI/ Carne de Extranjería y Pasaporte: " + datosPac.v_DocNumber, fontColumnValue)){ Colspan=20, HorizontalAlignment = iTextSharp.text.Element.ALIGN_CENTER, VerticalAlignment = iTextSharp.text.Element.ALIGN_MIDDLE,FixedHeight = tamaño_celda , BorderColor=BaseColor.WHITE},
-                //new PdfPCell(new Phrase("...................", fontColumnValue)){ Colspan=20, HorizontalAlignment = iTextSharp.text.Element.ALIGN_CENTER, VerticalAlignment = iTextSharp.text.Element.ALIGN_MIDDLE,FixedHeight = tamaño_celda , BorderColor=BaseColor.WHITE},
-                //new PdfPCell(new Phrase("Ley N° 26842 Art. 4 y Art.25", fontColumnValue)){ Colspan=20, HorizontalAlignment = iTextSharp.text.Element.ALIGN_CENTER, VerticalAlignment = iTextSharp.text.Element.ALIGN_MIDDLE,FixedHeight = tamaño_celda , BorderColor=BaseColor.WHITE},
-
-              };
-
-            columnWidths = new float[] { 5f, 5f, 5f, 5f, 5f, 5f, 5f, 5f, 5f, 5f, 5f, 5f, 5f, 5f, 5f, 5f, 5f, 5f, 5f, 5f };
-            table = HandlingItextSharp.GenerateTableFromCells(cells, columnWidths, null, fontTitleTable);
-            document.Add(table);
+            PdfPTable tablaFirma = new PdfPTable(2);
+            tablaFirma.WidthPercentage = 70f;
+            tablaFirma.HorizontalAlignment = Element.ALIGN_CENTER;
+            tablaFirma.SpacingBefore = 30f;
+            tablaFirma.KeepTogether = true;
+            tablaFirma.SetWidths(new float[] { 60f, 40f });
+            tablaFirma.AddCell(cellFirmaTrabajador);
+            tablaFirma.AddCell(cellHuellaTrabajador);
+            tablaFirma.AddCell(new PdfPCell(new Phrase("FIRMA DEL PACIENTE", fontNegrita)) { HorizontalAlignment = Element.ALIGN_CENTER, VerticalAlignment = Element.ALIGN_MIDDLE, FixedHeight = 18f, BorderWidth = 0.75f });
+            tablaFirma.AddCell(new PdfPCell(new Phrase("HUELLA DIGITAL", fontNegrita)) { HorizontalAlignment = Element.ALIGN_CENTER, VerticalAlignment = Element.ALIGN_MIDDLE, FixedHeight = 18f, BorderWidth = 0.75f });
+            document.Add(tablaFirma);
             #endregion
+
             document.Close();
             writer.Close();
             writer.Dispose();
         }
+
+        #region Helpers
+
+        private static string Texto(string valor)
+        {
+            return string.IsNullOrWhiteSpace(valor) ? " " : valor.Trim();
+        }
+
+        /// <summary>Párrafo justificado con interlineado cómodo y sangría lateral uniforme.</summary>
+        private static Paragraph ParrafoJustificado(float espacioAntes, float espacioDespues, params Chunk[] partes)
+        {
+            Paragraph p = new Paragraph();
+            foreach (Chunk parte in partes)
+                p.Add(parte);
+
+            p.Alignment = Element.ALIGN_JUSTIFIED;
+            p.SetLeading(0f, 1.4f);
+            p.IndentationLeft = SANGRIA_TEXTO;
+            p.IndentationRight = SANGRIA_TEXTO;
+            p.SpacingBefore = espacioAntes;
+            p.SpacingAfter = espacioDespues;
+            return p;
+        }
+
+        /// <summary>Línea de dato subrayada con etiqueta a la izquierda y leyenda opcional debajo.</summary>
+        private static PdfPTable CampoSubrayado(string etiqueta, string valor, string leyenda, Font fontEtiqueta, Font fontValor, Font fontLeyenda)
+        {
+            PdfPTable tabla = new PdfPTable(2);
+            tabla.WidthPercentage = ANCHO_CONTENIDO;
+            tabla.HorizontalAlignment = Element.ALIGN_CENTER;
+            tabla.SpacingBefore = 4f;
+            tabla.SetWidths(new float[] { 6f, 94f });
+
+            tabla.AddCell(new PdfPCell(new Phrase(etiqueta, fontEtiqueta)) { Border = Rectangle.NO_BORDER, VerticalAlignment = Element.ALIGN_BOTTOM, PaddingBottom = 3f });
+            tabla.AddCell(new PdfPCell(new Phrase(valor, fontValor))
+            {
+                Border = Rectangle.BOTTOM_BORDER,
+                BorderWidthBottom = 0.6f,
+                HorizontalAlignment = Element.ALIGN_CENTER,
+                VerticalAlignment = Element.ALIGN_BOTTOM,
+                MinimumHeight = 16f,
+                PaddingBottom = 3f
+            });
+
+            if (!string.IsNullOrEmpty(leyenda))
+            {
+                tabla.AddCell(new PdfPCell(new Phrase(" ", fontLeyenda)) { Border = Rectangle.NO_BORDER });
+                tabla.AddCell(new PdfPCell(new Phrase(leyenda, fontLeyenda)) { Border = Rectangle.NO_BORDER, HorizontalAlignment = Element.ALIGN_CENTER, PaddingTop = 1f });
+            }
+
+            return tabla;
+        }
+
+        /// <summary>"Fecha: ____" alineado a la izquierda del bloque de texto.</summary>
+        private static PdfPTable CampoFecha(string fecha, Font fontEtiqueta, Font fontValor)
+        {
+            PdfPTable tabla = new PdfPTable(3);
+            tabla.WidthPercentage = ANCHO_CONTENIDO;
+            tabla.HorizontalAlignment = Element.ALIGN_CENTER;
+            tabla.SetWidths(new float[] { 9f, 22f, 69f });
+
+            tabla.AddCell(new PdfPCell(new Phrase("Fecha:", fontEtiqueta)) { Border = Rectangle.NO_BORDER, VerticalAlignment = Element.ALIGN_BOTTOM, PaddingBottom = 3f });
+            tabla.AddCell(new PdfPCell(new Phrase(fecha, fontValor)) { Border = Rectangle.BOTTOM_BORDER, BorderWidthBottom = 0.6f, HorizontalAlignment = Element.ALIGN_CENTER, VerticalAlignment = Element.ALIGN_BOTTOM, MinimumHeight = 16f, PaddingBottom = 3f });
+            tabla.AddCell(new PdfPCell(new Phrase(" ", fontEtiqueta)) { Border = Rectangle.NO_BORDER });
+            return tabla;
+        }
+
+        #endregion
     }
 }
