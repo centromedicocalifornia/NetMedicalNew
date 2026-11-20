@@ -52,7 +52,7 @@ namespace Sigesoft.Node.WinClient.UI.Reports {
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public CrystalDecisions.CrystalReports.Engine.Section Section1 {
             get {
-                return this.ReportDefinition.Sections[0];
+                return this.ReportDefinition.Sections["Section1"];
             }
         }
         
@@ -60,7 +60,7 @@ namespace Sigesoft.Node.WinClient.UI.Reports {
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public CrystalDecisions.CrystalReports.Engine.Section Section2 {
             get {
-                return this.ReportDefinition.Sections[1];
+                return this.ReportDefinition.Sections["Section2"];
             }
         }
         
@@ -68,7 +68,7 @@ namespace Sigesoft.Node.WinClient.UI.Reports {
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public CrystalDecisions.CrystalReports.Engine.Section Section3 {
             get {
-                return this.ReportDefinition.Sections[2];
+                return this.ReportDefinition.Sections["Section3"];
             }
         }
         
@@ -76,7 +76,7 @@ namespace Sigesoft.Node.WinClient.UI.Reports {
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public CrystalDecisions.CrystalReports.Engine.Section Section4 {
             get {
-                return this.ReportDefinition.Sections[3];
+                return this.ReportDefinition.Sections["Section4"];
             }
         }
         
@@ -84,7 +84,7 @@ namespace Sigesoft.Node.WinClient.UI.Reports {
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public CrystalDecisions.CrystalReports.Engine.Section Section5 {
             get {
-                return this.ReportDefinition.Sections[4];
+                return this.ReportDefinition.Sections["Section5"];
             }
         }
     }

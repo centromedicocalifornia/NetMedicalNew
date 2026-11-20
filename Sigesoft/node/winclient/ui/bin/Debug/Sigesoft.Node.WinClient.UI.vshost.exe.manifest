@@ -1034,19 +1034,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>dRHQ+GBVYlh3NrcRLPJy2yUPpck=</dsig:DigestValue>
+        <dsig:DigestValue>G59usBsWlEEFuWGBnaT+E1YpELs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Sigesoft.Common.dll" size="13522432">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Sigesoft.Common.dll" size="13511168">
       <assemblyIdentity name="Sigesoft.Common" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>aQ9pBCe0gduIncNR4Dwy8iRNDY8=</dsig:DigestValue>
+        <dsig:DigestValue>/nIpqaiM/Y1ApbmKXRLpybG6Fz4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -1058,7 +1058,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>ydNMwFijxcUn/dsHDS0OOjVJpjA=</dsig:DigestValue>
+        <dsig:DigestValue>hgVOZqNdNTPRVFO50uhH8eJNWtE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -1070,7 +1070,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>Wndfa4jkadGjPi9WLcVwU6qIAbA=</dsig:DigestValue>
+        <dsig:DigestValue>uPxGGv0youwn9M/IhLVafVysgfI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -1082,7 +1082,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>Y3SHRGtnu30cprIQziWywi/ifZQ=</dsig:DigestValue>
+        <dsig:DigestValue>RBWYW3E1/lJhlJsGTB/wSO9sZfY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -1094,19 +1094,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>8+BECm1Eh/a2piCJ+J7oKQWnT/w=</dsig:DigestValue>
+        <dsig:DigestValue>NDdOdnfrZ4KVjcAb7hk0Kp8LNr8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Sigesoft.Node.WinClient.UI.exe" size="195298304">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Sigesoft.Node.WinClient.UI.exe" size="194951680">
       <assemblyIdentity name="Sigesoft.Node.WinClient.UI" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>GZw3t75HQjcEEIr+9aWb0JsQKbM=</dsig:DigestValue>
+        <dsig:DigestValue>hw+kPbqrcWlOZPDLD0Zw5xHg0V8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -1118,7 +1118,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>PDXhoEa2O5/bsCnZHfApDosM7Lw=</dsig:DigestValue>
+        <dsig:DigestValue>7eOA5415+JASydzGOqDsmwFkZu8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -1497,7 +1497,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>/083gWzHWvCk0uc1JlqdYZGq/8g=</dsig:DigestValue>
+      <dsig:DigestValue>fo9vb+sau8q/k9IOptDZEVetV0c=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Sigesoft.Node.WinClient.BE.pdb" size="1369600">
@@ -1506,7 +1506,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>alEGm+1WeN3IzOLdnvbwTkQKBFo=</dsig:DigestValue>
+      <dsig:DigestValue>WiNKAQIMh6DgvvB2AOBGe/QqlIw=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Sigesoft.Node.WinClient.BLL.pdb" size="8693248">
@@ -1515,7 +1515,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>OlPr/jt+9hz+wpRUWv0HvC9TWeM=</dsig:DigestValue>
+      <dsig:DigestValue>pZpr0QkTHsGxjFl1UWD4Pl1EFHs=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Sigesoft.Node.WinClient.DAL.MSSQL.pdb" size="8009216">
@@ -1524,7 +1524,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>OUnz9o2t2knHxD06NefNVvZPQPQ=</dsig:DigestValue>
+      <dsig:DigestValue>HmOQVlsxIKU/2OKM6r9Zw60KpU0=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Sigesoft.Node.WinClient.UI.exe.config" size="14654">
@@ -1536,13 +1536,13 @@
       <dsig:DigestValue>wFSoQw8uxEuCFnoITGxHKty0M+g=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Sigesoft.Node.WinClient.UI.pdb" size="22494720">
+  <file name="Sigesoft.Node.WinClient.UI.pdb" size="22498816">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>TZOeW4fi4HZCSSVIeGHFqMAUllU=</dsig:DigestValue>
+      <dsig:DigestValue>3gKKCFGmF7Yr3DkIouQIad0N0Is=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>
