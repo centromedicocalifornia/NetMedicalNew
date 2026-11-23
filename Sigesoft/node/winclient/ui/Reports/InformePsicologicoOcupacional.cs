@@ -52,7 +52,7 @@ namespace Sigesoft.Node.WinClient.UI.Reports {
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public CrystalDecisions.CrystalReports.Engine.Section Section1 {
             get {
-                return this.ReportDefinition.Sections[0];
+                return this.ReportDefinition.Sections["Section1"];
             }
         }
         
@@ -60,15 +60,15 @@ namespace Sigesoft.Node.WinClient.UI.Reports {
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public CrystalDecisions.CrystalReports.Engine.Section Section2 {
             get {
-                return this.ReportDefinition.Sections[1];
+                return this.ReportDefinition.Sections["Section2"];
             }
         }
-        
+
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section PHContinuacion {
+        public CrystalDecisions.CrystalReports.Engine.Section PHFondo {
             get {
-                return this.ReportDefinition.Sections[2];
+                return this.ReportDefinition.Sections["PHFondo"];
             }
         }
         
@@ -76,7 +76,7 @@ namespace Sigesoft.Node.WinClient.UI.Reports {
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public CrystalDecisions.CrystalReports.Engine.Section Section3 {
             get {
-                return this.ReportDefinition.Sections[3];
+                return this.ReportDefinition.Sections["Section3"];
             }
         }
         
@@ -84,7 +84,7 @@ namespace Sigesoft.Node.WinClient.UI.Reports {
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public CrystalDecisions.CrystalReports.Engine.Section DetNivelIntelectual {
             get {
-                return this.ReportDefinition.Sections[4];
+                return this.ReportDefinition.Sections["DetNivelIntelectual"];
             }
         }
         
@@ -92,7 +92,7 @@ namespace Sigesoft.Node.WinClient.UI.Reports {
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public CrystalDecisions.CrystalReports.Engine.Section DetCoordinacion {
             get {
-                return this.ReportDefinition.Sections[5];
+                return this.ReportDefinition.Sections["DetCoordinacion"];
             }
         }
         
@@ -100,7 +100,7 @@ namespace Sigesoft.Node.WinClient.UI.Reports {
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public CrystalDecisions.CrystalReports.Engine.Section DetMemoria {
             get {
-                return this.ReportDefinition.Sections[6];
+                return this.ReportDefinition.Sections["DetMemoria"];
             }
         }
         
@@ -108,7 +108,7 @@ namespace Sigesoft.Node.WinClient.UI.Reports {
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public CrystalDecisions.CrystalReports.Engine.Section DetPersonalidad {
             get {
-                return this.ReportDefinition.Sections[7];
+                return this.ReportDefinition.Sections["DetPersonalidad"];
             }
         }
         
@@ -116,7 +116,7 @@ namespace Sigesoft.Node.WinClient.UI.Reports {
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public CrystalDecisions.CrystalReports.Engine.Section DetAfectividad {
             get {
-                return this.ReportDefinition.Sections[8];
+                return this.ReportDefinition.Sections["DetAfectividad"];
             }
         }
         
@@ -124,7 +124,7 @@ namespace Sigesoft.Node.WinClient.UI.Reports {
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public CrystalDecisions.CrystalReports.Engine.Section DetConclusionesTit {
             get {
-                return this.ReportDefinition.Sections[9];
+                return this.ReportDefinition.Sections["DetConclusionesTit"];
             }
         }
         
@@ -132,7 +132,7 @@ namespace Sigesoft.Node.WinClient.UI.Reports {
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public CrystalDecisions.CrystalReports.Engine.Section DetAreaCognitiva {
             get {
-                return this.ReportDefinition.Sections[10];
+                return this.ReportDefinition.Sections["DetAreaCognitiva"];
             }
         }
         
@@ -140,7 +140,7 @@ namespace Sigesoft.Node.WinClient.UI.Reports {
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public CrystalDecisions.CrystalReports.Engine.Section DetAreaEmocional {
             get {
-                return this.ReportDefinition.Sections[11];
+                return this.ReportDefinition.Sections["DetAreaEmocional"];
             }
         }
         
@@ -148,7 +148,7 @@ namespace Sigesoft.Node.WinClient.UI.Reports {
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public CrystalDecisions.CrystalReports.Engine.Section DetResultadoFinal {
             get {
-                return this.ReportDefinition.Sections[12];
+                return this.ReportDefinition.Sections["DetResultadoFinal"];
             }
         }
         
@@ -156,7 +156,7 @@ namespace Sigesoft.Node.WinClient.UI.Reports {
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public CrystalDecisions.CrystalReports.Engine.Section DetFirmas {
             get {
-                return this.ReportDefinition.Sections[13];
+                return this.ReportDefinition.Sections["DetFirmas"];
             }
         }
         
@@ -164,7 +164,7 @@ namespace Sigesoft.Node.WinClient.UI.Reports {
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public CrystalDecisions.CrystalReports.Engine.Section Section4 {
             get {
-                return this.ReportDefinition.Sections[14];
+                return this.ReportDefinition.Sections["Section4"];
             }
         }
         
@@ -172,7 +172,7 @@ namespace Sigesoft.Node.WinClient.UI.Reports {
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public CrystalDecisions.CrystalReports.Engine.Section Section5 {
             get {
-                return this.ReportDefinition.Sections[15];
+                return this.ReportDefinition.Sections["Section5"];
             }
         }
     }

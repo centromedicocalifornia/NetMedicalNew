@@ -28,6 +28,7 @@ namespace Sigesoft.Node.WinClient.UI.Reports
         {
             OperationResult objOperationResult = new OperationResult();
 
+            HistoriaClinicaPsicologicaHelper.PrepararBanner();
             var rp = new Reports.InformePsicologicoOcupacional();
 
             var aptitudeCertificate = new PacientBL().GetFichaPsicologicaOcupacional(_serviceId);           

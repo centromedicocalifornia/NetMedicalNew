@@ -3006,6 +3006,7 @@
       <DependentUpon>frmRoadMapDetaail.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\LogicReports.cs" />
+    <Compile Include="Reports\HistoriaClinicaPsicologicaHelper.cs" />
     <Compile Include="Reports\PsicologicoMedSalud_04.cs">
       <DependentUpon>PsicologicoMedSalud_04.rpt</DependentUpon>
       <AutoGen>True</AutoGen>

@@ -1712,6 +1712,7 @@ namespace Sigesoft.Node.WinClient.UI.Reports
 
                     dsGetRepo.Tables.Add(dt_PSICOLOGIA_ID);
 
+                    HistoriaClinicaPsicologicaHelper.PrepararBanner();
                     rp = new Reports.InformePsicologicoOcupacional();
                     rp.SetDataSource(dsGetRepo);
                     rp.ExportOptions.ExportFormatType = ExportFormatType.PortableDocFormat;
@@ -2392,25 +2393,13 @@ namespace Sigesoft.Node.WinClient.UI.Reports
                     }
                     else
                     {
+                        // Formato continuo: la hoja 2 va como subreporte dentro de crHistoriaClinicaPsicologica
                         rp = new Reports.crHistoriaClinicaPsicologica();
-                        rp.SetDataSource(dsGetRepo);
+                        HistoriaClinicaPsicologicaHelper.AsignarDatos(rp, dt_HISTORIA_CLINICA_PSICOLOGICA_ID);
                         rp.ExportOptions.ExportFormatType = ExportFormatType.PortableDocFormat;
                         rp.ExportOptions.ExportDestinationType = ExportDestinationType.DiskFile;
                         objDiskOpt = new DiskFileDestinationOptions();
                         objDiskOpt.DiskFileName = ruta + serviceId + "-" + Constants.HISTORIA_CLINICA_PSICOLOGICA_ID + ".pdf";
-                        _filesNameToMerge.Add(objDiskOpt.DiskFileName);
-                        rp.ExportOptions.DestinationOptions = objDiskOpt;
-
-                        rp.Export();
-                        rp.Close();
-
-
-                        rp = new Reports.crHistoriaClinicaPsicologica2();
-                        rp.SetDataSource(dsGetRepo);
-                        rp.ExportOptions.ExportFormatType = ExportFormatType.PortableDocFormat;
-                        rp.ExportOptions.ExportDestinationType = ExportDestinationType.DiskFile;
-                        objDiskOpt = new DiskFileDestinationOptions();
-                        objDiskOpt.DiskFileName = ruta + serviceId + "-" + Constants.HISTORIA_CLINICA_PSICOLOGICA_ID + "2" + ".pdf";
                         _filesNameToMerge.Add(objDiskOpt.DiskFileName);
                         rp.ExportOptions.DestinationOptions = objDiskOpt;
 

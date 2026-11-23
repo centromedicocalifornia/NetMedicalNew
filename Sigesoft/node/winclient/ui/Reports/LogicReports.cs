@@ -780,7 +780,7 @@ namespace Sigesoft.Node.WinClient.UI.Reports
                         dsGetRepo.Tables.Add(dt_PSICOLOGIA_ID);
 
                         if (pintIdCrystal == 62) { rp = new InformePsicologicoOcupacionalHudbay(); }
-                        else { rp = new InformePsicologicoOcupacional(); }
+                        else { HistoriaClinicaPsicologicaHelper.PrepararBanner(); rp = new InformePsicologicoOcupacional(); }
                         GenerarReporte(rp, dsGetRepo, _ruta, objDiskOpt, Constants.PSICOLOGIA_ID);
                         rp.Close();
                         rp.Dispose();
@@ -1148,19 +1148,16 @@ namespace Sigesoft.Node.WinClient.UI.Reports
                         }
                         else
                         {
-                            dt_HISTORIA_CLINICA_PSICOLOGICA_ID.TableName = "dtHistoriaClinicaPsicologica";
-                            dsGetRepo.Tables.Add(dt_HISTORIA_CLINICA_PSICOLOGICA_ID);
+                            // Formato continuo: la hoja 2 va como subreporte dentro de crHistoriaClinicaPsicologica
                             rp = new crHistoriaClinicaPsicologica();
-                            objDiskOpt = GenerarReporteUnido(rp, dsGetRepo, _ruta, objDiskOpt, Constants.HISTORIA_CLINICA_PSICOLOGICA_ID + "01.pdf");
-                            filesName.Add(objDiskOpt.DiskFileName);
-
-                            dt_HISTORIA_CLINICA_PSICOLOGICA_ID_2.TableName = "dtHistoriaClinicaPsicologica_2";
-                            dsGetRepo1.Tables.Add(dt_HISTORIA_CLINICA_PSICOLOGICA_ID_2);
-                            rp = new crHistoriaClinicaPsicologica2();
-                            objDiskOpt = GenerarReporteUnido(rp, dsGetRepo1, _ruta, objDiskOpt, Constants.HISTORIA_CLINICA_PSICOLOGICA_ID + "02.pdf");
-                            filesName.Add(objDiskOpt.DiskFileName);
-                            unirPdfS = filesName.ToList();
-                            UnisReportes(unirPdfS, Constants.HISTORIA_CLINICA_PSICOLOGICA_ID, mergeExPDF);
+                            HistoriaClinicaPsicologicaHelper.AsignarDatos(rp, dt_HISTORIA_CLINICA_PSICOLOGICA_ID);
+                            rp.ExportOptions.ExportFormatType = ExportFormatType.PortableDocFormat;
+                            rp.ExportOptions.ExportDestinationType = ExportDestinationType.DiskFile;
+                            objDiskOpt = new DiskFileDestinationOptions();
+                            objDiskOpt.DiskFileName = _ruta + _serviceId + "-" + Constants.HISTORIA_CLINICA_PSICOLOGICA_ID + ".pdf";
+                            rp.ExportOptions.DestinationOptions = objDiskOpt;
+                            rp.Export();
+                            _filesNameToMerge.Add(objDiskOpt.DiskFileName);
                         }
                         rp.Close();
                         rp.Dispose();
